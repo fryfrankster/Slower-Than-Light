@@ -154,13 +154,6 @@ public class GameEnvironment {
 				
 			}
 		 }
-
-			
-			
-
-	
-		 
-	
 	
 	/**
 	 * The main loop of the game. Allows users to perform tasks with crewmembers, check statuses, and visit space outposts
@@ -347,10 +340,10 @@ public class GameEnvironment {
 	public static void main(String[] args) {
 		
 		GameEnvironment setupScreen = new GameEnvironment();
-//		setupScreen.launchSetupScreen();
-		setupGame();
-		runGame();
-		endGame();
+		setupScreen.launchSetupScreen();
+//		setupGame();
+//		runGame();
+//		endGame();
 	}
 	
 	/**
