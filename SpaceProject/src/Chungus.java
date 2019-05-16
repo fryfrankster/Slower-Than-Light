@@ -1,5 +1,3 @@
-//TESTING IF GITHUB COMMIT WORKS
-//Frankie Oprenario
 public class Chungus extends CrewMember {
 	/**
 	 * 
