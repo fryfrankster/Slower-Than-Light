@@ -59,48 +59,38 @@ public class GameEnvironment {
 		mainScreen.closeWindow();
 	}
 	
-	public void setupShip(String fieldShipName) {
-		ship = new Ship(fieldShipName);
+	public Ship getShip() {
+		return ship;
 	}
-
 	
+	public Crew getCrew() {
+		return crew;
+	}
+	
+	public int getGameLength() {
+		return gameLength;
+	}
 	
 	/**
 	 * Gets the user to pick a name for ship, choose crew members and initializes key game variables to starting values
 	 */
-	public static void setupGame() {
+	public void setupGame(String shipName, String crewName, int numDays) {
 		 score = 0;
 		 randomEvent = new RandomEvent();
 		 currentDay = 1;
-	
-		 Scanner scanner = new Scanner(System.in);
-		 planet = new Planet();
 		 
-//		 GameEnvironment setupScreen = new GameEnvironment();
-//		 setupScreen.launchSetupScreen();
-		 		
-		 System.out.println("Welcome to INSERT GAME NAME HERE");
-		 System.out.println("you and your crew are lost in space with your spaceship.\r\n" + 
-		 		"Your spaceship has been broken and its pieces are scattered throughout the surrounding planets.\r\n" + 
-		 		"You will need to find the missing pieces of your spaceship so that you can repair it and get home.");
-		 
-		 System.out.println("");
-		 
-		 System.out.println("Pick a name for your ship");
-		 String shipName = scanner.next();
 		 ship = new Ship(shipName);
-		 
-		 System.out.println("Pick a name for your crew");
-		 String crewName = scanner.next();
 		 crew = new Crew(crewName);
-		 
-		 System.out.println("Enter the number of days you want your game: ");
-		 System.out.println("Must be between 3 to 10 days inclusive.");
-		 
-		 gameLength = validateInput(3, 10);
-		 //piecesToFind = (int) Math.floor(2d/3d * gameLength);
+		 gameLength = numDays;
+
+		 planet = new Planet();
 		 crew.setPiecesToFind((int) Math.floor(2d/3d * gameLength)); 
-		 		 
+	
+	}
+	
+	
+	
+	public static void chooseCrew() {
 		 boolean userChoosing = true;
 		 
 		 System.out.println("Select between 2 and 4 crew members");
@@ -131,7 +121,7 @@ public class GameEnvironment {
 				}
 				else {
 					System.out.println("Enter a name for the crewmember");
-					crewMemberName = scanner.next(); 
+//					crewMemberName = scanner.next(); 
 				
 					switch (crewSelection) {
 					case 1: crew.addCrewMember(new Engineer(crewMemberName));

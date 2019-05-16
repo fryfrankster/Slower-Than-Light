@@ -20,8 +20,8 @@ import java.awt.event.ActionEvent;
 public class SetupScreen {
 
 	private JFrame window;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField shipNameEntryField;
+	private JTextField crewNameEntryField;
 	private JLabel lblChooseYourCrew;
 	private JLabel label;
 	private JLabel lblChooseHowMany;
@@ -73,39 +73,42 @@ public class SetupScreen {
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.getContentPane().setLayout(null);
 		
-		textField = new JTextField();
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		textField.setHorizontalAlignment(SwingConstants.CENTER);
-		textField.setBounds(437, 301, 332, 47);
-		window.getContentPane().add(textField);
-		textField.setColumns(10);
+		shipNameEntryField = new JTextField();
+		shipNameEntryField.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		shipNameEntryField.setHorizontalAlignment(SwingConstants.CENTER);
+		shipNameEntryField.setBounds(437, 301, 332, 47);
+		window.getContentPane().add(shipNameEntryField);
+		shipNameEntryField.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		textField_1.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_1.setColumns(10);
-		textField_1.setBounds(437, 444, 332, 47);
-		window.getContentPane().add(textField_1);
+		crewNameEntryField = new JTextField();
+		crewNameEntryField.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		crewNameEntryField.setHorizontalAlignment(SwingConstants.CENTER);
+		crewNameEntryField.setColumns(10);
+		crewNameEntryField.setBounds(437, 444, 332, 47);
+		window.getContentPane().add(crewNameEntryField);
 		
-		JSlider slider = new JSlider();
-		slider.setSnapToTicks(true);
-		slider.setPaintTicks(true);
-		slider.setPaintLabels(true);
-		slider.setMajorTickSpacing(1);
-		slider.setMinorTickSpacing(1);
-		slider.setToolTipText("");
-		slider.setValue(3);
-		slider.setMinimum(3);
-		slider.setMaximum(10);
-		slider.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		slider.setBounds(414, 602, 378, 60);
-		window.getContentPane().add(slider);
+		JSlider daysSlider = new JSlider();
+		daysSlider.setSnapToTicks(true);
+		daysSlider.setPaintTicks(true);
+		daysSlider.setPaintLabels(true);
+		daysSlider.setMajorTickSpacing(1);
+		daysSlider.setMinorTickSpacing(1);
+		daysSlider.setToolTipText("");
+		daysSlider.setValue(3);
+		daysSlider.setMinimum(3);
+		daysSlider.setMaximum(10);
+		daysSlider.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		daysSlider.setBounds(414, 602, 378, 60);
+		window.getContentPane().add(daysSlider);
 		
 		
 		JButton btnNext = new JButton("NEXT");
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				gameEnvironment.setupShip(textField.getText());
+				String shipName = shipNameEntryField.getText();
+				String crewName = crewNameEntryField.getText();
+				int numDays = daysSlider.getValue();
+				gameEnvironment.setupGame(shipName, crewName, numDays);
 				closeWindow();
 				gameEnvironment.launchCrewSelectionScreen();
 			}

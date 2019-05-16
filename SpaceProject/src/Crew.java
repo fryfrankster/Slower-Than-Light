@@ -7,7 +7,7 @@ import java.util.Iterator;
 public class Crew {
 	/** Stores the name the user chooses for the crew */
 	private String name;
-	
+
 	/** The number of pieces the player has found of the ship */
 	private int currentPieces;
 	
@@ -23,6 +23,10 @@ public class Crew {
 	/** Stores the items the crew has */
 	private ArrayList<Item> items;
 	
+	
+	public String getName() {
+		return name;
+	}
 	
 	/**
 	 * Adds an object of type CrewMember to the crew

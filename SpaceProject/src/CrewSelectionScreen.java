@@ -150,10 +150,25 @@ public class CrewSelectionScreen {
 		window.getContentPane().add(lblCurrentCrewMembers);
 		
 		JLabel lblShipName = new JLabel("SHIP NAME");
+		lblShipName.setText(gameEnvironment.getShip().getName());
 		lblShipName.setHorizontalAlignment(SwingConstants.CENTER);
 		lblShipName.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblShipName.setBounds(468, 114, 258, 46);
+		lblShipName.setBounds(102, 105, 258, 46);
 		window.getContentPane().add(lblShipName);
-	}
+		
+		JLabel lblCrewName = new JLabel("crew name");
+		lblCrewName.setText(gameEnvironment.getCrew().getName());
+		lblCrewName.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCrewName.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblCrewName.setBounds(458, 105, 258, 46);
+		window.getContentPane().add(lblCrewName);
+		
+		JLabel lblNumOfDays = new JLabel("num of days");
+		lblNumOfDays.setText(String.valueOf(gameEnvironment.getGameLength()));
 
+		lblNumOfDays.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNumOfDays.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNumOfDays.setBounds(839, 105, 258, 46);
+		window.getContentPane().add(lblNumOfDays);
+	}
 }
