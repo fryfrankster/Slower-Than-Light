@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class MainScreen {
 
@@ -29,6 +31,23 @@ public class MainScreen {
 	public void finishedWindow() {
 		gameEnvironment.closeMainScreen(this);
 	}
+	
+	
+	/**
+	 * Updates a crews information on the panel
+	 */
+	private void upDateInfoPanel(CrewMember crewMember, JLabel nameType, JLabel health, JLabel tiredness, JLabel hunger, JLabel actions) {
+	    nameType.setText(crewMember.getName() + " - " + crewMember.getType());
+		health.setText("Health: " + String.valueOf(crewMember.getHealth()) + "/" + crewMember.getMaxHealth());
+		tiredness.setText("Tiredness: " + String.valueOf(crewMember.getTiredness()) + "/" + crewMember.getMaxTiredness());
+		hunger.setText("Hunger: " + String.valueOf(crewMember.getHunger()) + "/" + crewMember.getMaxHunger());
+		actions.setText("Actions remaining: " + String.valueOf(crewMember.getAvailableActions()));
+	}
+	
+	private void updateAllInfoPanels() {
+		int crewSize = gameEnvironment.getCrew().getCrewSize();
+	}
+	
 
 	/**
 	 * Initialize the contents of the frame.
@@ -41,22 +60,22 @@ public class MainScreen {
 		
 		JButton btnVisitOutpost = new JButton("Visit Outpost");
 		btnVisitOutpost.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		btnVisitOutpost.setBounds(624, 47, 314, 53);
+		btnVisitOutpost.setBounds(662, 47, 314, 53);
 		window.getContentPane().add(btnVisitOutpost);
 		
 		JButton btnPilotShipTo = new JButton("Pilot Ship To New Planet");
 		btnPilotShipTo.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		btnPilotShipTo.setBounds(624, 110, 314, 53);
+		btnPilotShipTo.setBounds(662, 110, 314, 53);
 		window.getContentPane().add(btnPilotShipTo);
 		
 		JButton btnSearchPlanetFor = new JButton("Search Planet");
 		btnSearchPlanetFor.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		btnSearchPlanetFor.setBounds(624, 173, 314, 53);
+		btnSearchPlanetFor.setBounds(662, 173, 314, 53);
 		window.getContentPane().add(btnSearchPlanetFor);
 		
 		JButton btnRepairShields = new JButton("Repair Shields");
 		btnRepairShields.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		btnRepairShields.setBounds(624, 236, 314, 53);
+		btnRepairShields.setBounds(662, 236, 314, 53);
 		window.getContentPane().add(btnRepairShields);
 		
 		JPanel member1Panel = new JPanel();
@@ -122,89 +141,98 @@ public class MainScreen {
 		lblMember2ActionsRemaining.setBounds(10, 41, 171, 13);
 		member2Panel.add(lblMember2ActionsRemaining);
 		
-		//PUT THIS IN A METHOD:
-		CrewMember crewMember1 = gameEnvironment.getCrew().getCrewMembers().get(0);
-		lblMember1NameType.setText(crewMember1.getName() + " - " + crewMember1.getType());
-		lblMember1Health.setText("Health: " + String.valueOf(crewMember1.getHealth()) + "/" + crewMember1.getMaxHealth());
-		lblMember1Tiredness.setText("Tiredness: " + String.valueOf(crewMember1.getTiredness()) + "/" + crewMember1.getMaxTiredness());
-		lblMember1Hunger.setText("Hunger: " + String.valueOf(crewMember1.getHunger()) + "/" + crewMember1.getMaxHunger());
-		lblMember1ActionsRemaining.setText("Actions remaining: " + String.valueOf(crewMember1.getAvailableActions()));
+		JPanel member3Panel = new JPanel();
+		member3Panel.setLayout(null);
+		member3Panel.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		member3Panel.setBounds(508, 424, 229, 178);
+		window.getContentPane().add(member3Panel);
 		
+		JLabel lblMember3NameType = new JLabel("<dynamic> - <dynamic>");
+		lblMember3NameType.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblMember3NameType.setBounds(10, 10, 209, 25);
+		member3Panel.add(lblMember3NameType);
 		
-		CrewMember crewMember2 = gameEnvironment.getCrew().getCrewMembers().get(1);
-		lblMember2NameType.setText(crewMember2.getName() + " - " + crewMember2.getType());
-		lblMember2Health.setText("Health: " + String.valueOf(crewMember2.getHealth()) + "/" + crewMember2.getMaxHealth());
-		lblMember2Tiredness.setText("Tiredness: " + String.valueOf(crewMember2.getTiredness()) + "/" + crewMember2.getMaxTiredness());
-		lblMember2Hunger.setText("Hunger: " + String.valueOf(crewMember2.getHunger()) + "/" + crewMember2.getMaxHunger());
-		lblMember2ActionsRemaining.setText("Actions remaining: " + String.valueOf(crewMember2.getAvailableActions()));
+		JLabel lblMember3Health = new JLabel("Health: 0");
+		lblMember3Health.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblMember3Health.setBounds(10, 76, 138, 13);
+		member3Panel.add(lblMember3Health);
 		
+		JLabel lblMember3Tiredness = new JLabel("Tiredness: 0");
+		lblMember3Tiredness.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblMember3Tiredness.setBounds(10, 120, 138, 13);
+		member3Panel.add(lblMember3Tiredness);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setLayout(null);
-		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
-		panel_2.setBounds(508, 424, 229, 178);
-		window.getContentPane().add(panel_2);
+		JLabel lblMember3Hunger = new JLabel("Hunger: 0");
+		lblMember3Hunger.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblMember3Hunger.setBounds(10, 99, 138, 13);
+		member3Panel.add(lblMember3Hunger);
 		
-		JLabel label_5 = new JLabel("<dynamic> - <dynamic>");
-		label_5.setFont(new Font("Tahoma", Font.BOLD, 15));
-		label_5.setBounds(10, 10, 209, 25);
-		panel_2.add(label_5);
+		JLabel lblMember3ActionsRemaining = new JLabel("Actions remaining: 0");
+		lblMember3ActionsRemaining.setFont(new Font("Tahoma", Font.ITALIC, 13));
+		lblMember3ActionsRemaining.setBounds(10, 41, 171, 13);
+		member3Panel.add(lblMember3ActionsRemaining);
 		
-		JLabel label_6 = new JLabel("Health: 0");
-		label_6.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		label_6.setBounds(10, 76, 138, 13);
-		panel_2.add(label_6);
+		JPanel member4Panel = new JPanel();
+		member4Panel.setLayout(null);
+		member4Panel.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		member4Panel.setBounds(747, 424, 229, 178);
+		window.getContentPane().add(member4Panel);
 		
-		JLabel label_7 = new JLabel("Tiredness: 0");
-		label_7.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		label_7.setBounds(10, 120, 138, 13);
-		panel_2.add(label_7);
+		JLabel lblMember4NameType = new JLabel("<dynamic> - <dynamic>");
+		lblMember4NameType.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblMember4NameType.setBounds(10, 10, 209, 25);
+		member4Panel.add(lblMember4NameType);
 		
-		JLabel label_8 = new JLabel("Hunger: 0");
-		label_8.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		label_8.setBounds(10, 99, 138, 13);
-		panel_2.add(label_8);
+		JLabel lblMember4Health = new JLabel("Health: 0");
+		lblMember4Health.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblMember4Health.setBounds(10, 76, 138, 13);
+		member4Panel.add(lblMember4Health);
 		
-		JLabel label_9 = new JLabel("Actions remaining: 0");
-		label_9.setFont(new Font("Tahoma", Font.ITALIC, 13));
-		label_9.setBounds(10, 41, 171, 13);
-		panel_2.add(label_9);
+		JLabel lblMember4Tiredness = new JLabel("Tiredness: 0");
+		lblMember4Tiredness.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblMember4Tiredness.setBounds(10, 120, 138, 13);
+		member4Panel.add(lblMember4Tiredness);
 		
-		JPanel panel_3 = new JPanel();
-		panel_3.setLayout(null);
-		panel_3.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
-		panel_3.setBounds(747, 424, 229, 178);
-		window.getContentPane().add(panel_3);
+		JLabel lblMember4Hunger = new JLabel("Hunger: 0");
+		lblMember4Hunger.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblMember4Hunger.setBounds(10, 99, 138, 13);
+		member4Panel.add(lblMember4Hunger);
 		
-		JLabel label_10 = new JLabel("<dynamic> - <dynamic>");
-		label_10.setFont(new Font("Tahoma", Font.BOLD, 15));
-		label_10.setBounds(10, 10, 209, 25);
-		panel_3.add(label_10);
-		
-		JLabel label_11 = new JLabel("Health: 0");
-		label_11.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		label_11.setBounds(10, 76, 138, 13);
-		panel_3.add(label_11);
-		
-		JLabel label_12 = new JLabel("Tiredness: 0");
-		label_12.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		label_12.setBounds(10, 120, 138, 13);
-		panel_3.add(label_12);
-		
-		JLabel label_13 = new JLabel("Hunger: 0");
-		label_13.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		label_13.setBounds(10, 99, 138, 13);
-		panel_3.add(label_13);
-		
-		JLabel label_14 = new JLabel("Actions remaining: 0");
-		label_14.setFont(new Font("Tahoma", Font.ITALIC, 13));
-		label_14.setBounds(10, 41, 171, 13);
-		panel_3.add(label_14);
+		JLabel lblMember4ActionsRemaining = new JLabel("Actions remaining: 0");
+		lblMember4ActionsRemaining.setFont(new Font("Tahoma", Font.ITALIC, 13));
+		lblMember4ActionsRemaining.setBounds(10, 41, 171, 13);
+		member4Panel.add(lblMember4ActionsRemaining);
 		
 		JLabel lblCrewMembers = new JLabel("Crew Members");
 		lblCrewMembers.setFont(new Font("Tahoma", Font.BOLD, 22));
 		lblCrewMembers.setBounds(10, 385, 229, 28);
 		window.getContentPane().add(lblCrewMembers);
 		
+
+		//PUT THIS ALL IN A METHOD:
+		CrewMember crewMember1 = gameEnvironment.getCrew().getCrewMembers().get(0);
+		upDateInfoPanel(crewMember1, lblMember1NameType, lblMember1Health, lblMember1Tiredness, lblMember1Hunger, lblMember1ActionsRemaining);
+		
+		CrewMember crewMember2 = gameEnvironment.getCrew().getCrewMembers().get(1);
+		upDateInfoPanel(crewMember2, lblMember2NameType, lblMember2Health, lblMember2Tiredness, lblMember2Hunger, lblMember2ActionsRemaining);
+		
+		CrewMember crewMember3 = gameEnvironment.getCrew().getCrewMembers().get(2);
+		upDateInfoPanel(crewMember3, lblMember3NameType, lblMember3Health, lblMember3Tiredness, lblMember3Hunger, lblMember3ActionsRemaining);
+		
+		CrewMember crewMember4 = gameEnvironment.getCrew().getCrewMembers().get(3);
+		upDateInfoPanel(crewMember4, lblMember4NameType, lblMember4Health, lblMember4Tiredness, lblMember4Hunger, lblMember4ActionsRemaining);
+		
+		JLabel lblMoney = new JLabel("Money: $" + gameEnvironment.getCrew().getMoney());
+		lblMoney.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblMoney.setHorizontalAlignment(SwingConstants.LEFT);
+		lblMoney.setBounds(10, 11, 187, 33);
+		window.getContentPane().add(lblMoney);
+		
+		Ship ship = gameEnvironment.getShip();
+		JLabel lblShipShieldLevel = new JLabel("Ship shield level: " + ship.getCurrentShieldLevel() + "/" + ship.getMaxShieldLevel());
+		lblShipShieldLevel.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblShipShieldLevel.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblShipShieldLevel.setBounds(635, 11, 341, 25);
+		window.getContentPane().add(lblShipShieldLevel);
 	}
 }
