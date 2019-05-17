@@ -22,10 +22,12 @@ public class SetupScreen {
 	private JFrame window;
 	private JTextField shipNameEntryField;
 	private JTextField crewNameEntryField;
+	private JButton btnNext;
 	private JLabel lblChooseYourCrew;
 	private JLabel label;
 	private JLabel lblChooseHowMany;
 	private JLabel lblSlowerThanLight;
+	private JLabel lblErrorFillIn;
 	
 	private GameEnvironment gameEnvironment;
 	
@@ -102,17 +104,26 @@ public class SetupScreen {
 		window.getContentPane().add(daysSlider);
 		
 		
-		JButton btnNext = new JButton("NEXT");
+		
+		btnNext = new JButton("NEXT");
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String shipName = shipNameEntryField.getText();
 				String crewName = crewNameEntryField.getText();
-				int numDays = daysSlider.getValue();
-				gameEnvironment.setupGame(shipName, crewName, numDays);
-				closeWindow();
-				gameEnvironment.launchCrewSelectionScreen();
+				if(shipName.isBlank() || crewName.isBlank()) {
+					lblErrorFillIn.setVisible(true);
+				}
+				else {
+					int numDays = daysSlider.getValue();
+					gameEnvironment.setupGame(shipName, crewName, numDays);
+					closeWindow();
+					gameEnvironment.launchCrewSelectionScreen();
+				}
+				
 			}
 		});
+		
+		
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNext.setBounds(419, 519, 127, 47);
 		window.getContentPane().add(btnNext);
@@ -144,5 +155,13 @@ public class SetupScreen {
 		lblSlowerThanLight.setFont(new Font("Tahoma", Font.PLAIN, 80));
 		lblSlowerThanLight.setBounds(157, 10, 683, 120);
 		window.getContentPane().add(lblSlowerThanLight);
+		
+		lblErrorFillIn = new JLabel("Error, fill in both fields!");
+		lblErrorFillIn.setVisible(false);
+		lblErrorFillIn.setForeground(Color.RED);
+		lblErrorFillIn.setHorizontalAlignment(SwingConstants.CENTER);
+		lblErrorFillIn.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblErrorFillIn.setBounds(285, 577, 397, 25);
+		window.getContentPane().add(lblErrorFillIn);
 	}
 }
