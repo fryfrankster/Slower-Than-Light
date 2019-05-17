@@ -3,6 +3,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+
+
 import java.awt.Font;
 import javax.swing.JTextPane;
 import javax.swing.JTextArea;
@@ -10,11 +12,19 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class CrewSelectionScreen {
 
 	private JFrame window;
 	private GameEnvironment gameEnvironment;
+	private JLabel lblCrewMember1;
+	private JLabel lblCrewMember2;
+	private JLabel lblCrewMember3;
+	private JLabel lblCrewMember4;
+	private JLabel lblErrorText;
+	
+	
 
 	/**
 	 * Launch the application.
@@ -49,10 +59,39 @@ public class CrewSelectionScreen {
 		gameEnvironment.closeCrewSelectionScreen(this);
 	}
 	
+	public void addMemberToCrew(CrewMember crewMember) {
+		int numMembers = gameEnvironment.getCrew().getCrewSize();
+		switch (numMembers) {
+		case 0:
+			lblCrewMember1.setText(crewMember.getType());
+			gameEnvironment.getCrew().addCrewMember(crewMember);
+			break;
+		case 1:
+			lblCrewMember2.setText(crewMember.getType());
+			gameEnvironment.getCrew().addCrewMember(crewMember);
+			break;
+		case 2:
+			lblCrewMember3.setText(crewMember.getType());
+			gameEnvironment.getCrew().addCrewMember(crewMember);
+			break;
+		case 3:
+			lblCrewMember4.setText(crewMember.getType());
+			gameEnvironment.getCrew().addCrewMember(crewMember);
+			lblErrorText.setText("<html>Your crew is full<br>Press next to continue</html>");
+			break;
+			
+		}
+	
+		
+		
+	}
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
+		
 		window = new JFrame();
 		window.setBounds(100, 100, 1000, 650);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -64,9 +103,21 @@ public class CrewSelectionScreen {
 		lblExperiencedWithReparing.setBounds(43, 226, 180, 46);
 		window.getContentPane().add(lblExperiencedWithReparing);
 		
-		JLabel lblCrewMember1 = new JLabel("Crew Member 1");
+		lblCrewMember1 = new JLabel("Crew Member 1");
 		lblCrewMember1.setBounds(43, 500, 88, 28);
 		window.getContentPane().add(lblCrewMember1);
+		
+		lblCrewMember2 = new JLabel("Crew Member 2");
+		lblCrewMember2.setBounds(158, 508, 104, 13);
+		window.getContentPane().add(lblCrewMember2);
+		
+		lblCrewMember3 = new JLabel("Crew member 3");
+		lblCrewMember3.setBounds(267, 508, 134, 13);
+		window.getContentPane().add(lblCrewMember3);
+		
+		lblCrewMember4 = new JLabel("Crew member 4");
+		lblCrewMember4.setBounds(400, 508, 150, 13);
+		window.getContentPane().add(lblCrewMember4);
 		
 		JLabel lblCrewSelection = new JLabel("Crew Selection");
 		lblCrewSelection.setHorizontalAlignment(SwingConstants.CENTER);
@@ -78,9 +129,7 @@ public class CrewSelectionScreen {
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				gameEnvironment.getCrew().addCrewMember(new Engineer("Engineer"));
-				ArrayList<CrewMember> crewMembersList = gameEnvironment.getCrew().getCrewMembers();
-				lblCrewMember1.setText(gameEnvironment.getCrew().getCrewMembers().get(crewMembersList.size() - 1).getName());
+				addMemberToCrew(new Engineer("Engineer"));
 			}
 		});
 		btnNewButton.setBounds(43, 161, 180, 55);
@@ -89,9 +138,7 @@ public class CrewSelectionScreen {
 		JButton btnScavenger = new JButton("Scavenger");
 		btnScavenger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				gameEnvironment.getCrew().addCrewMember(new Scavenger("Scavenger"));
-				ArrayList<CrewMember> crewMembersList = gameEnvironment.getCrew().getCrewMembers();
-				lblCrewMember1.setText(gameEnvironment.getCrew().getCrewMembers().get(crewMembersList.size() - 1).getName());
+				addMemberToCrew(new Scavenger("Scavenger"));			
 			}
 		});
 		btnScavenger.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -101,9 +148,7 @@ public class CrewSelectionScreen {
 		JButton btnRobot = new JButton("Robot");
 		btnRobot.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				gameEnvironment.getCrew().addCrewMember(new Robot("Robot"));
-				ArrayList<CrewMember> crewMembersList = gameEnvironment.getCrew().getCrewMembers();
-				lblCrewMember1.setText(gameEnvironment.getCrew().getCrewMembers().get(crewMembersList.size() - 1).getName());
+				addMemberToCrew(new Robot("Robot"));
 			}
 		});
 		btnRobot.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -113,9 +158,7 @@ public class CrewSelectionScreen {
 		JButton btnWorker = new JButton("Worker");
 		btnWorker.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				gameEnvironment.getCrew().addCrewMember(new Worker("Worker"));
-				ArrayList<CrewMember> crewMembersList = gameEnvironment.getCrew().getCrewMembers();
-				lblCrewMember1.setText(gameEnvironment.getCrew().getCrewMembers().get(crewMembersList.size() - 1).getName());
+				addMemberToCrew(new Worker("Worker"));
 			}
 		});
 		btnWorker.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -125,21 +168,20 @@ public class CrewSelectionScreen {
 		JButton btnSoldier = new JButton("Soldier");
 		btnSoldier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				gameEnvironment.getCrew().addCrewMember(new Soldier("Soldier"));
-				ArrayList<CrewMember> crewMembersList = gameEnvironment.getCrew().getCrewMembers();
-				lblCrewMember1.setText(gameEnvironment.getCrew().getCrewMembers().get(crewMembersList.size() - 1).getName());
+				addMemberToCrew(new Soldier("Soldier"));
+
 			}
 		});
 		btnSoldier.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnSoldier.setBounds(265, 300, 180, 55);
 		window.getContentPane().add(btnSoldier);
 		
+	
+		
 		JButton btnChungus = new JButton("Chungus");
 		btnChungus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				gameEnvironment.getCrew().addCrewMember(new Chungus("Chungus"));
-				ArrayList<CrewMember> crewMembersList = gameEnvironment.getCrew().getCrewMembers();
-				lblCrewMember1.setText(gameEnvironment.getCrew().getCrewMembers().get(crewMembersList.size() - 1).getName());
+				addMemberToCrew(new Chungus("Chungus"));
 			}
 		});
 		btnChungus.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -179,8 +221,14 @@ public class CrewSelectionScreen {
 		JButton btnNext = new JButton("NEXT");
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				closeWindow();
-				gameEnvironment.launchMainScreen();
+				if(gameEnvironment.getCrew().getCrewSize() < 2) {
+					lblErrorText.setText("<html>You must select at least 2<br>crewmembers before continuing!</html>");
+				}
+				else {
+					closeWindow();
+					gameEnvironment.launchMainScreen();
+				}
+				
 			}
 		});
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -196,22 +244,33 @@ public class CrewSelectionScreen {
 		lblShipName.setText(gameEnvironment.getShip().getName());
 		lblShipName.setHorizontalAlignment(SwingConstants.CENTER);
 		lblShipName.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblShipName.setBounds(758, 141, 150, 40);
+		lblShipName.setBounds(762, 192, 150, 40);
 		window.getContentPane().add(lblShipName);
 		
 		JLabel lblCrewName = new JLabel("crewName");
 		lblCrewName.setText(gameEnvironment.getCrew().getName());
 		lblCrewName.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCrewName.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblCrewName.setBounds(758, 191, 150, 40);
+		lblCrewName.setBounds(762, 242, 150, 40);
 		window.getContentPane().add(lblCrewName);
 		
 		JLabel lblNumOfDays = new JLabel("numOfDays");
 		lblNumOfDays.setText(String.valueOf(gameEnvironment.getGameLength()));
 		lblNumOfDays.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNumOfDays.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNumOfDays.setBounds(768, 226, 121, 46);
+		lblNumOfDays.setBounds(772, 277, 121, 46);
 		window.getContentPane().add(lblNumOfDays);
+		
+		lblErrorText = new JLabel(" ");
+		lblErrorText.setForeground(Color.RED);
+		lblErrorText.setBounds(574, 471, 127, 86);
+		window.getContentPane().add(lblErrorText);
+		
+		JLabel lblNewLabel = new JLabel("Select the crew members you would like to take on your adventure. Choose between 2 to 4 members by clicking on the buttons below.");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel.setBounds(43, 91, 906, 70);
+		window.getContentPane().add(lblNewLabel);
+		
 		
 	}
 }
