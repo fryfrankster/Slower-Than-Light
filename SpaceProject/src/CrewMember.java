@@ -162,6 +162,9 @@ public class CrewMember {
 		actionsCompleted = actions;
 	}
 	
+	public int getAvailableActions() {
+		return actionsPerDay - actionsCompleted;
+	}
 	
 	/**
 	 * 

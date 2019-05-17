@@ -85,65 +85,9 @@ public class GameEnvironment {
 
 		 planet = new Planet();
 		 crew.setPiecesToFind((int) Math.floor(2d/3d * gameLength)); 
-	
 	}
 	
-	
-	
-	public static void chooseCrew() {
-		 boolean userChoosing = true;
-		 
-		 System.out.println("Select between 2 and 4 crew members");
-		
-		 while (crew.getCrewSize() != 4 && userChoosing) {
-			 
-				 System.out.println("Type 1 for Engineer");
-				 System.out.println("Type 2 for Scavenger");
-				 System.out.println("Type 3 for Robot");
-				 System.out.println("Type 4 for Worker");
-				 System.out.println("Type 5 for Chungus");
-				 System.out.println("Type 6 for Soldier");
-				 System.out.println("Press 7 to finish choosing"); // if crew members 2 or 3
-			 
-				crewSelection = validateInput(1, 7);
-				
-				
-				
-				String crewMemberName = "default";
-				
-				if(crewSelection == 7) {
-					if (crew.getCrewSize() < 2) {
-						 System.out.println("You must select at least 2 crew members, please pick a crew member");
-					}
-					else {
-					userChoosing = false;
-					 }
-				}
-				else {
-					System.out.println("Enter a name for the crewmember");
-//					crewMemberName = scanner.next(); 
-				
-					switch (crewSelection) {
-					case 1: crew.addCrewMember(new Engineer(crewMemberName));
-							break;
-					case 2: crew.addCrewMember(new Scavenger(crewMemberName));
-							break;
-					case 3: crew.addCrewMember(new Robot(crewMemberName));
-							break;
-					case 4: crew.addCrewMember(new Worker(crewMemberName));
-							break;
-					case 5: crew.addCrewMember(new Chungus(crewMemberName));
-							break;
-					case 6: crew.addCrewMember(new Soldier(crewMemberName));
-							break;
-					}
-					
-					
-				}
-				
-				
-			}
-		 }
+
 	
 	/**
 	 * The main loop of the game. Allows users to perform tasks with crewmembers, check statuses, and visit space outposts

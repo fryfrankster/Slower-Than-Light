@@ -2,6 +2,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
 
@@ -61,21 +62,27 @@ public class CrewSelectionScreen {
 	
 	public void addMemberToCrew(CrewMember crewMember) {
 		int numMembers = gameEnvironment.getCrew().getCrewSize();
+		
+		
 		switch (numMembers) {
 		case 0:
-			lblCrewMember1.setText(crewMember.getType());
+			lblCrewMember1.setText(crewMember.getName() + " : " + crewMember.getType());
+			lblCrewMember1.setVisible(true);
 			gameEnvironment.getCrew().addCrewMember(crewMember);
 			break;
 		case 1:
-			lblCrewMember2.setText(crewMember.getType());
+			lblCrewMember2.setText(crewMember.getName() + " : " + crewMember.getType());
+			lblCrewMember2.setVisible(true);
 			gameEnvironment.getCrew().addCrewMember(crewMember);
 			break;
 		case 2:
-			lblCrewMember3.setText(crewMember.getType());
+			lblCrewMember3.setText(crewMember.getName() + " : " + crewMember.getType());
+			lblCrewMember3.setVisible(true);
 			gameEnvironment.getCrew().addCrewMember(crewMember);
 			break;
 		case 3:
-			lblCrewMember4.setText(crewMember.getType());
+			lblCrewMember4.setText(crewMember.getName() + " : " + crewMember.getType());
+			lblCrewMember4.setVisible(true);
 			gameEnvironment.getCrew().addCrewMember(crewMember);
 			lblErrorText.setText("<html>Your crew is full<br>Press next to continue</html>");
 			break;
@@ -104,18 +111,22 @@ public class CrewSelectionScreen {
 		window.getContentPane().add(lblExperiencedWithReparing);
 		
 		lblCrewMember1 = new JLabel("Crew Member 1");
+		lblCrewMember1.setVisible(false);
 		lblCrewMember1.setBounds(43, 500, 88, 28);
 		window.getContentPane().add(lblCrewMember1);
 		
 		lblCrewMember2 = new JLabel("Crew Member 2");
+		lblCrewMember2.setVisible(false);
 		lblCrewMember2.setBounds(158, 508, 104, 13);
 		window.getContentPane().add(lblCrewMember2);
 		
-		lblCrewMember3 = new JLabel("Crew member 3");
+		lblCrewMember3 = new JLabel("Crew Member 3");
+		lblCrewMember3.setVisible(false);
 		lblCrewMember3.setBounds(267, 508, 134, 13);
 		window.getContentPane().add(lblCrewMember3);
 		
-		lblCrewMember4 = new JLabel("Crew member 4");
+		lblCrewMember4 = new JLabel("Crew Member 4");
+		lblCrewMember4.setVisible(false);
 		lblCrewMember4.setBounds(400, 508, 150, 13);
 		window.getContentPane().add(lblCrewMember4);
 		
@@ -129,7 +140,8 @@ public class CrewSelectionScreen {
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				addMemberToCrew(new Engineer("Engineer"));
+				String name = JOptionPane.showInputDialog("Enter a name for the crew member");
+				addMemberToCrew(new Engineer(name));
 			}
 		});
 		btnNewButton.setBounds(43, 161, 180, 55);
@@ -138,7 +150,9 @@ public class CrewSelectionScreen {
 		JButton btnScavenger = new JButton("Scavenger");
 		btnScavenger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				addMemberToCrew(new Scavenger("Scavenger"));			
+				String name = JOptionPane.showInputDialog("Enter a name for the crew member");
+				addMemberToCrew(new Scavenger(name));
+				
 			}
 		});
 		btnScavenger.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -148,7 +162,8 @@ public class CrewSelectionScreen {
 		JButton btnRobot = new JButton("Robot");
 		btnRobot.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				addMemberToCrew(new Robot("Robot"));
+				String name = JOptionPane.showInputDialog("Enter a name for the crew member");
+				addMemberToCrew(new Robot(name));
 			}
 		});
 		btnRobot.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -158,7 +173,8 @@ public class CrewSelectionScreen {
 		JButton btnWorker = new JButton("Worker");
 		btnWorker.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				addMemberToCrew(new Worker("Worker"));
+				String name = JOptionPane.showInputDialog("Enter a name for the crew member");
+				addMemberToCrew(new Worker(name));
 			}
 		});
 		btnWorker.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -168,7 +184,8 @@ public class CrewSelectionScreen {
 		JButton btnSoldier = new JButton("Soldier");
 		btnSoldier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				addMemberToCrew(new Soldier("Soldier"));
+				String name = JOptionPane.showInputDialog("Enter a name for the crew member");
+				addMemberToCrew(new Soldier(name));
 
 			}
 		});
@@ -181,7 +198,8 @@ public class CrewSelectionScreen {
 		JButton btnChungus = new JButton("Chungus");
 		btnChungus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				addMemberToCrew(new Chungus("Chungus"));
+				String name = JOptionPane.showInputDialog("Enter a name for the crew member");
+				addMemberToCrew(new Chungus(name));
 			}
 		});
 		btnChungus.setFont(new Font("Tahoma", Font.PLAIN, 18));
