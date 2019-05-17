@@ -87,6 +87,8 @@ public class Crew {
 		return items;
 	}
 	
+	
+	
 	/**
 	 * Allows the crew to purchase an item from a space outpost
 	 * @param Crew crew the crew purchasing the item

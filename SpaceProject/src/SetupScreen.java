@@ -69,14 +69,14 @@ public class SetupScreen {
 	 */
 	private void initialize() {
 		window = new JFrame();
-		window.setBounds(100, 100, 1200, 800);
+		window.setBounds(100, 100, 1000, 650);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.getContentPane().setLayout(null);
 		
 		shipNameEntryField = new JTextField();
 		shipNameEntryField.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		shipNameEntryField.setHorizontalAlignment(SwingConstants.CENTER);
-		shipNameEntryField.setBounds(437, 301, 332, 47);
+		shipNameEntryField.setBounds(311, 193, 332, 47);
 		window.getContentPane().add(shipNameEntryField);
 		shipNameEntryField.setColumns(10);
 		
@@ -84,7 +84,7 @@ public class SetupScreen {
 		crewNameEntryField.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		crewNameEntryField.setHorizontalAlignment(SwingConstants.CENTER);
 		crewNameEntryField.setColumns(10);
-		crewNameEntryField.setBounds(437, 444, 332, 47);
+		crewNameEntryField.setBounds(311, 319, 332, 47);
 		window.getContentPane().add(crewNameEntryField);
 		
 		JSlider daysSlider = new JSlider();
@@ -98,7 +98,7 @@ public class SetupScreen {
 		daysSlider.setMinimum(3);
 		daysSlider.setMaximum(10);
 		daysSlider.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		daysSlider.setBounds(414, 602, 378, 60);
+		daysSlider.setBounds(299, 435, 378, 60);
 		window.getContentPane().add(daysSlider);
 		
 		
@@ -114,35 +114,35 @@ public class SetupScreen {
 			}
 		});
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnNext.setBounds(538, 695, 127, 47);
+		btnNext.setBounds(419, 519, 127, 47);
 		window.getContentPane().add(btnNext);
 		
 		JLabel lblChooseYourShip = new JLabel("Choose your ship name");
 		lblChooseYourShip.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblChooseYourShip.setHorizontalAlignment(SwingConstants.CENTER);
-		lblChooseYourShip.setBounds(475, 261, 256, 30);
+		lblChooseYourShip.setBounds(349, 153, 256, 30);
 		window.getContentPane().add(lblChooseYourShip);
 		
 		lblChooseYourCrew = new JLabel("Choose your crew name");
 		lblChooseYourCrew.setHorizontalAlignment(SwingConstants.CENTER);
 		lblChooseYourCrew.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblChooseYourCrew.setBounds(475, 400, 256, 30);
+		lblChooseYourCrew.setBounds(349, 275, 256, 30);
 		window.getContentPane().add(lblChooseYourCrew);
 		
 		label = new JLabel("");
-		label.setBounds(139, 512, 46, 13);
+		label.setBounds(247, 438, 46, 13);
 		window.getContentPane().add(label);
 		
 		lblChooseHowMany = new JLabel("Choose how many days you want to play for\r\n");
 		lblChooseHowMany.setHorizontalAlignment(SwingConstants.CENTER);
 		lblChooseHowMany.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblChooseHowMany.setBounds(372, 562, 463, 30);
+		lblChooseHowMany.setBounds(257, 395, 463, 30);
 		window.getContentPane().add(lblChooseHowMany);
 		
 		lblSlowerThanLight = new JLabel("Slower Than Light");
 		lblSlowerThanLight.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSlowerThanLight.setFont(new Font("Tahoma", Font.PLAIN, 99));
-		lblSlowerThanLight.setBounds(176, 77, 835, 132);
+		lblSlowerThanLight.setFont(new Font("Tahoma", Font.PLAIN, 80));
+		lblSlowerThanLight.setBounds(157, 10, 683, 120);
 		window.getContentPane().add(lblSlowerThanLight);
 	}
 }

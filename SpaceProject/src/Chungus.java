@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-//Chungus
-=======
-//Another test case
->>>>>>> refs/remotes/origin/master
 public class Chungus extends CrewMember {
 	/**
 	 * 
