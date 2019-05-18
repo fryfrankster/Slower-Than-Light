@@ -177,7 +177,7 @@ public class MainScreen {
 			}
 		});
 		btnViewInventory.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		btnViewInventory.setBounds(10, 198, 314, 37);
+		btnViewInventory.setBounds(10, 198, 205, 37);
 		window.getContentPane().add(btnViewInventory);
 		
 		JButton btnVisitOutpost = new JButton("Visit Outpost");
@@ -188,7 +188,7 @@ public class MainScreen {
 			}
 		});
 		btnVisitOutpost.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		btnVisitOutpost.setBounds(10, 104, 314, 37);
+		btnVisitOutpost.setBounds(10, 104, 205, 37);
 		window.getContentPane().add(btnVisitOutpost);
 		
 		btnMoveToNextDay = new JButton("Move To Next Day");
@@ -207,7 +207,7 @@ public class MainScreen {
 			}
 		});
 		btnMoveToNextDay.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		btnMoveToNextDay.setBounds(10, 151, 314, 37);
+		btnMoveToNextDay.setBounds(10, 151, 205, 37);
 		window.getContentPane().add(btnMoveToNextDay);
 		
 		
@@ -227,7 +227,7 @@ public class MainScreen {
 		}
 		});
 		btnPilotShipTo.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		btnPilotShipTo.setBounds(662, 104, 314, 37);
+		btnPilotShipTo.setBounds(709, 104, 267, 37);
 		window.getContentPane().add(btnPilotShipTo);
 		
 		JButton btnSearchPlanetFor = new JButton("Search Planet");
@@ -247,7 +247,7 @@ public class MainScreen {
 			}
 		});
 		btnSearchPlanetFor.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		btnSearchPlanetFor.setBounds(662, 151, 314, 37);
+		btnSearchPlanetFor.setBounds(709, 151, 267, 37);
 		window.getContentPane().add(btnSearchPlanetFor);
 		
 		JButton btnRepairShields = new JButton("Repair Shields");
@@ -260,7 +260,7 @@ public class MainScreen {
 			}
 		});
 		btnRepairShields.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		btnRepairShields.setBounds(662, 198, 314, 37);
+		btnRepairShields.setBounds(709, 198, 267, 37);
 		window.getContentPane().add(btnRepairShields);
 		
 		btnSleep = new JButton("Sleep");
@@ -277,12 +277,12 @@ public class MainScreen {
 			}
 		});
 		btnSleep.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		btnSleep.setBounds(662, 290, 314, 35);
+		btnSleep.setBounds(709, 290, 267, 35);
 		window.getContentPane().add(btnSleep);
 		
 		btnUseItems = new JButton("Use Item");
 		btnUseItems.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		btnUseItems.setBounds(662, 245, 314, 35);
+		btnUseItems.setBounds(709, 245, 267, 35);
 		window.getContentPane().add(btnUseItems); 
 		
 		member1Panel = new JPanel();
@@ -523,13 +523,13 @@ public class MainScreen {
 		lblGeneralActions = new JLabel("General Actions:");
 		lblGeneralActions.setHorizontalAlignment(SwingConstants.CENTER);
 		lblGeneralActions.setFont(new Font("Tahoma", Font.BOLD, 22));
-		lblGeneralActions.setBounds(10, 66, 314, 28);
+		lblGeneralActions.setBounds(10, 66, 205, 28);
 		window.getContentPane().add(lblGeneralActions);
 		
 		lblCrewMemberActions = new JLabel("Crew Member Actions:");
 		lblCrewMemberActions.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCrewMemberActions.setFont(new Font("Tahoma", Font.BOLD, 22));
-		lblCrewMemberActions.setBounds(662, 66, 303, 28);
+		lblCrewMemberActions.setBounds(709, 66, 267, 28);
 		window.getContentPane().add(lblCrewMemberActions);
 		
 		

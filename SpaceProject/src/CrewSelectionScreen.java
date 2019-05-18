@@ -30,22 +30,6 @@ public class CrewSelectionScreen {
 	private JButton btnSoldier;
 
 	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					CrewSelectionScreen window = new CrewSelectionScreen();
-//					window.frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-
-	/**
 	 * Create the application.
 	 */
 	public CrewSelectionScreen(GameEnvironment incomingGameEnvironment) {
@@ -95,7 +79,7 @@ public class CrewSelectionScreen {
 				btnScavenger.setEnabled(false);
 				btnSoldier.setEnabled(false);
 				btnRobot.setEnabled(false);
-				lblErrorText.setText("<html>Your crew is full<br>Press next to continue</html>");
+				lblErrorText.setText("<html><center>Your crew is full<br>Press next to continue</center></html>");
 				break;
 				
 			}
@@ -115,12 +99,6 @@ public class CrewSelectionScreen {
 		window.setBounds(100, 100, 1000, 650);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.getContentPane().setLayout(null);
-		
-		JLabel lblExperiencedWithReparing = new JLabel("<html>Experienced with<br>reparing shields</html>");
-		lblExperiencedWithReparing.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblExperiencedWithReparing.setHorizontalAlignment(SwingConstants.CENTER);
-		lblExperiencedWithReparing.setBounds(43, 226, 180, 46);
-		window.getContentPane().add(lblExperiencedWithReparing);
 		
 		lblCrewMember1 = new JLabel("Crew Member 1");
 		lblCrewMember1.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -222,31 +200,37 @@ public class CrewSelectionScreen {
 		btnChungus.setBounds(732, 300, 180, 55);
 		window.getContentPane().add(btnChungus);
 		
-		JLabel lblSkilledAtSearching = new JLabel("<html>Skilled at searching<br>planets</html>");
+		JLabel lblExperiencedWithReparing = new JLabel("<html><center>Experienced with<br>reparing shields</center></html>");
+		lblExperiencedWithReparing.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblExperiencedWithReparing.setHorizontalAlignment(SwingConstants.CENTER);
+		lblExperiencedWithReparing.setBounds(43, 226, 180, 46);
+		window.getContentPane().add(lblExperiencedWithReparing);
+		
+		JLabel lblSkilledAtSearching = new JLabel("<html><center>Skilled at searching<br>planets</center></html>");
 		lblSkilledAtSearching.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSkilledAtSearching.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblSkilledAtSearching.setBounds(395, 226, 176, 46);
 		window.getContentPane().add(lblSkilledAtSearching);
 		
-		JLabel lblDoesntGetHungry = new JLabel("<html>Doesn't get hungry<br>and is plague immune</html>");
+		JLabel lblDoesntGetHungry = new JLabel("<html><center>Doesn't get hungry<br>and is plague immune</center></html>");
 		lblDoesntGetHungry.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDoesntGetHungry.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblDoesntGetHungry.setBounds(732, 226, 193, 46);
 		window.getContentPane().add(lblDoesntGetHungry);
 		
-		JLabel lblCanPerformAn = new JLabel("<html>Can perform an extra<br>action per day</html>");
+		JLabel lblCanPerformAn = new JLabel("<html><center>Can perform an extra<br>action per day</center></html>");
 		lblCanPerformAn.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCanPerformAn.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblCanPerformAn.setBounds(43, 365, 180, 46);
 		window.getContentPane().add(lblCanPerformAn);
 		
-		JLabel lblDoesntGetHungry_1 = new JLabel("<html>Doesn't get hungry<br>or tired as easily</html>");
+		JLabel lblDoesntGetHungry_1 = new JLabel("<html><center>Doesn't get hungry<br>or tired as easily</center></html>");
 		lblDoesntGetHungry_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDoesntGetHungry_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblDoesntGetHungry_1.setBounds(395, 365, 176, 46);
 		window.getContentPane().add(lblDoesntGetHungry_1);
 		
-		JLabel lblHasIncreasedHealth = new JLabel("<html>Has increased health</html>");
+		JLabel lblHasIncreasedHealth = new JLabel("<html><center>Has increased health</center></html>");
 		lblHasIncreasedHealth.setHorizontalAlignment(SwingConstants.CENTER);
 		lblHasIncreasedHealth.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblHasIncreasedHealth.setBounds(732, 365, 180, 46);
@@ -256,7 +240,7 @@ public class CrewSelectionScreen {
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(gameEnvironment.getCrew().getCrewSize() < 2) {
-					lblErrorText.setText("<html>You must select at least 2<br>crewmembers before continuing!</html>");
+					lblErrorText.setText("<html><center>You must select at least 2<br>crew members before continuing!</center></html>");
 				}
 				else {
 					closeWindow();
@@ -266,7 +250,7 @@ public class CrewSelectionScreen {
 			}
 		});
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnNext.setBounds(821, 530, 104, 46);
+		btnNext.setBounds(808, 530, 104, 46);
 		window.getContentPane().add(btnNext);
 		
 		JLabel lblCurrentCrewMembers = new JLabel("Current Crew Members");
@@ -275,9 +259,10 @@ public class CrewSelectionScreen {
 		window.getContentPane().add(lblCurrentCrewMembers);
 		
 		lblErrorText = new JLabel(" ");
+		lblErrorText.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblErrorText.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblErrorText.setForeground(Color.RED);
-		lblErrorText.setBounds(572, 490, 127, 86);
+		lblErrorText.setBounds(531, 463, 267, 113);
 		window.getContentPane().add(lblErrorText);
 		
 		JLabel lblNewLabel = new JLabel("Select the crew members you would like to take on your adventure. Choose between 2 to 4 members by clicking on the buttons below.");
