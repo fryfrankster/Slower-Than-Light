@@ -174,6 +174,31 @@ public class MainScreen {
 		btnVisitOutpost.setBounds(10, 198, 314, 37);
 		window.getContentPane().add(btnVisitOutpost);
 		
+		JButton button_3 = new JButton("Visit Outpost");
+		button_3.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		button_3.setBounds(10, 104, 314, 37);
+		window.getContentPane().add(button_3);
+		
+		btnMoveToNextDay = new JButton("Move To Next Day");
+		btnMoveToNextDay.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(gameEnvironment.getCurrentDay() == gameEnvironment.getGameLength()) {
+					closeWindow();
+					gameEnvironment.launchEndScreen();
+				}
+					
+				else {
+				gameEnvironment.nextDay();
+				updateAllCrewInfoPanels();
+				updateDay();
+				}
+			}
+		});
+		btnMoveToNextDay.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		btnMoveToNextDay.setBounds(10, 151, 314, 37);
+		window.getContentPane().add(btnMoveToNextDay);
+		
+		
 		JButton btnPilotShipTo = new JButton("Pilot Ship To New Planet");
 		btnPilotShipTo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -225,6 +250,28 @@ public class MainScreen {
 		btnRepairShields.setFont(new Font("Tahoma", Font.PLAIN, 19));
 		btnRepairShields.setBounds(662, 198, 314, 37);
 		window.getContentPane().add(btnRepairShields);
+		
+		btnSleep = new JButton("Sleep");
+		btnSleep.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if(selectedMemberCanDoAction()) {
+					
+					selectedCrewMember.sleep();
+					updateAllCrewInfoPanels();
+				
+				}
+				
+			}
+		});
+		btnSleep.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		btnSleep.setBounds(662, 290, 314, 35);
+		window.getContentPane().add(btnSleep);
+		
+		btnUseItems = new JButton("Use Item");
+		btnUseItems.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		btnUseItems.setBounds(662, 245, 314, 35);
+		window.getContentPane().add(btnUseItems); 
 		
 		member1Panel = new JPanel();
 		member1Panel.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
@@ -444,52 +491,6 @@ public class MainScreen {
 		lblShipShieldLevel.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblShipShieldLevel.setBounds(635, 11, 341, 25);
 		window.getContentPane().add(lblShipShieldLevel);
-		
-		button_3 = new JButton("Visit Outpost");
-		button_3.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		button_3.setBounds(10, 104, 314, 37);
-		window.getContentPane().add(button_3);
-		
-		btnMoveToNextDay = new JButton("Move To Next Day");
-		btnMoveToNextDay.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(gameEnvironment.getCurrentDay() == gameEnvironment.getGameLength()) {
-					closeWindow();
-					gameEnvironment.launchEndScreen();
-				}
-					
-				else {
-				gameEnvironment.nextDay();
-				updateAllCrewInfoPanels();
-				updateDay();
-				}
-			}
-		});
-		btnMoveToNextDay.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		btnMoveToNextDay.setBounds(10, 151, 314, 37);
-		window.getContentPane().add(btnMoveToNextDay);
-		
-		btnSleep = new JButton("Sleep");
-		btnSleep.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				if(selectedMemberCanDoAction()) {
-					
-					selectedCrewMember.sleep();
-					updateAllCrewInfoPanels();
-				
-				}
-				
-			}
-		});
-		btnSleep.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		btnSleep.setBounds(662, 290, 314, 35);
-		window.getContentPane().add(btnSleep);
-		
-		btnUseItems = new JButton("Use Item");
-		btnUseItems.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		btnUseItems.setBounds(662, 245, 314, 35);
-		window.getContentPane().add(btnUseItems);
 		
 		lblGameDialouge = new JLabel("Game dialogue");
 		lblGameDialouge.setBounds(10, 330, 966, 49);

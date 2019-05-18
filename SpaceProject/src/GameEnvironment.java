@@ -74,6 +74,32 @@ public class GameEnvironment {
 		endScreen.closeWindow();
 	}
 	
+	public void launchInventoryScreen() {
+		InventoryScreen inventoryScreen = new InventoryScreen(this);
+	}
+	
+	public void closeInventoryScreen(InventoryScreen inventoryScreen) {
+		inventoryScreen.closeWindow();
+	}
+	
+	public void launchOutpostScreen() {
+		OutpostScreen outpostScreen = new OutpostScreen(this);
+	}
+	
+	public void closeOutpostScreen(OutpostScreen outpostScreen) {
+		outpostScreen.closeWindow();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public Ship getShip() {
 		return ship;
 	}
