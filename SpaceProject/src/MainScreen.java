@@ -84,10 +84,18 @@ public class MainScreen {
 	}
 	
 	
+	private void updateDay() {
+		lblDay.setText("Day " + gameEnvironment.getCurrentDay() + "/" + gameEnvironment.getGameLength());
+	}
+	
+	private void updateParts() {
+		lblPartsFound.setText("Parts found: " + gameEnvironment.getCrew().getCurrentPieces() + "/" + gameEnvironment.getCrew().getPiecesToFind());
+	}
+	
 	/**
-	 * Updates a crews information on the panel
+	 * Updates a crewmember information on the panel
 	 */
-	private void upDateInfoPanel(CrewMember crewMember, JLabel nameType, JLabel health, JLabel tiredness, JLabel hunger, JLabel actions) {
+	private void updateCrewmemberInfoPanel(CrewMember crewMember, JLabel nameType, JLabel health, JLabel tiredness, JLabel hunger, JLabel actions) {
 	    nameType.setText(crewMember.getName() + " - " + crewMember.getType());
 		health.setText("Health: " + String.valueOf(crewMember.getHealth()) + "/" + crewMember.getMaxHealth());
 		tiredness.setText("Tiredness: " + String.valueOf(crewMember.getTiredness()) + "/" + crewMember.getMaxTiredness());
@@ -95,7 +103,7 @@ public class MainScreen {
 		actions.setText("Actions remaining: " + String.valueOf(crewMember.getAvailableActions()));
 	}
 	
-	private void updateAllInfoPanels() {
+	private void updateAllCrewInfoPanels() {
 		member1Panel.setVisible(false);
 		member2Panel.setVisible(false);
 		member3Panel.setVisible(false);
@@ -107,25 +115,25 @@ public class MainScreen {
 				member4Panel.setVisible(true);
 				CrewMember crewMember4 = gameEnvironment.getCrew().getCrewMembers().get(3);
 				btnUseCrewmember4.setVisible(crewMember4.getAvailableActions() != 0);
-				upDateInfoPanel(crewMember4, lblMember4NameType, lblMember4Health, lblMember4Tiredness, lblMember4Hunger, lblMember4ActionsRemaining);
+				updateCrewmemberInfoPanel(crewMember4, lblMember4NameType, lblMember4Health, lblMember4Tiredness, lblMember4Hunger, lblMember4ActionsRemaining);
 				
 			case 3:
 				member3Panel.setVisible(true);
 				CrewMember crewMember3 = gameEnvironment.getCrew().getCrewMembers().get(2);
 				btnUseCrewmember3.setVisible(crewMember3.getAvailableActions() != 0);
-				upDateInfoPanel(crewMember3, lblMember3NameType, lblMember3Health, lblMember3Tiredness, lblMember3Hunger, lblMember3ActionsRemaining);
+				updateCrewmemberInfoPanel(crewMember3, lblMember3NameType, lblMember3Health, lblMember3Tiredness, lblMember3Hunger, lblMember3ActionsRemaining);
 			
 			case 2:
 				member2Panel.setVisible(true);
 				CrewMember crewMember2 = gameEnvironment.getCrew().getCrewMembers().get(1);
 				btnUseCrewmember2.setVisible(crewMember2.getAvailableActions() != 0);
-				upDateInfoPanel(crewMember2, lblMember2NameType, lblMember2Health, lblMember2Tiredness, lblMember2Hunger, lblMember2ActionsRemaining);
+				updateCrewmemberInfoPanel(crewMember2, lblMember2NameType, lblMember2Health, lblMember2Tiredness, lblMember2Hunger, lblMember2ActionsRemaining);
 				
 			case 1:
 				member1Panel.setVisible(true);
 				CrewMember crewMember1 = gameEnvironment.getCrew().getCrewMembers().get(0);
 				btnUseCrewmember1.setVisible(crewMember1.getAvailableActions() != 0);
-				upDateInfoPanel(crewMember1, lblMember1NameType, lblMember1Health, lblMember1Tiredness, lblMember1Hunger, lblMember1ActionsRemaining);
+				updateCrewmemberInfoPanel(crewMember1, lblMember1NameType, lblMember1Health, lblMember1Tiredness, lblMember1Hunger, lblMember1ActionsRemaining);
 				break;
 			default:
 				closeWindow();
@@ -160,7 +168,14 @@ public class MainScreen {
 		btnSearchPlanetFor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				selectedCrewMember.searchForParts(gameEnvironment.getPlanet(), gameEnvironment.getCrew());
-				updateAllInfoPanels();
+				updateAllCrewInfoPanels();
+				if(gameEnvironment.getCrew().foundAllParts()) {
+					closeWindow();
+					gameEnvironment.launchEndScreen();
+				}
+				else {
+					updateParts();
+				}
 			}
 		});
 		btnSearchPlanetFor.setFont(new Font("Tahoma", Font.PLAIN, 19));
@@ -171,7 +186,7 @@ public class MainScreen {
 		btnRepairShields.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				selectedCrewMember.repairShields(gameEnvironment.getShip());
-				updateAllInfoPanels();
+				updateAllCrewInfoPanels();
 			}
 		});
 		btnRepairShields.setFont(new Font("Tahoma", Font.PLAIN, 19));
@@ -376,7 +391,8 @@ public class MainScreen {
 					
 				else {
 				gameEnvironment.nextDay();
-				updateAllInfoPanels();
+				updateAllCrewInfoPanels();
+				updateDay();
 				}
 			}
 		});
@@ -391,7 +407,7 @@ public class MainScreen {
 					
 				
 				selectedCrewMember.sleep();
-				updateAllInfoPanels();
+				updateAllCrewInfoPanels();
 			}
 		});
 		btnSleep.setFont(new Font("Tahoma", Font.PLAIN, 19));
@@ -407,13 +423,13 @@ public class MainScreen {
 		lblNewLabel.setBounds(10, 330, 966, 49);
 		window.getContentPane().add(lblNewLabel);
 		
-		lblPartsFound = new JLabel("Parts found: 0/0");
+		lblPartsFound = new JLabel("Parts found: " + gameEnvironment.getCrew().getCurrentPieces() + "/" + gameEnvironment.getCrew().getPiecesToFind());
 		lblPartsFound.setHorizontalAlignment(SwingConstants.LEFT);
 		lblPartsFound.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblPartsFound.setBounds(495, 7, 187, 33);
 		window.getContentPane().add(lblPartsFound);
 		
-		lblDay = new JLabel("Day 3/10");
+		lblDay = new JLabel("Day " + gameEnvironment.getCurrentDay() + "/" + gameEnvironment.getGameLength());
 		lblDay.setHorizontalAlignment(SwingConstants.LEFT);
 		lblDay.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblDay.setBounds(246, 11, 187, 33);
@@ -432,6 +448,7 @@ public class MainScreen {
 		window.getContentPane().add(lblCrewMemberActions);
 		
 		
-		updateAllInfoPanels();
+		updateAllCrewInfoPanels();
+
 	}
 }

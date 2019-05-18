@@ -23,6 +23,9 @@ public class Crew {
 	/** Stores the items the crew has */
 	private ArrayList<Item> items;
 	
+	public boolean foundAllParts() {
+		return currentPieces == piecesToFind;
+	}
 	
 	public String getName() {
 		return name;
