@@ -35,6 +35,10 @@ public class GameEnvironment {
 	
 	private static int crewSelection;
 	
+	public int getScore() {
+		return score;
+	}
+	
 	public void launchSetupScreen() {
 		SetupScreen setupScreen = new SetupScreen(this);
 	}
@@ -59,6 +63,14 @@ public class GameEnvironment {
 		mainScreen.closeWindow();
 	}
 	
+	public void launchEndScreen() {
+		EndScreen endScreen = new EndScreen(this);
+	}
+	
+	public void closeEndScreen(EndScreen endScreen) {
+		endScreen.closeWindow();
+	}
+	
 	public Ship getShip() {
 		return ship;
 	}
@@ -69,6 +81,10 @@ public class GameEnvironment {
 	
 	public int getGameLength() {
 		return gameLength;
+	}
+	
+	public int getCurrentDay() {
+		return currentDay;
 	}
 	
 	public Planet getPlanet() {
@@ -255,7 +271,7 @@ public class GameEnvironment {
 				
 				
 			case 6:
-				nextDay();
+				//nextDay();
 				
 			}
 			
@@ -288,7 +304,7 @@ public class GameEnvironment {
 	 * Called when the user moves to the next day. Increases the day count, random events may occur, and crews actions
 	 * are reset
 	 */
-	public static void nextDay() {
+	public void nextDay() {
 		currentDay += 1;
 		score += crew.getDailyScore();
 		randomEvent.alienPirates(crew);

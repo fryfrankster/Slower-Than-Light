@@ -26,7 +26,8 @@ public class RandomEvent {
 	 */
 	public void spacePlague(Crew crew) {
 		int chance = random.nextInt(10);
-		if(chance <= 2) {
+		//SHOULD BE 2
+		if(chance <= 100) {
 			int crewMemberIndex = random.nextInt(crew.getCrewSize());
 			CrewMember crewMember = crew.getCrewMembers().get(crewMemberIndex);
 			if(crewMember.hasSpacePlague() == false && crewMember.isPlaugeImmune() == false) {

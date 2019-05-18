@@ -47,7 +47,7 @@ public class MainScreen {
 	private JPanel member3Panel;
 	private JPanel member4Panel;
 	private JButton button_3;
-	private JButton btnMoveToNext;
+	private JButton btnMoveToNextDay;
 	private JButton btnSleep;
 	private JButton btnUseItems;
 	
@@ -126,7 +126,12 @@ public class MainScreen {
 				CrewMember crewMember1 = gameEnvironment.getCrew().getCrewMembers().get(0);
 				btnUseCrewmember1.setVisible(crewMember1.getAvailableActions() != 0);
 				upDateInfoPanel(crewMember1, lblMember1NameType, lblMember1Health, lblMember1Tiredness, lblMember1Hunger, lblMember1ActionsRemaining);
+				break;
+			default:
+				closeWindow();
+				gameEnvironment.launchEndScreen();
 		}
+	
 	}
 	
 	
@@ -361,14 +366,30 @@ public class MainScreen {
 		button_3.setBounds(10, 104, 314, 37);
 		window.getContentPane().add(button_3);
 		
-		btnMoveToNext = new JButton("Move To Next Day");
-		btnMoveToNext.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		btnMoveToNext.setBounds(10, 151, 314, 37);
-		window.getContentPane().add(btnMoveToNext);
+		btnMoveToNextDay = new JButton("Move To Next Day");
+		btnMoveToNextDay.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(gameEnvironment.getCurrentDay() == gameEnvironment.getGameLength()) {
+					closeWindow();
+					gameEnvironment.launchEndScreen();
+				}
+					
+				else {
+				gameEnvironment.nextDay();
+				updateAllInfoPanels();
+				}
+			}
+		});
+		btnMoveToNextDay.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		btnMoveToNextDay.setBounds(10, 151, 314, 37);
+		window.getContentPane().add(btnMoveToNextDay);
 		
 		btnSleep = new JButton("Sleep");
 		btnSleep.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+					
+				
 				selectedCrewMember.sleep();
 				updateAllInfoPanels();
 			}
