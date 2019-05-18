@@ -71,6 +71,10 @@ public class GameEnvironment {
 		return gameLength;
 	}
 	
+	public Planet getPlanet() {
+		return planet;
+	}
+	
 	/**
 	 * Gets the user to pick a name for ship, choose crew members and initializes key game variables to starting values
 	 */

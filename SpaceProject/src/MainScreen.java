@@ -10,6 +10,8 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainScreen {
 
@@ -44,6 +46,22 @@ public class MainScreen {
 	private JPanel member2Panel;
 	private JPanel member3Panel;
 	private JPanel member4Panel;
+	private JButton button_3;
+	private JButton btnMoveToNext;
+	private JButton btnSleep;
+	private JButton btnUseItems;
+	
+	private JButton btnUseCrewmember1;
+	private JButton btnUseCrewmember2;
+	private JButton btnUseCrewmember3;
+	private JButton btnUseCrewmember4;
+	
+	private CrewMember selectedCrewMember;
+	private JLabel lblNewLabel;
+	private JLabel lblPartsFound;
+	private JLabel lblDay;
+	private JLabel lblGeneralActions;
+	private JLabel lblCrewMemberActions;
 
 	
 
@@ -88,24 +106,30 @@ public class MainScreen {
 			case 4:
 				member4Panel.setVisible(true);
 				CrewMember crewMember4 = gameEnvironment.getCrew().getCrewMembers().get(3);
+				btnUseCrewmember4.setVisible(crewMember4.getAvailableActions() != 0);
 				upDateInfoPanel(crewMember4, lblMember4NameType, lblMember4Health, lblMember4Tiredness, lblMember4Hunger, lblMember4ActionsRemaining);
 				
 			case 3:
 				member3Panel.setVisible(true);
 				CrewMember crewMember3 = gameEnvironment.getCrew().getCrewMembers().get(2);
+				btnUseCrewmember3.setVisible(crewMember3.getAvailableActions() != 0);
 				upDateInfoPanel(crewMember3, lblMember3NameType, lblMember3Health, lblMember3Tiredness, lblMember3Hunger, lblMember3ActionsRemaining);
 			
 			case 2:
 				member2Panel.setVisible(true);
 				CrewMember crewMember2 = gameEnvironment.getCrew().getCrewMembers().get(1);
+				btnUseCrewmember2.setVisible(crewMember2.getAvailableActions() != 0);
 				upDateInfoPanel(crewMember2, lblMember2NameType, lblMember2Health, lblMember2Tiredness, lblMember2Hunger, lblMember2ActionsRemaining);
 				
 			case 1:
 				member1Panel.setVisible(true);
 				CrewMember crewMember1 = gameEnvironment.getCrew().getCrewMembers().get(0);
+				btnUseCrewmember1.setVisible(crewMember1.getAvailableActions() != 0);
 				upDateInfoPanel(crewMember1, lblMember1NameType, lblMember1Health, lblMember1Tiredness, lblMember1Hunger, lblMember1ActionsRemaining);
 		}
 	}
+	
+	
 	
 
 	/**
@@ -117,24 +141,36 @@ public class MainScreen {
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.getContentPane().setLayout(null);
 		
-		JButton btnVisitOutpost = new JButton("Visit Outpost");
-		btnVisitOutpost.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		btnVisitOutpost.setBounds(662, 47, 314, 53);
+		JButton btnVisitOutpost = new JButton("View Inventory");
+		btnVisitOutpost.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		btnVisitOutpost.setBounds(10, 198, 314, 37);
 		window.getContentPane().add(btnVisitOutpost);
 		
 		JButton btnPilotShipTo = new JButton("Pilot Ship To New Planet");
-		btnPilotShipTo.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		btnPilotShipTo.setBounds(662, 110, 314, 53);
+		btnPilotShipTo.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		btnPilotShipTo.setBounds(662, 104, 314, 37);
 		window.getContentPane().add(btnPilotShipTo);
 		
 		JButton btnSearchPlanetFor = new JButton("Search Planet");
-		btnSearchPlanetFor.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		btnSearchPlanetFor.setBounds(662, 173, 314, 53);
+		btnSearchPlanetFor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				selectedCrewMember.searchForParts(gameEnvironment.getPlanet(), gameEnvironment.getCrew());
+				updateAllInfoPanels();
+			}
+		});
+		btnSearchPlanetFor.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		btnSearchPlanetFor.setBounds(662, 151, 314, 37);
 		window.getContentPane().add(btnSearchPlanetFor);
 		
 		JButton btnRepairShields = new JButton("Repair Shields");
-		btnRepairShields.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		btnRepairShields.setBounds(662, 236, 314, 53);
+		btnRepairShields.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				selectedCrewMember.repairShields(gameEnvironment.getShip());
+				updateAllInfoPanels();
+			}
+		});
+		btnRepairShields.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		btnRepairShields.setBounds(662, 198, 314, 37);
 		window.getContentPane().add(btnRepairShields);
 		
 		member1Panel = new JPanel();
@@ -262,47 +298,117 @@ public class MainScreen {
 		lblMember4ActionsRemaining.setBounds(10, 41, 171, 13);
 		member4Panel.add(lblMember4ActionsRemaining);
 		
-		JLabel lblCrewMembers = new JLabel("Crew Members");
+		JLabel lblCrewMembers = new JLabel("Crew Members:");
 		lblCrewMembers.setFont(new Font("Tahoma", Font.BOLD, 22));
 		lblCrewMembers.setBounds(10, 385, 229, 28);
 		window.getContentPane().add(lblCrewMembers);
 		
-		JButton btnUseCrewmember = new JButton("Use Crewmember");
-		btnUseCrewmember.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnUseCrewmember.setBounds(10, 143, 209, 25);
-		member1Panel.add(btnUseCrewmember);
+		btnUseCrewmember1 = new JButton("Use Crewmember1");
+		btnUseCrewmember1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				selectedCrewMember = gameEnvironment.getCrew().getCrewMembers().get(0);
+			}
+		});
+		btnUseCrewmember1.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnUseCrewmember1.setBounds(10, 143, 209, 25);
+		member1Panel.add(btnUseCrewmember1);
 		
+		btnUseCrewmember2 = new JButton("Use Crewmember2");
+		btnUseCrewmember2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				selectedCrewMember = gameEnvironment.getCrew().getCrewMembers().get(1);
+			}
+		});
+		btnUseCrewmember2.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnUseCrewmember2.setBounds(10, 143, 209, 25);
+		member2Panel.add(btnUseCrewmember2);
 		
-		JButton button = new JButton("Use Crewmember");
-		button.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		button.setBounds(10, 143, 209, 25);
-		member2Panel.add(button);
+		btnUseCrewmember3 = new JButton("Use Crewmember3");
+		btnUseCrewmember3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				selectedCrewMember = gameEnvironment.getCrew().getCrewMembers().get(2);
+			}
+		});
+		btnUseCrewmember3.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnUseCrewmember3.setBounds(10, 143, 209, 25);
+		member3Panel.add(btnUseCrewmember3);
 		
-		
-		
-		JButton button_1 = new JButton("Use Crewmember");
-		button_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		button_1.setBounds(10, 143, 209, 25);
-		member3Panel.add(button_1);
-		
-		
-		JButton button_2 = new JButton("Use Crewmember");
-		button_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		button_2.setBounds(10, 143, 209, 25);
-		member4Panel.add(button_2);
+		btnUseCrewmember4 = new JButton("Use Crewmember4");
+		btnUseCrewmember4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				selectedCrewMember = gameEnvironment.getCrew().getCrewMembers().get(3);
+			}
+		});
+		btnUseCrewmember4.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnUseCrewmember4.setBounds(10, 143, 209, 25);
+		member4Panel.add(btnUseCrewmember4);
 		
 		JLabel lblMoney = new JLabel("Money: $" + gameEnvironment.getCrew().getMoney());
-		lblMoney.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblMoney.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblMoney.setHorizontalAlignment(SwingConstants.LEFT);
 		lblMoney.setBounds(10, 11, 187, 33);
 		window.getContentPane().add(lblMoney);
 		
 		Ship ship = gameEnvironment.getShip();
 		JLabel lblShipShieldLevel = new JLabel("Ship shield level: " + ship.getCurrentShieldLevel() + "/" + ship.getMaxShieldLevel());
-		lblShipShieldLevel.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblShipShieldLevel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblShipShieldLevel.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblShipShieldLevel.setBounds(635, 11, 341, 25);
 		window.getContentPane().add(lblShipShieldLevel);
+		
+		button_3 = new JButton("Visit Outpost");
+		button_3.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		button_3.setBounds(10, 104, 314, 37);
+		window.getContentPane().add(button_3);
+		
+		btnMoveToNext = new JButton("Move To Next Day");
+		btnMoveToNext.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		btnMoveToNext.setBounds(10, 151, 314, 37);
+		window.getContentPane().add(btnMoveToNext);
+		
+		btnSleep = new JButton("Sleep");
+		btnSleep.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				selectedCrewMember.sleep();
+				updateAllInfoPanels();
+			}
+		});
+		btnSleep.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		btnSleep.setBounds(662, 290, 314, 35);
+		window.getContentPane().add(btnSleep);
+		
+		btnUseItems = new JButton("Use Item");
+		btnUseItems.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		btnUseItems.setBounds(662, 245, 314, 35);
+		window.getContentPane().add(btnUseItems);
+		
+		lblNewLabel = new JLabel("Game dialogue");
+		lblNewLabel.setBounds(10, 330, 966, 49);
+		window.getContentPane().add(lblNewLabel);
+		
+		lblPartsFound = new JLabel("Parts found: 0/0");
+		lblPartsFound.setHorizontalAlignment(SwingConstants.LEFT);
+		lblPartsFound.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblPartsFound.setBounds(495, 7, 187, 33);
+		window.getContentPane().add(lblPartsFound);
+		
+		lblDay = new JLabel("Day 3/10");
+		lblDay.setHorizontalAlignment(SwingConstants.LEFT);
+		lblDay.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblDay.setBounds(246, 11, 187, 33);
+		window.getContentPane().add(lblDay);
+		
+		lblGeneralActions = new JLabel("General Actions:");
+		lblGeneralActions.setHorizontalAlignment(SwingConstants.CENTER);
+		lblGeneralActions.setFont(new Font("Tahoma", Font.BOLD, 22));
+		lblGeneralActions.setBounds(10, 66, 314, 28);
+		window.getContentPane().add(lblGeneralActions);
+		
+		lblCrewMemberActions = new JLabel("Crew Member Actions:");
+		lblCrewMemberActions.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCrewMemberActions.setFont(new Font("Tahoma", Font.BOLD, 22));
+		lblCrewMemberActions.setBounds(662, 66, 303, 28);
+		window.getContentPane().add(lblCrewMemberActions);
 		
 		
 		updateAllInfoPanels();
