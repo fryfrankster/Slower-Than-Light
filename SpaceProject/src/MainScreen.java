@@ -56,8 +56,8 @@ public class MainScreen {
 	private JButton btnUseCrewmember3;
 	private JButton btnUseCrewmember4;
 	
-	private CrewMember selectedCrewMember;
-	private JLabel lblNewLabel;
+	private CrewMember selectedCrewMember = null;
+	private JLabel lblGameDialouge;
 	private JLabel lblPartsFound;
 	private JLabel lblDay;
 	private JLabel lblGeneralActions;
@@ -77,6 +77,23 @@ public class MainScreen {
 	
 	public void closeWindow() {
 		window.dispose();
+	}
+	
+	private boolean selectedMemberCanDoAction() {
+
+		if (selectedCrewMember == null) {
+			lblGameDialouge.setText("You must pick a crew member!");
+			return false;
+		}
+		
+		else if(!selectedCrewMember.canPerformAction()) {
+			lblGameDialouge.setText("Current crew member is out of actions, pick another!!");
+			return false;
+		}
+		
+		else {
+			return true;
+		}
 	}
 	
 	public void finishedWindow() {
@@ -167,14 +184,16 @@ public class MainScreen {
 		JButton btnSearchPlanetFor = new JButton("Search Planet");
 		btnSearchPlanetFor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				selectedCrewMember.searchForParts(gameEnvironment.getPlanet(), gameEnvironment.getCrew());
-				updateAllCrewInfoPanels();
-				if(gameEnvironment.getCrew().foundAllParts()) {
-					closeWindow();
-					gameEnvironment.launchEndScreen();
-				}
-				else {
-					updateParts();
+				if(selectedMemberCanDoAction()) {
+					selectedCrewMember.searchForParts(gameEnvironment.getPlanet(), gameEnvironment.getCrew());
+					updateAllCrewInfoPanels();
+					if(gameEnvironment.getCrew().foundAllParts()) {
+						closeWindow();
+						gameEnvironment.launchEndScreen();
+					}
+					else {
+						updateParts();
+					}
 				}
 			}
 		});
@@ -185,8 +204,10 @@ public class MainScreen {
 		JButton btnRepairShields = new JButton("Repair Shields");
 		btnRepairShields.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				selectedCrewMember.repairShields(gameEnvironment.getShip());
-				updateAllCrewInfoPanels();
+				if(selectedMemberCanDoAction()) {
+					selectedCrewMember.repairShields(gameEnvironment.getShip());
+					updateAllCrewInfoPanels();
+				}
 			}
 		});
 		btnRepairShields.setFont(new Font("Tahoma", Font.PLAIN, 19));
@@ -404,10 +425,13 @@ public class MainScreen {
 		btnSleep.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				if(selectedMemberCanDoAction()) {
 					
+					selectedCrewMember.sleep();
+					updateAllCrewInfoPanels();
 				
-				selectedCrewMember.sleep();
-				updateAllCrewInfoPanels();
+				}
+				
 			}
 		});
 		btnSleep.setFont(new Font("Tahoma", Font.PLAIN, 19));
@@ -419,9 +443,9 @@ public class MainScreen {
 		btnUseItems.setBounds(662, 245, 314, 35);
 		window.getContentPane().add(btnUseItems);
 		
-		lblNewLabel = new JLabel("Game dialogue");
-		lblNewLabel.setBounds(10, 330, 966, 49);
-		window.getContentPane().add(lblNewLabel);
+		lblGameDialouge = new JLabel("Game dialogue");
+		lblGameDialouge.setBounds(10, 330, 966, 49);
+		window.getContentPane().add(lblGameDialouge);
 		
 		lblPartsFound = new JLabel("Parts found: " + gameEnvironment.getCrew().getCurrentPieces() + "/" + gameEnvironment.getCrew().getPiecesToFind());
 		lblPartsFound.setHorizontalAlignment(SwingConstants.LEFT);

@@ -132,8 +132,8 @@ public class GameEnvironment {
 			
 			switch (userInput) {
 			case 1:
-				crew.printCurrentMoney();
-				crew.printAllStatuses();
+				//crew.printCurrentMoney();
+				//crew.printAllStatuses();
 				break;
 				
 			case 2:
@@ -191,7 +191,7 @@ public class GameEnvironment {
 			
 			case 4:
 				System.out.println("Enter a number to choose a crewmember");
-				crew.printAvailableCrewMembers();
+				//crew.printAvailableCrewMembers();
 				
 				int crewMemberIndex = validateInput(1, crew.getCrewSize()) - 1;
 				
@@ -220,7 +220,7 @@ public class GameEnvironment {
 					
 					case 4:
 						System.out.println("Choose another crewmember to help pilot the ship");
-						crew.printAvailableCrewMembers();
+						//crew.printAvailableCrewMembers();
 						int otherMemberIndex = validateInput(1, crew.getCrewSize()) - 1;
 						CrewMember firstMemeber = crew.getCrewMembers().get(crewMemberIndex);
 						CrewMember secondMember = crew.getCrewMembers().get(otherMemberIndex);

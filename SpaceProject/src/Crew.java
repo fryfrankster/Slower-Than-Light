@@ -192,12 +192,6 @@ public class Crew {
 	}
 	
 	
-	/**
-	 * Prints the amount of money the crew has
-	 */
-	public void printCurrentMoney() {
-		System.out.println("Your crew currently has $" + money);
-	}
 	
 	/**
 	 * Checks if the crew's inventory is empty
@@ -254,14 +248,6 @@ public class Crew {
 		
 	}
 	
-	/**
-	 * Print's the status of all crew members
-	 */
-	public void printAllStatuses() {
-		for(CrewMember member: crewMembers) {
-			member.printStatus();
-		}
-	}
 	
 	/**
 	 * Prints the items in the crews inventory
@@ -280,16 +266,6 @@ public class Crew {
 	}
 	
 	
-	/**
-	 * Prints the crew members that can perform actions
-	 */
-	public void printAvailableCrewMembers(){
-		for(int i = 0; i < crewMembers.size(); i++) {
-			System.out.println("Type " + (i + 1) + " to use " + crewMembers.get(i).getActionStatus());
-	
-		}
-	
-	}	
 	
 	public int getCurrentPieces() {
 		return currentPieces;

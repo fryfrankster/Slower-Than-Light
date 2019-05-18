@@ -79,10 +79,6 @@ public class CrewMember {
 		
 	}
 	
-	/** Prints the members name, hunger, tiredness, health, and available actions */
-	public void printStatus() {
-		System.out.println("Name: " + name + "      Hunger: " + currentHunger + "/" + maxHunger + "      Tiredness: " + currentTiredness + "/" + maxTiredness +  "     Health: " + currentHealth + "/" + maxHealth + "      Available actions: " + (actionsPerDay - actionsCompleted));
-	}
 	
 	/**
 	 * Checks if the crew member has the space plague
@@ -90,14 +86,6 @@ public class CrewMember {
 	 */
 	public boolean hasSpacePlague() {
 		return hasPlague;
-	}
-	
-	/**
-	 * returns a string containing information about the name, type, and available actions of a crew member
-	 * @return a String containing the crew members name, type and available actions
-	 */
-	public String getActionStatus() {
-		return name + " Type: " + type + " Actions left: " + (actionsPerDay - actionsCompleted);
 	}
 	
 	/**
