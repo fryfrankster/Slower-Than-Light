@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 
+
 /** Stores information about crew members, their ship, and their current inventory.
 */
 public class Crew {
@@ -90,7 +91,15 @@ public class Crew {
 		return items;
 	}
 	
-	
+	public int getAvailableCrewMembers() {
+		int availableMembers = 0;
+		for(CrewMember crewMember: crewMembers) {
+			if(crewMember.canPerformAction()) {
+				availableMembers += 1;
+			}
+		}
+		return availableMembers;
+	}
 	
 	/**
 	 * Allows the crew to purchase an item from a space outpost

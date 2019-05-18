@@ -32,6 +32,9 @@ public class GameEnvironment {
 	/** The players current score */
 	private static int score;
 
+	public RandomEvent getRandomEvent() {
+		return randomEvent;
+	}
 	
 	private static int crewSelection;
 	

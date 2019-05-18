@@ -6,9 +6,7 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
-
 import java.awt.Color;
-import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -62,9 +60,9 @@ public class MainScreen {
 	private JLabel lblDay;
 	private JLabel lblGeneralActions;
 	private JLabel lblCrewMemberActions;
-
 	
-
+	private boolean pilotMode = false;
+	private CrewMember otherCrewMember = null;
 
 	/**
 	 * Create the application.
@@ -177,6 +175,20 @@ public class MainScreen {
 		window.getContentPane().add(btnVisitOutpost);
 		
 		JButton btnPilotShipTo = new JButton("Pilot Ship To New Planet");
+		btnPilotShipTo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			if(selectedMemberCanDoAction()){
+				if(gameEnvironment.getCrew().getAvailableCrewMembers() < 2) {
+					lblGameDialouge.setText("You need two crew members to pilot the ship buster!");
+				}
+				else {
+					pilotMode = true;
+					lblGameDialouge.setText("Select another crewmember to help pilot the ship");
+					
+				}
+			}
+		}
+		});
 		btnPilotShipTo.setFont(new Font("Tahoma", Font.PLAIN, 19));
 		btnPilotShipTo.setBounds(662, 104, 314, 37);
 		window.getContentPane().add(btnPilotShipTo);
@@ -347,7 +359,16 @@ public class MainScreen {
 		btnUseCrewmember1 = new JButton("Use Crewmember1");
 		btnUseCrewmember1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (pilotMode) {
+					otherCrewMember = gameEnvironment.getCrew().getCrewMembers().get(0);
+					selectedCrewMember.pilotShip(otherCrewMember, gameEnvironment.getPlanet(), gameEnvironment.getRandomEvent(), gameEnvironment.getShip());
+					pilotMode = false;
+					lblGameDialouge.setText("Ship has been piloted to a new planet!");
+					
+				}
+				else {
 				selectedCrewMember = gameEnvironment.getCrew().getCrewMembers().get(0);
+				}
 			}
 		});
 		btnUseCrewmember1.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -357,7 +378,16 @@ public class MainScreen {
 		btnUseCrewmember2 = new JButton("Use Crewmember2");
 		btnUseCrewmember2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (pilotMode) {
+					otherCrewMember = gameEnvironment.getCrew().getCrewMembers().get(1);
+					selectedCrewMember.pilotShip(otherCrewMember, gameEnvironment.getPlanet(), gameEnvironment.getRandomEvent(), gameEnvironment.getShip());
+					pilotMode = false;
+					lblGameDialouge.setText("Ship has been piloted to a new planet!");
+					updateAllCrewInfoPanels();
+				}
+				else {
 				selectedCrewMember = gameEnvironment.getCrew().getCrewMembers().get(1);
+				}
 			}
 		});
 		btnUseCrewmember2.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -367,7 +397,16 @@ public class MainScreen {
 		btnUseCrewmember3 = new JButton("Use Crewmember3");
 		btnUseCrewmember3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (pilotMode) {
+					otherCrewMember = gameEnvironment.getCrew().getCrewMembers().get(2);
+					selectedCrewMember.pilotShip(otherCrewMember, gameEnvironment.getPlanet(), gameEnvironment.getRandomEvent(), gameEnvironment.getShip());
+					lblGameDialouge.setText("Ship has been piloted to a new planet!");
+					pilotMode = false;
+					updateAllCrewInfoPanels();
+				}
+				else {
 				selectedCrewMember = gameEnvironment.getCrew().getCrewMembers().get(2);
+				}
 			}
 		});
 		btnUseCrewmember3.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -377,7 +416,16 @@ public class MainScreen {
 		btnUseCrewmember4 = new JButton("Use Crewmember4");
 		btnUseCrewmember4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (pilotMode) {
+					otherCrewMember = gameEnvironment.getCrew().getCrewMembers().get(3);
+					selectedCrewMember.pilotShip(otherCrewMember, gameEnvironment.getPlanet(), gameEnvironment.getRandomEvent(), gameEnvironment.getShip());
+					pilotMode = false;
+					lblGameDialouge.setText("Ship has been piloted to a new planet!");
+					updateAllCrewInfoPanels();
+				}
+				else {
 				selectedCrewMember = gameEnvironment.getCrew().getCrewMembers().get(3);
+				}
 			}
 		});
 		btnUseCrewmember4.setFont(new Font("Tahoma", Font.PLAIN, 12));

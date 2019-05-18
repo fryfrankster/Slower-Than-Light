@@ -4,8 +4,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
-
-
 import java.awt.Font;
 import javax.swing.JTextPane;
 import javax.swing.JTextArea;
