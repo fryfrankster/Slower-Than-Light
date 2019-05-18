@@ -169,15 +169,27 @@ public class MainScreen {
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.getContentPane().setLayout(null);
 		
-		JButton btnVisitOutpost = new JButton("View Inventory");
-		btnVisitOutpost.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		btnVisitOutpost.setBounds(10, 198, 314, 37);
-		window.getContentPane().add(btnVisitOutpost);
+		JButton btnViewInventory = new JButton("View Inventory");
+		btnViewInventory.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				closeWindow();
+				gameEnvironment.launchInventoryScreen();
+			}
+		});
+		btnViewInventory.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		btnViewInventory.setBounds(10, 198, 314, 37);
+		window.getContentPane().add(btnViewInventory);
 		
-		JButton button_3 = new JButton("Visit Outpost");
-		button_3.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		button_3.setBounds(10, 104, 314, 37);
-		window.getContentPane().add(button_3);
+		JButton btnVisitOutpost = new JButton("Visit Outpost");
+		btnVisitOutpost.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				closeWindow();
+				gameEnvironment.launchOutpostScreen();
+			}
+		});
+		btnVisitOutpost.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		btnVisitOutpost.setBounds(10, 104, 314, 37);
+		window.getContentPane().add(btnVisitOutpost);
 		
 		btnMoveToNextDay = new JButton("Move To Next Day");
 		btnMoveToNextDay.addActionListener(new ActionListener() {

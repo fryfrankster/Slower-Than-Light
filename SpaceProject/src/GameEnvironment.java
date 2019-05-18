@@ -90,16 +90,6 @@ public class GameEnvironment {
 		outpostScreen.closeWindow();
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public Ship getShip() {
 		return ship;
 	}

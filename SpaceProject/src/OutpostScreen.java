@@ -1,6 +1,8 @@
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 
 public class OutpostScreen {
 
@@ -47,6 +49,15 @@ public class OutpostScreen {
 		window = new JFrame();
 		window.setBounds(100, 100, 1000, 650);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.getContentPane().setLayout(null);
+		
+		JButton btnNewButton = new JButton("BACK");
+		btnNewButton.setBounds(82, 446, 120, 55);
+		window.getContentPane().add(btnNewButton);
+		
+		JLabel lblNewLabel = new JLabel("Welcome To The Outpost");
+		lblNewLabel.setBounds(111, 89, 245, 74);
+		window.getContentPane().add(lblNewLabel);
 	}
 
 }
