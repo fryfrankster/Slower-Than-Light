@@ -62,6 +62,7 @@ public class MainScreen {
 	private JLabel lblDay;
 	private JLabel lblGeneralActions;
 	private JLabel lblCrewMemberActions;
+	private JLabel lblMoney;
 	
 	private JButton selectedMemberButton;
 	private boolean pilotMode = false;
@@ -91,6 +92,11 @@ public class MainScreen {
 	
 	public void finishedWindow() {
 		gameEnvironment.closeMainScreen(this);
+	}
+	
+	
+	private void updateMoney() {
+		lblMoney.setText("Money: $" + gameEnvironment.getCrew().getMoney());
 	}
 	
 	private boolean selectedMemberCanDoAction() {
@@ -254,6 +260,7 @@ public class MainScreen {
 			public void actionPerformed(ActionEvent e) {
 				if(selectedMemberCanDoAction()) {
 					selectedCrewMember.searchForParts(gameEnvironment.getPlanet(), gameEnvironment.getCrew());
+					updateMoney();
 					updateAllCrewInfoPanels();
 					if(gameEnvironment.getCrew().foundAllParts()) {
 						closeWindow();
@@ -261,6 +268,7 @@ public class MainScreen {
 					}
 					else {
 						updateParts();
+						
 					}
 				}
 			}
@@ -318,15 +326,18 @@ public class MainScreen {
 						usableItems.add(item.getName());
 					}
 						
-					 String[] choices = { "A", "B", "C", "D", "E", "F" };
-					 
+					 String[] choices = new String[gameEnvironment.getCrew().getInventorySize()];
+					 for (int i = 0; i < gameEnvironment.getCrew().getInventorySize(); i++) {
+						 choices[i] = String.valueOf(i) + ": " + gameEnvironment.getCrew().getItems().get(i).getName();
+					 }
 					    String input = (String) JOptionPane.showInputDialog(null, "Choose an item to use",
 					        "Item to use", JOptionPane.QUESTION_MESSAGE, null, // Use
 					                                                                        // default
 					                                                                        // icon
 					        choices, // Array of choices
-					        choices[1]); // Initial choice
-					    System.out.println(input);
+					        choices[0]); // Initial choice
+					    int indexOfItem = Integer.parseInt(Character.toString(input.charAt(0)));
+					    selectedCrewMember.useItem(gameEnvironment.getCrew(), indexOfItem);
 					}
 				}
 			}
@@ -533,7 +544,7 @@ public class MainScreen {
 		btnUseCrewmember4.setBounds(10, 143, 209, 25);
 		member4Panel.add(btnUseCrewmember4);
 		
-		JLabel lblMoney = new JLabel("Money: $" + gameEnvironment.getCrew().getMoney());
+		lblMoney = new JLabel("Money: $" + gameEnvironment.getCrew().getMoney());
 		lblMoney.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblMoney.setHorizontalAlignment(SwingConstants.LEFT);
 		lblMoney.setBounds(10, 11, 187, 33);

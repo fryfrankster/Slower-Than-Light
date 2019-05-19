@@ -215,7 +215,7 @@ public class Crew {
 	 * @return The Item object at the specified index in the crew's item list
 	 */
 	public Item getItem(int userInput) {
-		return items.get(userInput - 1);
+		return items.get(userInput);
 	}
 	
 	/**
@@ -223,7 +223,7 @@ public class Crew {
 	 * @param int userInput the index of the item to remove
 	 */
 	public void removeInInventory(int userInput) {
-		items.remove(userInput - 1);
+		items.remove(userInput);
 	}
 	
 	
@@ -251,7 +251,7 @@ public class Crew {
 	public Crew(String crewName) {
 		crewMembers = new ArrayList<CrewMember>();
 		items = new ArrayList<Item>();
-		money = 10000;
+		money = 100;
 		name = crewName;
 		
 	}
