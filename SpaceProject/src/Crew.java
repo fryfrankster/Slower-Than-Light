@@ -110,17 +110,16 @@ public class Crew {
 	public void purchaseItem(Crew crew, Planet planet, int itemIndex) {
 		//Case they can afford item
 		Item itemToPurchase = planet.getPlanetsItems().get(itemIndex);
-		if (crew.getMoney() >= itemToPurchase.getPrice()) {
-			crew.decreaseMoney(itemToPurchase.getPrice());
-			crew.addItem(itemToPurchase);
-			planet.removeItem(itemIndex);
-			System.out.println("You have purchased " + itemToPurchase.getName() + "!");
-		}
+		crew.decreaseMoney(itemToPurchase.getPrice());
+		crew.addItem(itemToPurchase);
+		planet.removeItem(itemIndex);
+		System.out.println("You have purchased " + itemToPurchase.getName() + "!");
+	
 		
-		//If they can't afford the item
-		else {
-			System.out.println("YOU CANNOT AFFORD THIS ITEM!");
-		}
+	}
+	
+	public boolean canPurchaseItem(Crew crew, Planet planet, int itemIndex) {
+		return crew.getMoney() >= planet.getPlanetsItems().get(itemIndex).getPrice();
 	}
 	
 	/**
@@ -252,7 +251,7 @@ public class Crew {
 	public Crew(String crewName) {
 		crewMembers = new ArrayList<CrewMember>();
 		items = new ArrayList<Item>();
-		money = 100;
+		money = 10000;
 		name = crewName;
 		
 	}
