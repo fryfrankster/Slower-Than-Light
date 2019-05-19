@@ -4,11 +4,13 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class MainScreen {
@@ -301,6 +303,34 @@ public class MainScreen {
 		
 		//USE ITEM
 		btnUseItems = new JButton("Use Item");
+		btnUseItems.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(gameEnvironment.getCrew().getInventorySize() == 0) {
+					lblGameDialouge.setText("Your inventory is empty!");
+				}
+				else {
+				
+					if(selectedMemberCanDoAction()) {
+					
+					ArrayList<String> usableItems = new ArrayList<String>();
+					ArrayList<Item> crewsItems = gameEnvironment.getCrew().getItems();
+					for(Item item: crewsItems) {
+						usableItems.add(item.getName());
+					}
+						
+					 String[] choices = { "A", "B", "C", "D", "E", "F" };
+					 
+					    String input = (String) JOptionPane.showInputDialog(null, "Choose an item to use",
+					        "Item to use", JOptionPane.QUESTION_MESSAGE, null, // Use
+					                                                                        // default
+					                                                                        // icon
+					        choices, // Array of choices
+					        choices[1]); // Initial choice
+					    System.out.println(input);
+					}
+				}
+			}
+		});
 		btnUseItems.setFont(new Font("Tahoma", Font.PLAIN, 19));
 		btnUseItems.setBounds(709, 245, 267, 35);
 		window.getContentPane().add(btnUseItems); 
