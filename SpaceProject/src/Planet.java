@@ -13,12 +13,12 @@ public class Planet {
 	public ArrayList<Item> planetsItems;
 	
 	public Planet() {
-		allItems.add(new FoodItem("Space candy", 20, 10, "A small bar of space candy, restores a small amount of hunger"));
+		allItems.add(new FoodItem("Space Candy", 20, 10, "A small bar of space candy, restores a small amount of hunger"));
 		allItems.add(new FoodItem("Cheese", 50 , 30, "A block of cheese, restores a moderate amount of hunger"));
-		allItems.add(new FoodItem("Spare ribs", 70, 70, "Delicious spare ribs, restores a large amount of hunger"));
+		allItems.add(new FoodItem("Spare Ribs", 70, 70, "Delicious spare ribs, restores a large amount of hunger"));
 		allItems.add(new FoodItem("Food1", 70, 70, "Very delicious food1"));
 		allItems.add(new FoodItem("Food2", 70, 70, "Very delicious food2"));
-		allItems.add(new FoodItem("Unknown plant", 30, 15, "A plant of some kind, restores a small amount of hunger"));
+		allItems.add(new FoodItem("Unknown Plant", 30, 15, "A plant of some kind, restores a small amount of hunger"));
 		allItems.add(new MedicalItem("Band Aid", 25, 10, "Good for scrapes and bruises", false));
 		allItems.add(new MedicalItem("Space Painkillers", 50, 50, "Restores a moderate amount of health", false));
 		allItems.add(new MedicalItem("Alien Toe", 35, 0, "Rumoured to cure space diseases when eaten", true));

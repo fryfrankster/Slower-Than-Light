@@ -61,6 +61,7 @@ public class MainScreen {
 	private JLabel lblGeneralActions;
 	private JLabel lblCrewMemberActions;
 	
+	private JButton selectedMemberButton;
 	private boolean pilotMode = false;
 	private CrewMember otherCrewMember = null;
 
@@ -75,6 +76,19 @@ public class MainScreen {
 	
 	public void closeWindow() {
 		window.dispose();
+	}
+	
+	public void getOtherPilot(int memberIndex) {
+		otherCrewMember = gameEnvironment.getCrew().getCrewMembers().get(memberIndex);
+		selectedCrewMember.pilotShip(otherCrewMember, gameEnvironment.getPlanet(), gameEnvironment.getRandomEvent(), gameEnvironment.getShip());
+		pilotMode = false;
+		lblGameDialouge.setText("Ship has been piloted to a new planet!");
+		selectedMemberButton.setVisible(true);
+		updateAllCrewInfoPanels();
+	}
+	
+	public void finishedWindow() {
+		gameEnvironment.closeMainScreen(this);
 	}
 	
 	private boolean selectedMemberCanDoAction() {
@@ -93,11 +107,6 @@ public class MainScreen {
 			return true;
 		}
 	}
-	
-	public void finishedWindow() {
-		gameEnvironment.closeMainScreen(this);
-	}
-	
 	
 	private void updateDay() {
 		lblDay.setText("Day " + gameEnvironment.getCurrentDay() + "/" + gameEnvironment.getGameLength());
@@ -169,6 +178,9 @@ public class MainScreen {
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.getContentPane().setLayout(null);
 		
+		
+		//BUTTONS FOR GENERAL ACTIONS
+		
 		JButton btnViewInventory = new JButton("View Inventory");
 		btnViewInventory.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -211,6 +223,9 @@ public class MainScreen {
 		window.getContentPane().add(btnMoveToNextDay);
 		
 		
+		//BUTTONS FOR CREW MEMBER ACTIONS
+		
+		//PILOT SHIP
 		JButton btnPilotShipTo = new JButton("Pilot Ship To New Planet");
 		btnPilotShipTo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -219,6 +234,7 @@ public class MainScreen {
 					lblGameDialouge.setText("You need two crew members to pilot the ship buster!");
 				}
 				else {
+					selectedMemberButton.setVisible(false);
 					pilotMode = true;
 					lblGameDialouge.setText("Select another crewmember to help pilot the ship");
 					
@@ -230,6 +246,7 @@ public class MainScreen {
 		btnPilotShipTo.setBounds(709, 104, 267, 37);
 		window.getContentPane().add(btnPilotShipTo);
 		
+		//SEARCH PLANET
 		JButton btnSearchPlanetFor = new JButton("Search Planet");
 		btnSearchPlanetFor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -250,6 +267,7 @@ public class MainScreen {
 		btnSearchPlanetFor.setBounds(709, 151, 267, 37);
 		window.getContentPane().add(btnSearchPlanetFor);
 		
+		//REPAIR SHIELDS
 		JButton btnRepairShields = new JButton("Repair Shields");
 		btnRepairShields.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -263,6 +281,7 @@ public class MainScreen {
 		btnRepairShields.setBounds(709, 198, 267, 37);
 		window.getContentPane().add(btnRepairShields);
 		
+		//SLEEP
 		btnSleep = new JButton("Sleep");
 		btnSleep.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -280,11 +299,14 @@ public class MainScreen {
 		btnSleep.setBounds(709, 290, 267, 35);
 		window.getContentPane().add(btnSleep);
 		
+		//USE ITEM
 		btnUseItems = new JButton("Use Item");
 		btnUseItems.setFont(new Font("Tahoma", Font.PLAIN, 19));
 		btnUseItems.setBounds(709, 245, 267, 35);
 		window.getContentPane().add(btnUseItems); 
 		
+		
+		//CREW MEMBER 1 STATUS
 		member1Panel = new JPanel();
 		member1Panel.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		member1Panel.setBounds(10, 424, 229, 178);
@@ -316,7 +338,7 @@ public class MainScreen {
 		member1Panel.add(lblMember1ActionsRemaining);
 		lblMember1ActionsRemaining.setFont(new Font("Tahoma", Font.ITALIC, 13));
 		
-		
+		//CREW MEMBER 2 STATUS
 		member2Panel = new JPanel();
 		member2Panel.setLayout(null);
 		member2Panel.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
@@ -348,6 +370,7 @@ public class MainScreen {
 		lblMember2ActionsRemaining.setBounds(10, 41, 171, 13);
 		member2Panel.add(lblMember2ActionsRemaining);
 		
+		//CREW MEMBER 3 STATUS
 		member3Panel = new JPanel();
 		member3Panel.setLayout(null);
 		member3Panel.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
@@ -379,6 +402,7 @@ public class MainScreen {
 		lblMember3ActionsRemaining.setBounds(10, 41, 171, 13);
 		member3Panel.add(lblMember3ActionsRemaining);
 		
+		//CREW MEMBER 4 STATUS
 		member4Panel = new JPanel();
 		member4Panel.setLayout(null);
 		member4Panel.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
@@ -419,14 +443,11 @@ public class MainScreen {
 		btnUseCrewmember1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (pilotMode) {
-					otherCrewMember = gameEnvironment.getCrew().getCrewMembers().get(0);
-					selectedCrewMember.pilotShip(otherCrewMember, gameEnvironment.getPlanet(), gameEnvironment.getRandomEvent(), gameEnvironment.getShip());
-					pilotMode = false;
-					lblGameDialouge.setText("Ship has been piloted to a new planet!");
-					
+					getOtherPilot(0);		
 				}
 				else {
 				selectedCrewMember = gameEnvironment.getCrew().getCrewMembers().get(0);
+				selectedMemberButton = btnUseCrewmember1;
 				}
 			}
 		});
@@ -438,14 +459,11 @@ public class MainScreen {
 		btnUseCrewmember2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (pilotMode) {
-					otherCrewMember = gameEnvironment.getCrew().getCrewMembers().get(1);
-					selectedCrewMember.pilotShip(otherCrewMember, gameEnvironment.getPlanet(), gameEnvironment.getRandomEvent(), gameEnvironment.getShip());
-					pilotMode = false;
-					lblGameDialouge.setText("Ship has been piloted to a new planet!");
-					updateAllCrewInfoPanels();
+					getOtherPilot(1);
 				}
 				else {
 				selectedCrewMember = gameEnvironment.getCrew().getCrewMembers().get(1);
+				selectedMemberButton = btnUseCrewmember2;
 				}
 			}
 		});
@@ -457,14 +475,11 @@ public class MainScreen {
 		btnUseCrewmember3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (pilotMode) {
-					otherCrewMember = gameEnvironment.getCrew().getCrewMembers().get(2);
-					selectedCrewMember.pilotShip(otherCrewMember, gameEnvironment.getPlanet(), gameEnvironment.getRandomEvent(), gameEnvironment.getShip());
-					lblGameDialouge.setText("Ship has been piloted to a new planet!");
-					pilotMode = false;
-					updateAllCrewInfoPanels();
+					getOtherPilot(2);
 				}
 				else {
 				selectedCrewMember = gameEnvironment.getCrew().getCrewMembers().get(2);
+				selectedMemberButton = btnUseCrewmember3;
 				}
 			}
 		});
@@ -476,14 +491,11 @@ public class MainScreen {
 		btnUseCrewmember4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (pilotMode) {
-					otherCrewMember = gameEnvironment.getCrew().getCrewMembers().get(3);
-					selectedCrewMember.pilotShip(otherCrewMember, gameEnvironment.getPlanet(), gameEnvironment.getRandomEvent(), gameEnvironment.getShip());
-					pilotMode = false;
-					lblGameDialouge.setText("Ship has been piloted to a new planet!");
-					updateAllCrewInfoPanels();
+					getOtherPilot(3);
 				}
 				else {
 				selectedCrewMember = gameEnvironment.getCrew().getCrewMembers().get(3);
+				selectedMemberButton = btnUseCrewmember4;
 				}
 			}
 		});
