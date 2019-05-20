@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+
+
 import java.awt.Color;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
@@ -63,6 +65,7 @@ public class MainScreen {
 	private JLabel lblGeneralActions;
 	private JLabel lblCrewMemberActions;
 	private JLabel lblMoney;
+	private JLabel lblShipShieldLevel;
 	
 	private JButton selectedMemberButton;
 	private boolean pilotMode = false;
@@ -77,15 +80,19 @@ public class MainScreen {
 		window.setVisible(true);
 	}
 	
+	private void updateShields() {
+		
+	}
+	
 	public void closeWindow() {
 		window.dispose();
 	}
 	
 	public void getOtherPilot(int memberIndex) {
 		otherCrewMember = gameEnvironment.getCrew().getCrewMembers().get(memberIndex);
-		selectedCrewMember.pilotShip(otherCrewMember, gameEnvironment.getPlanet(), gameEnvironment.getRandomEvent(), gameEnvironment.getShip());
+		
 		pilotMode = false;
-		lblGameDialouge.setText("Ship has been piloted to a new planet!");
+		lblGameDialouge.setText(selectedCrewMember.pilotShip(otherCrewMember, gameEnvironment.getPlanet(), gameEnvironment.getRandomEvent(), gameEnvironment.getShip()));
 		selectedMemberButton.setVisible(true);
 		updateAllCrewInfoPanels();
 	}
@@ -259,7 +266,7 @@ public class MainScreen {
 		btnSearchPlanetFor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(selectedMemberCanDoAction()) {
-					selectedCrewMember.searchForParts(gameEnvironment.getPlanet(), gameEnvironment.getCrew());
+					lblGameDialouge.setText(selectedCrewMember.searchForParts(gameEnvironment.getPlanet(), gameEnvironment.getCrew()));
 					updateMoney();
 					updateAllCrewInfoPanels();
 					if(gameEnvironment.getCrew().foundAllParts()) {
@@ -282,7 +289,7 @@ public class MainScreen {
 		btnRepairShields.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(selectedMemberCanDoAction()) {
-					selectedCrewMember.repairShields(gameEnvironment.getShip());
+					lblGameDialouge.setText(selectedCrewMember.repairShields(gameEnvironment.getShip()));
 					updateAllCrewInfoPanels();
 				}
 			}
@@ -298,8 +305,9 @@ public class MainScreen {
 				
 				if(selectedMemberCanDoAction()) {
 					
-					selectedCrewMember.sleep();
+					lblGameDialouge.setText(selectedCrewMember.sleep());
 					updateAllCrewInfoPanels();
+				
 				
 				}
 				
@@ -336,8 +344,12 @@ public class MainScreen {
 					                                                                        // icon
 					        choices, // Array of choices
 					        choices[0]); // Initial choice
+	
 					    int indexOfItem = Integer.parseInt(Character.toString(input.charAt(0)));
+					   
 					    selectedCrewMember.useItem(gameEnvironment.getCrew(), indexOfItem);
+					    updateAllCrewInfoPanels();
+					    
 					}
 				}
 			}
@@ -551,13 +563,14 @@ public class MainScreen {
 		window.getContentPane().add(lblMoney);
 		
 		Ship ship = gameEnvironment.getShip();
-		JLabel lblShipShieldLevel = new JLabel("Ship shield level: " + ship.getCurrentShieldLevel() + "/" + ship.getMaxShieldLevel());
+		lblShipShieldLevel = new JLabel("Ship shield level: " + ship.getCurrentShieldLevel() + "/" + ship.getMaxShieldLevel());
 		lblShipShieldLevel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblShipShieldLevel.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblShipShieldLevel.setBounds(635, 11, 341, 25);
 		window.getContentPane().add(lblShipShieldLevel);
 		
-		lblGameDialouge = new JLabel("Game dialogue");
+		lblGameDialouge = new JLabel("Welcome, Press a button to begin!");
+		lblGameDialouge.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblGameDialouge.setBounds(10, 330, 966, 49);
 		window.getContentPane().add(lblGameDialouge);
 		

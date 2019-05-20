@@ -348,11 +348,14 @@ public class CrewMember {
 	/**
 	 * Decreases the crew members tiredness, uses an action and increases hunger
 	 */
-	public void sleep(){
+	public String sleep(){
+		if(currentTiredness == maxTiredness) {
+			return name + " is not tired!";
+		}
 		actionsCompleted += 1;
-		System.out.println(name + " has slept");
 		increaseHunger();
 		currentTiredness = maxTiredness;
+		return name + " has slept";
 	}
 	
 	/**
@@ -362,8 +365,7 @@ public class CrewMember {
 	 * @param randomEvent instance of random event used to create the asteroid event
 	 * @param ship the ship to be piloted
 	 */
-	public void pilotShip(CrewMember otherMember, Planet planet, RandomEvent randomEvent, Ship ship) {
-		System.out.println(name + " and " + otherMember.name + " have piloted the ship");
+	public String pilotShip(CrewMember otherMember, Planet planet, RandomEvent randomEvent, Ship ship) {
 		actionsCompleted += 1;
 		otherMember.actionsCompleted += 1;
 		increaseHunger();
@@ -374,25 +376,24 @@ public class CrewMember {
 		otherMember.isExhausted();
 		planet.newPlanet();
 		randomEvent.asteroidBelt(ship);
+		return name + " and " + otherMember.name + " have piloted the ship";
 	}
 
 	/**
 	 * Repairs the ships shields by the crew members specified repair skill
 	 * @param ship the ship to be repaired
 	 */
-	public void repairShields(Ship ship) {
+	public String repairShields(Ship ship) {
 		if(ship.getCurrentShieldLevel() == ship.getMaxShieldLevel()) {
-			System.out.println("The shields are already at full health!");
+			return "The shields are already at full health!";
 		}
 		else {
 		ship.setShieldLevel(Math.min(ship.getMaxShieldLevel(), ship.getCurrentShieldLevel() + repairSkill));
-		System.out.println(name + " has repaired the ships shields");
-		ship.printStatus();
 		increaseHunger();
 		increaseTiredness();
 		actionsCompleted += 1;
-		
 		isExhausted();
+		return name + " has repaired the ships shields";
 		}
 	}
 	
@@ -401,11 +402,11 @@ public class CrewMember {
 	 * @param planet the planet to be searched
 	 * @param crew the crew that the member is from
 	 */
-	public void searchForParts(Planet planet, Crew crew) {
+	public String searchForParts(Planet planet, Crew crew) {
 		increaseHunger();
 		increaseTiredness();
 		actionsCompleted += 1;
-		
+		String result = "";
 		isExhausted();
 		
 		Random random = new Random();
@@ -434,7 +435,7 @@ public class CrewMember {
 					int moneyGained = random.nextInt(60);
 					crew.addMoney(moneyGained);
 					searchSuccess = true;
-					System.out.println("You found $" + moneyGained);
+					result = "You found $" + moneyGained;
 					break;
 				}
 				
@@ -444,7 +445,7 @@ public class CrewMember {
 					int itemIndex = random.nextInt(planet.getNumTotalItems());
 					Item itemFound = planet.getAllItems().get(itemIndex);
 					crew.addItem(itemFound);
-					System.out.println("You have found " + itemFound.getName() + " of type " + itemFound.getType());
+					result = "You have found " + itemFound.getName() + " of type " + itemFound.getType();
 					searchSuccess = true;
 					break;
 				}
@@ -454,18 +455,19 @@ public class CrewMember {
 				if((searchScore + searchSkill) > 100){
 					planet.setPartFound(true);
 					searchSuccess = true;
-					System.out.println("You found a transporter part!");
+					result = "You found a transporter part!";
 					crew.setCurrentPieces(crew.getCurrentPieces() + 1);
-					System.out.println("You have found " + crew.getCurrentPieces() + "/" + crew.getPiecesToFind() + " of the transporter parts!");
 					break;
 				}
 			
 		
 			if(searchSuccess == false) {
-				System.out.println("The search was unsuccessful, you found nothing!");
+				result = "The search was unsuccessful, you found nothing!";
 			}
 				
 		}
+		
+		return result;
 	}
 	
 }

@@ -38,7 +38,6 @@ public class Crew {
 	 */
 	public void addCrewMember(CrewMember crewMember) {
 		crewMembers.add(crewMember);
-		System.out.println("You have added a crew member called " + crewMember.getName() + " of type " + crewMember.getType() + "!");
 	}
 	
 	/**Returns the amount of money the crew has
