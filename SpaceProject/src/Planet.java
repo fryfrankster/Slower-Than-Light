@@ -36,19 +36,6 @@ public class Planet {
 		
 	}
 	
-	/**
-	 * Prints item's that the planet has available for purchase
-	 */
-	public void printPurchasableItems() {
-		int counter = 1;
-		for(Item item: planetsItems) {
-			int itemFrequency = Collections.frequency(planetsItems, item);
-			System.out.println(counter + ") " + itemFrequency + " available) "+ item.getInfo());
-			counter += 1;
-		}
-		
-	}
-	
 	/** 
 	 * Returns the amount of items the planet has for sale
 	 * @return the length of the planets items Array List
@@ -64,9 +51,16 @@ public class Planet {
 	private ArrayList<Item> generateRandomItems(){
 		ArrayList<Item> newItems = new ArrayList<Item>();
 		Random random = new Random();
-		for(int x = 0; x < 6; x++) {
+		int numParts = 0;
+		
+		//Ensures only unique items in the outpost
+		while (numParts < 6) {
 			int itemIndex = random.nextInt(getNumTotalItems());
-			newItems.add(allItems.get(itemIndex));
+			Item itemToAdd = allItems.get(itemIndex);
+			if(!newItems.contains(itemToAdd)) {
+				newItems.add(allItems.get(itemIndex));
+				numParts += 1;
+			}
 		}
 	return newItems;
 	}

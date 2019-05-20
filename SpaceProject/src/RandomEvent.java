@@ -11,8 +11,8 @@ public class RandomEvent {
 	 */
 	public String alienPirates(Crew crew) {
 		int chance = random.nextInt(10);
-		//SHOULD BE 2
-		if(chance <= 100 & crew.getInventorySize() != 0) {
+
+		if(chance <= 2 & crew.getInventorySize() != 0) {
 			int indexToRemove = random.nextInt(crew.getInventorySize());
 			Item removedItem = crew.getItems().remove(indexToRemove);
 			return " Space pirates invaded and stole your " + removedItem.getName() + "!";
@@ -27,9 +27,8 @@ public class RandomEvent {
 	 * @param crew The crew that is being effected by space plague
 	 */
 	public String spacePlague(Crew crew) {
-		//SHOULD BE 2
 		int chance = random.nextInt(10);
-		if(chance <= 100) {
+		if(chance <= 2) {
 			int crewMemberIndex = random.nextInt(crew.getCrewSize());
 			CrewMember crewMember = crew.getCrewMembers().get(crewMemberIndex);
 			if(crewMember.hasSpacePlague() == false && crewMember.isPlaugeImmune() == false) {

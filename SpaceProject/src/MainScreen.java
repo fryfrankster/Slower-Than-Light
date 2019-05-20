@@ -358,10 +358,12 @@ public class MainScreen {
 					        choices, // Array of choices
 					        choices[0]); // Initial choice
 	
-					    int indexOfItem = Integer.parseInt(Character.toString(input.charAt(0)));
-					   
-					    lblGameDialouge.setText(selectedCrewMember.useItem(gameEnvironment.getCrew(), indexOfItem));
-					    updateAllCrewInfoPanels();
+					    if(input != null) {
+						    int indexOfItem = Integer.parseInt(Character.toString(input.charAt(0)));
+						   
+						    lblGameDialouge.setText(selectedCrewMember.useItem(gameEnvironment.getCrew(), indexOfItem));
+						    updateAllCrewInfoPanels();
+					    }
 					    
 					}
 				}

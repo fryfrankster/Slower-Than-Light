@@ -269,15 +269,15 @@ public class CrewMember {
 	 * @return exhausted a boolean value, true if the member is exhausted, false if the member is not exhausted.
 	 */
 	public boolean isExhausted() {
-		boolean exhausted = false;
+		boolean isExhausted = false;
 		if (currentTiredness == 0) {
 			setActionsCompleted(actionsPerDay);
 			System.out.println(name + " is exhausted!");
 			System.out.println(name + " cannot perform any more actions until the next day and will be forced to take a nap");
-			exhausted = true;
+			isExhausted = true;
 		}
 		
-		return exhausted;
+		return isExhausted;
 	}
 	
 	
