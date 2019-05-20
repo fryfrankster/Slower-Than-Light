@@ -5,6 +5,9 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.TreeSet;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -35,8 +38,15 @@ public class InventoryScreen {
 	private void updateInventoryLabel() {
 		String itemsString = "<html>";
 		ArrayList<Item> crewsItems = gameEnvironment.getCrew().getItems();
+		LinkedHashSet<Item> crewsItemsSet = new LinkedHashSet(crewsItems);
+		ArrayList<String> itemsNameArray = new ArrayList<String>();
+		
 		for(Item item: crewsItems) {
-			String originalString =  "<b>" + item.getName()+ "</b> (" + item.getType() + "): "  + item.getDescription() + "<br><br>" ;
+			itemsNameArray.add(item.getName());
+		}
+		
+		for(Item item: crewsItemsSet) {
+			String originalString =  "<b>"  + item.getName() + "(" + Collections.frequency(itemsNameArray,  item.getName()) + ")" + "</b> (" + item.getType() + "): "  + item.getDescription() + "<br><br>" ;
 			String withoutOpening = originalString.replaceAll("<html>", "");
 			itemsString += withoutOpening.replaceAll("</html>", "");
 			

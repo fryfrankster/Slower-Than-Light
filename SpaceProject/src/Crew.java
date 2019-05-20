@@ -1,5 +1,8 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.TreeSet;
 
 
 
@@ -271,7 +274,24 @@ public class Crew {
 		}
 	}
 	
-	
+	public String[] getItemsAsStringArray(){
+		ArrayList<String> crewsItemsNames = new ArrayList<>();
+		
+		for(Item item: items) {
+			crewsItemsNames.add(item.getName());
+		}
+		
+		LinkedHashSet<String> crewsItemSet = new LinkedHashSet<String>(crewsItemsNames);
+		String[] choices = new String[crewsItemSet.size()];
+		
+		int index = 0;
+		for(String name : crewsItemSet) {
+			choices[index] = String.valueOf(index) + ": " + name + " (" + Collections.frequency(crewsItemsNames, name) + ")";
+			index += 1;
+		}
+
+		return choices;
+	}
 	
 	public int getCurrentPieces() {
 		return currentPieces;

@@ -13,6 +13,8 @@ import java.awt.Color;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.TreeSet;
 import java.awt.event.ActionEvent;
 
 public class MainScreen {
@@ -341,16 +343,18 @@ public class MainScreen {
 				
 					if(selectedMemberCanDoAction()) {
 					
-					ArrayList<String> usableItems = new ArrayList<String>();
-					ArrayList<Item> crewsItems = gameEnvironment.getCrew().getItems();
-					for(Item item: crewsItems) {
-						usableItems.add(item.getName());
-					}
+//					ArrayList<String> crewsItemsNames = gameEnvironment.getCrew().getCrewsItemsNames(); 
+//					TreeSet<String> crewsItemSet = new TreeSet<String>(crewsItemsNames);
+//					String[] choices = new String[gameEnvironment.getCrew().getInventorySize()];
+//					
+//					int index = 0;
+//					for(String name : crewsItemSet) {
+//						choices[index] = String.valueOf(index) + ": " + name + " (" + Collections.frequency(crewsItemsNames, name) + ")";
+//						index += 1;
+//					}
 						
-					 String[] choices = new String[gameEnvironment.getCrew().getInventorySize()];
-					 for (int i = 0; i < gameEnvironment.getCrew().getInventorySize(); i++) {
-						 choices[i] = String.valueOf(i) + ": " + gameEnvironment.getCrew().getItems().get(i).getName();
-					 }
+						String[] choices = gameEnvironment.getCrew().getItemsAsStringArray();
+						
 					    String input = (String) JOptionPane.showInputDialog(null, "Choose an item to use",
 					        "Item to use", JOptionPane.QUESTION_MESSAGE, null, // Use
 					                                                                        // default
