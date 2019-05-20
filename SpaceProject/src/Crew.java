@@ -249,7 +249,7 @@ public class Crew {
 	public Crew(String crewName) {
 		crewMembers = new ArrayList<CrewMember>();
 		items = new ArrayList<Item>();
-		money = 100;
+		money = 1000000;
 		name = crewName;
 		
 	}

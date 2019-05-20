@@ -293,42 +293,23 @@ public class CrewMember {
 	 * @param crew the crew the crew member is from
 	 * @param userInput an integer representing the item the player has chosen to use
 	 */
-	public void useItem(Crew crew, int userInput) {
+	public String useItem(Crew crew, int userInput) {
+		String outputToUser = "";
 		if(crew.getItem(userInput) instanceof MedicalItem){
 			MedicalItem itemChosen = (MedicalItem) crew.getItem(userInput);
 			currentHealth = Math.min(currentHealth + itemChosen.getBenefit(), maxHealth);
-			System.out.println(name + " has used a medical supply");
+			outputToUser += name + " has used " + itemChosen.getName() + "!";
 			
-			if(itemChosen.doesCurePlauge()) {
+			if(itemChosen.doesCurePlauge() && hasPlague) {
 				hasPlague = false;
-				System.out.println(name + " has been cured of the space plague!");
+				outputToUser += " They have been cured of the space plague!";
 			};
 		}
 		else {
 			FoodItem itemChosen = (FoodItem) crew.getItem(userInput);
 			currentHunger = Math.min(currentHunger + itemChosen.getBenefit(), maxHunger);
-			System.out.println(name + " has eaten food");
+			outputToUser += name + " has eaten " + itemChosen.getName() + "!";
 		}
-		
-		//GETS THE ITEM CHOSEN > USER INPUT IS HAS -1 TO INDEX ARRAY LIST CORRECTLY WHEN getItem IS CALLED
-//		Item itemChosen = crew.getItem(userInput);
-//		
-//		//When the item chosen is of type food
-//		if (itemChosen.getType() == "food") {
-//			currentHunger = Math.min(currentHunger + itemChosen.getBenefit(), maxHunger);
-//			System.out.println(name + " has eaten food");
-//		}
-//		//When the item chosen is of type medical
-//		else {
-//			//casts the item to type medical
-//			//MedicalItem itemChose = (MedicalItem) itemChosen;
-//			MedicalItem medicalItemChosen = (MedicalItem) itemChosen;
-//			currentHealth = Math.min(currentHealth + itemChosen.getBenefit(), maxHealth);
-//			System.out.println(name + " has used a medical supply");
-//			if(medicalItemChosen.doesCurePlauge()) {
-//				hasPlague = false;
-//				System.out.println(name + " has been cured of the space plague!");
-//			};
 			
 		
 		
@@ -342,6 +323,7 @@ public class CrewMember {
 		increaseTiredness();
 		
 		isExhausted();
+		return outputToUser;
 		
 	}
 	

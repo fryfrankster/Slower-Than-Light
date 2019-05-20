@@ -360,7 +360,7 @@ public class MainScreen {
 	
 					    int indexOfItem = Integer.parseInt(Character.toString(input.charAt(0)));
 					   
-					    selectedCrewMember.useItem(gameEnvironment.getCrew(), indexOfItem);
+					    lblGameDialouge.setText(selectedCrewMember.useItem(gameEnvironment.getCrew(), indexOfItem));
 					    updateAllCrewInfoPanels();
 					    
 					}
@@ -396,7 +396,7 @@ public class MainScreen {
 		
 		lblMember1Hunger = new JLabel("Hunger");
 		lblMember1Hunger.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblMember1Hunger.setBounds(10, 99, 85, 13);
+		lblMember1Hunger.setBounds(10, 99, 138, 13);
 		member1Panel.add(lblMember1Hunger);
 		
 		lblMember1ActionsRemaining = new JLabel("Actions Remaining");

@@ -13,12 +13,12 @@ public class Planet {
 	public ArrayList<Item> planetsItems;
 	
 	public Planet() {
-		allItems.add(new FoodItem("Space Candy", 20, 10, "Restores a small amount of hunger"));
-		allItems.add(new FoodItem("Cheese", 50 , 30, "Restores a moderate amount of hunger"));
-		allItems.add(new FoodItem("Spare Ribs", 70, 70, "Restores a large amount of hunger"));
-		allItems.add(new FoodItem("Food1", 70, 70, "Very delicious food1"));
-		allItems.add(new FoodItem("Food2", 70, 70, "Very delicious food2"));
-		allItems.add(new FoodItem("Unknown Plant", 30, 15, "Restores a small amount of hunger"));
+		allItems.add(new FoodItem("Dehydrated Chicken roast", 75, 100, "<html>Hearty meal after a long day in space,<br> restores a large amount of hunger.</html>"));
+		allItems.add(new FoodItem("Skylab Candy Bar", 20 , 15, "<html>A bar of space candy, <br> restores a small amount of hunger</html>"));
+		allItems.add(new FoodItem("Gemini Pouched Apple Juice", 50, 50, "<html>A refreshing drink to quench your thirst,<br> restores a moderate amount of hunger.</html>"));
+		allItems.add(new FoodItem("Apollo Brownie Cubes ", 55, 70, "<html>Satisfies your sweet cravings,<br> restores a moderate amount of hunger.</html>"));
+		allItems.add(new FoodItem("Thermostabilised Ribs ", 85, 125, "<html>Delicious rack of ribs,<br> restores a large amount of hunger</html>"));
+		allItems.add(new FoodItem("Unidentified Food Packet", 10, 10, "<html>Discovered on the planet,<br> restores a small amount of hunger.</html>"));
 		allItems.add(new MedicalItem("Band Aid", 25, 10, "Restores a small amount of health", false));
 		allItems.add(new MedicalItem("Space Painkillers", 50, 50, "Restores a moderate amount of health", false));
 		allItems.add(new MedicalItem("Alien Toe", 35, 0, "Rumoured to cure space diseases when eaten", true));

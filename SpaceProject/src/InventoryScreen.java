@@ -36,7 +36,10 @@ public class InventoryScreen {
 		String itemsString = "<html>";
 		ArrayList<Item> crewsItems = gameEnvironment.getCrew().getItems();
 		for(Item item: crewsItems) {
-			itemsString +=  "<b>" + item.getName()+ "</b> (" + item.getType() + "): "  + item.getDescription() + "<br><br>" ;
+			String originalString =  "<b>" + item.getName()+ "</b> (" + item.getType() + "): "  + item.getDescription() + "<br><br>" ;
+			String withoutOpening = originalString.replaceAll("<html>", "");
+			itemsString += withoutOpening.replaceAll("</html>", "");
+			
 		}
 		itemsString += "</html>";
 		inventoryContents.setText(itemsString);
@@ -77,7 +80,7 @@ public class InventoryScreen {
 		window.getContentPane().add(btnVisitOutpost);
 		
 		inventoryContents = new JLabel("New label");
-		inventoryContents.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		inventoryContents.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		inventoryContents.setVerticalAlignment(SwingConstants.TOP);
 		inventoryContents.setBounds(28, 62, 948, 465);
 		window.getContentPane().add(inventoryContents);
