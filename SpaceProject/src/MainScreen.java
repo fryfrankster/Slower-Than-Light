@@ -70,6 +70,11 @@ public class MainScreen {
 	private JButton selectedMemberButton;
 	private boolean pilotMode = false;
 	private CrewMember otherCrewMember = null;
+	
+	private JLabel lblMember1Plague;
+	private JLabel lblMember2Plague;
+	private JLabel lblMember3Plague;
+	private JLabel lblMember4Plague;
 
 	/**
 	 * Create the application.
@@ -80,8 +85,13 @@ public class MainScreen {
 		window.setVisible(true);
 	}
 	
-	private void updateShields() {
-		
+	private void updateShieldLabel() {
+		Ship ship = gameEnvironment.getShip();
+		lblShipShieldLevel.setText("Ship shield level: " + ship.getCurrentShieldLevel() + "/" + ship.getMaxShieldLevel());
+		if(ship.getCurrentShieldLevel() <=0) {
+			closeWindow();
+			gameEnvironment.launchEndScreen("Game over, The ship lost all shields!");
+		}
 	}
 	
 	public void closeWindow() {
@@ -95,6 +105,7 @@ public class MainScreen {
 		lblGameDialouge.setText(selectedCrewMember.pilotShip(otherCrewMember, gameEnvironment.getPlanet(), gameEnvironment.getRandomEvent(), gameEnvironment.getShip()));
 		selectedMemberButton.setVisible(true);
 		updateAllCrewInfoPanels();
+		updateShieldLabel();
 	}
 	
 	public void finishedWindow() {
@@ -134,12 +145,13 @@ public class MainScreen {
 	/**
 	 * Updates a crewmember information on the panel
 	 */
-	private void updateCrewmemberInfoPanel(CrewMember crewMember, JLabel nameType, JLabel health, JLabel tiredness, JLabel hunger, JLabel actions) {
+	private void updateCrewmemberInfoPanel(CrewMember crewMember, JLabel nameType, JLabel health, JLabel tiredness, JLabel hunger, JLabel actions, JLabel plague) {
 	    nameType.setText(crewMember.getName() + " - " + crewMember.getType());
 		health.setText("Health: " + String.valueOf(crewMember.getHealth()) + "/" + crewMember.getMaxHealth());
 		tiredness.setText("Tiredness: " + String.valueOf(crewMember.getTiredness()) + "/" + crewMember.getMaxTiredness());
 		hunger.setText("Hunger: " + String.valueOf(crewMember.getHunger()) + "/" + crewMember.getMaxHunger());
 		actions.setText("Actions remaining: " + String.valueOf(crewMember.getAvailableActions()));
+		plague.setVisible(crewMember.hasSpacePlague());
 	}
 	
 	private void updateAllCrewInfoPanels() {
@@ -154,29 +166,29 @@ public class MainScreen {
 				member4Panel.setVisible(true);
 				CrewMember crewMember4 = gameEnvironment.getCrew().getCrewMembers().get(3);
 				btnUseCrewmember4.setVisible(crewMember4.getAvailableActions() != 0);
-				updateCrewmemberInfoPanel(crewMember4, lblMember4NameType, lblMember4Health, lblMember4Tiredness, lblMember4Hunger, lblMember4ActionsRemaining);
+				updateCrewmemberInfoPanel(crewMember4, lblMember4NameType, lblMember4Health, lblMember4Tiredness, lblMember4Hunger, lblMember4ActionsRemaining, lblMember4Plague);
 				
 			case 3:
 				member3Panel.setVisible(true);
 				CrewMember crewMember3 = gameEnvironment.getCrew().getCrewMembers().get(2);
 				btnUseCrewmember3.setVisible(crewMember3.getAvailableActions() != 0);
-				updateCrewmemberInfoPanel(crewMember3, lblMember3NameType, lblMember3Health, lblMember3Tiredness, lblMember3Hunger, lblMember3ActionsRemaining);
+				updateCrewmemberInfoPanel(crewMember3, lblMember3NameType, lblMember3Health, lblMember3Tiredness, lblMember3Hunger, lblMember3ActionsRemaining, lblMember3Plague);
 			
 			case 2:
 				member2Panel.setVisible(true);
 				CrewMember crewMember2 = gameEnvironment.getCrew().getCrewMembers().get(1);
 				btnUseCrewmember2.setVisible(crewMember2.getAvailableActions() != 0);
-				updateCrewmemberInfoPanel(crewMember2, lblMember2NameType, lblMember2Health, lblMember2Tiredness, lblMember2Hunger, lblMember2ActionsRemaining);
+				updateCrewmemberInfoPanel(crewMember2, lblMember2NameType, lblMember2Health, lblMember2Tiredness, lblMember2Hunger, lblMember2ActionsRemaining, lblMember2Plague);
 				
 			case 1:
 				member1Panel.setVisible(true);
 				CrewMember crewMember1 = gameEnvironment.getCrew().getCrewMembers().get(0);
 				btnUseCrewmember1.setVisible(crewMember1.getAvailableActions() != 0);
-				updateCrewmemberInfoPanel(crewMember1, lblMember1NameType, lblMember1Health, lblMember1Tiredness, lblMember1Hunger, lblMember1ActionsRemaining);
+				updateCrewmemberInfoPanel(crewMember1, lblMember1NameType, lblMember1Health, lblMember1Tiredness, lblMember1Hunger, lblMember1ActionsRemaining, lblMember1Plague);
 				break;
 			default:
 				closeWindow();
-				gameEnvironment.launchEndScreen();
+				gameEnvironment.launchEndScreen("Game over, all crew died!");
 		}
 	
 	}
@@ -223,11 +235,11 @@ public class MainScreen {
 			public void actionPerformed(ActionEvent e) {
 				if(gameEnvironment.getCurrentDay() == gameEnvironment.getGameLength()) {
 					closeWindow();
-					gameEnvironment.launchEndScreen();
+					gameEnvironment.launchEndScreen("Game over, you ran out of days!");
 				}
 					
 				else {
-				gameEnvironment.nextDay();
+				lblGameDialouge.setText(gameEnvironment.nextDay());
 				updateAllCrewInfoPanels();
 				updateDay();
 				}
@@ -271,7 +283,7 @@ public class MainScreen {
 					updateAllCrewInfoPanels();
 					if(gameEnvironment.getCrew().foundAllParts()) {
 						closeWindow();
-						gameEnvironment.launchEndScreen();
+						gameEnvironment.launchEndScreen("You won by finding all parts!");
 					}
 					else {
 						updateParts();
@@ -291,6 +303,7 @@ public class MainScreen {
 				if(selectedMemberCanDoAction()) {
 					lblGameDialouge.setText(selectedCrewMember.repairShields(gameEnvironment.getShip()));
 					updateAllCrewInfoPanels();
+					updateShieldLabel();
 				}
 			}
 		});
@@ -383,7 +396,7 @@ public class MainScreen {
 		
 		lblMember1Hunger = new JLabel("Hunger");
 		lblMember1Hunger.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblMember1Hunger.setBounds(10, 99, 138, 13);
+		lblMember1Hunger.setBounds(10, 99, 85, 13);
 		member1Panel.add(lblMember1Hunger);
 		
 		lblMember1ActionsRemaining = new JLabel("Actions Remaining");
@@ -405,7 +418,7 @@ public class MainScreen {
 		
 		lblMember2Health = new JLabel("Health: 0");
 		lblMember2Health.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblMember2Health.setBounds(10, 76, 138, 13);
+		lblMember2Health.setBounds(10, 76, 108, 13);
 		member2Panel.add(lblMember2Health);
 		
 		lblMember2Tiredness = new JLabel("Tiredness: 0");
@@ -468,8 +481,9 @@ public class MainScreen {
 		member4Panel.add(lblMember4NameType);
 		
 		lblMember4Health = new JLabel("Health: 0");
+		lblMember4Health.setForeground(Color.BLACK);
 		lblMember4Health.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblMember4Health.setBounds(10, 76, 138, 13);
+		lblMember4Health.setBounds(10, 76, 107, 13);
 		member4Panel.add(lblMember4Health);
 		
 		lblMember4Tiredness = new JLabel("Tiredness: 0");
@@ -508,6 +522,11 @@ public class MainScreen {
 		btnUseCrewmember1.setBounds(10, 143, 209, 25);
 		member1Panel.add(btnUseCrewmember1);
 		
+		lblMember1Plague = new JLabel("Has space plague!");
+		lblMember1Plague.setForeground(Color.RED);
+		lblMember1Plague.setBounds(10, 61, 120, 14);
+		member1Panel.add(lblMember1Plague);
+		
 		btnUseCrewmember2 = new JButton("Use Crewmember2");
 		btnUseCrewmember2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -523,6 +542,11 @@ public class MainScreen {
 		btnUseCrewmember2.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnUseCrewmember2.setBounds(10, 143, 209, 25);
 		member2Panel.add(btnUseCrewmember2);
+		
+		lblMember2Plague = new JLabel("Has space plague!");
+		lblMember2Plague.setForeground(Color.RED);
+		lblMember2Plague.setBounds(10, 61, 120, 14);
+		member2Panel.add(lblMember2Plague);
 		
 		btnUseCrewmember3 = new JButton("Use Crewmember3");
 		btnUseCrewmember3.addActionListener(new ActionListener() {
@@ -540,6 +564,11 @@ public class MainScreen {
 		btnUseCrewmember3.setBounds(10, 143, 209, 25);
 		member3Panel.add(btnUseCrewmember3);
 		
+		lblMember3Plague = new JLabel("Has space plague!");
+		lblMember3Plague.setForeground(Color.RED);
+		lblMember3Plague.setBounds(10, 61, 120, 14);
+		member3Panel.add(lblMember3Plague);
+		
 		btnUseCrewmember4 = new JButton("Use Crewmember4");
 		btnUseCrewmember4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -555,6 +584,11 @@ public class MainScreen {
 		btnUseCrewmember4.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnUseCrewmember4.setBounds(10, 143, 209, 25);
 		member4Panel.add(btnUseCrewmember4);
+		
+		lblMember4Plague = new JLabel("Has space plague!");
+		lblMember4Plague.setForeground(Color.RED);
+		lblMember4Plague.setBounds(10, 61, 120, 14);
+		member4Panel.add(lblMember4Plague);
 		
 		lblMoney = new JLabel("Money: $" + gameEnvironment.getCrew().getMoney());
 		lblMoney.setFont(new Font("Tahoma", Font.BOLD, 18));

@@ -8,10 +8,6 @@ public class Ship {
 		currentShieldLevel = maxShieldLevel = 100;
 	}
 	
-	public void printStatus() {
-		System.out.println("Shield level: " + currentShieldLevel + "/" + maxShieldLevel);
-	}
-	
 	public int getCurrentShieldLevel() {
 		return currentShieldLevel;
 	}

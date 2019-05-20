@@ -375,8 +375,7 @@ public class CrewMember {
 		isExhausted();
 		otherMember.isExhausted();
 		planet.newPlanet();
-		randomEvent.asteroidBelt(ship);
-		return name + " and " + otherMember.name + " have piloted the ship";
+		return name + " and " + otherMember.name + " have piloted the ship to a new planet. " + randomEvent.asteroidBelt(ship);
 	}
 
 	/**
@@ -435,7 +434,7 @@ public class CrewMember {
 					int moneyGained = random.nextInt(60);
 					crew.addMoney(moneyGained);
 					searchSuccess = true;
-					result = "You found $" + moneyGained;
+					result = name + " found $" + moneyGained;
 					break;
 				}
 				
@@ -445,7 +444,7 @@ public class CrewMember {
 					int itemIndex = random.nextInt(planet.getNumTotalItems());
 					Item itemFound = planet.getAllItems().get(itemIndex);
 					crew.addItem(itemFound);
-					result = "You have found " + itemFound.getName() + " of type " + itemFound.getType();
+					result = name + " found " + itemFound.getName() + " of type " + itemFound.getType();
 					searchSuccess = true;
 					break;
 				}
@@ -455,14 +454,14 @@ public class CrewMember {
 				if((searchScore + searchSkill) > 100){
 					planet.setPartFound(true);
 					searchSuccess = true;
-					result = "You found a transporter part!";
+					result = name + " found a transporter part!";
 					crew.setCurrentPieces(crew.getCurrentPieces() + 1);
 					break;
 				}
 			
 		
 			if(searchSuccess == false) {
-				result = "The search was unsuccessful, you found nothing!";
+				result = "The search was unsuccessful, " + name + " found nothing!";
 			}
 				
 		}

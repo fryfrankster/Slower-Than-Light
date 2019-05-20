@@ -112,7 +112,6 @@ public class Crew {
 		crew.decreaseMoney(itemToPurchase.getPrice());
 		crew.addItem(itemToPurchase);
 		planet.removeItem(itemIndex);
-		System.out.println("You have purchased " + itemToPurchase.getName() + "!");
 	
 		
 	}

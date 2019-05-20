@@ -101,10 +101,10 @@ public class OutpostScreen {
 	}
 	
 	private void updateItemInfoPanel(Item item, JLabel name, JLabel description, JLabel benefit, JLabel price) {
-	    name.setText(item.getName() + " - Type " +  item.getType());
+	    name.setText(item.getName() + "(" +  item.getType() + ")");
 		description.setText(item.getDescription());
-		benefit.setText(String.valueOf(item.getBenefit()));
-		price.setText(String.valueOf(item.getPrice()));
+		benefit.setText("Benefit : " + String.valueOf(item.getBenefit()));
+		price.setText("$" + String.valueOf(item.getPrice()));
 	}
 	
 	private void updateAllItemInfoPanels() {

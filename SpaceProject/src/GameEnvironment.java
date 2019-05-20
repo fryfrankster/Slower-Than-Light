@@ -66,8 +66,8 @@ public class GameEnvironment {
 		mainScreen.closeWindow();
 	}
 	
-	public void launchEndScreen() {
-		EndScreen endScreen = new EndScreen(this);
+	public void launchEndScreen(String reasonForEnding) {
+		EndScreen endScreen = new EndScreen(this, reasonForEnding);
 	}
 	
 	public void closeEndScreen(EndScreen endScreen) {
@@ -114,12 +114,11 @@ public class GameEnvironment {
 	 * Called when the user moves to the next day. Increases the day count, random events may occur, and crews actions
 	 * are reset
 	 */
-	public void nextDay() {
+	public String nextDay() {
 		currentDay += 1;
 		score += crew.getDailyScore();
-		randomEvent.alienPirates(crew);
-		randomEvent.spacePlague(crew);
 		crew.resetCrewActions();
+		return "Day: " + currentDay + randomEvent.spacePlague(crew) + randomEvent.alienPirates(crew);
 		
 	}
 	

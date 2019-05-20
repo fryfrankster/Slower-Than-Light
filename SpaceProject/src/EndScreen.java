@@ -9,30 +9,18 @@ public class EndScreen {
 
 	private JFrame window;
 	private GameEnvironment gameEnvironment;
+	private JLabel lblGameOver;
+	private String reasonForEnd;
 
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					EndScreen window = new EndScreen();
-//					window.frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
 
 	/**
 	 * Create the application.
 	 */
-	public EndScreen(GameEnvironment incomingGameEnvironment) {
+	public EndScreen(GameEnvironment incomingGameEnvironment, String reasonForEnding) {
 		gameEnvironment = incomingGameEnvironment;
 		initialize();
 		window.setVisible(true);
+		reasonForEnd = reasonForEnding;
 	}
 	
 	public void closeWindow() {
@@ -72,7 +60,7 @@ public class EndScreen {
 		lblShipName.setBounds(335, 229, 382, 49);
 		window.getContentPane().add(lblShipName);
 		
-		JLabel lblGameOver = new JLabel("Game Over");
+		lblGameOver = new JLabel("Game Over");
 		lblGameOver.setFont(new Font("Tahoma", Font.PLAIN, 99));
 		lblGameOver.setBounds(222, 53, 632, 150);
 		window.getContentPane().add(lblGameOver);
@@ -81,6 +69,8 @@ public class EndScreen {
 		lblThanksForPlaying.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblThanksForPlaying.setBounds(335, 502, 333, 49);
 		window.getContentPane().add(lblThanksForPlaying);
+		
+		lblGameOver.setText("Yeet" + reasonForEnd);
 	}
 
 }
