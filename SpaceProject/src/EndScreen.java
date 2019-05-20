@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class EndScreen {
 
@@ -16,11 +17,10 @@ public class EndScreen {
 	/**
 	 * Create the application.
 	 */
-	public EndScreen(GameEnvironment incomingGameEnvironment, String reasonForEnding) {
+	public EndScreen(GameEnvironment incomingGameEnvironment) {
 		gameEnvironment = incomingGameEnvironment;
 		initialize();
 		window.setVisible(true);
-		reasonForEnd = reasonForEnding;
 	}
 	
 	public void closeWindow() {
@@ -61,8 +61,9 @@ public class EndScreen {
 		window.getContentPane().add(lblShipName);
 		
 		lblGameOver = new JLabel("Game Over");
-		lblGameOver.setFont(new Font("Tahoma", Font.PLAIN, 99));
-		lblGameOver.setBounds(222, 53, 632, 150);
+		lblGameOver.setHorizontalAlignment(SwingConstants.CENTER);
+		lblGameOver.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		lblGameOver.setBounds(34, 53, 929, 150);
 		window.getContentPane().add(lblGameOver);
 		
 		JLabel lblThanksForPlaying = new JLabel("Thanks for playing!!!");
@@ -70,7 +71,7 @@ public class EndScreen {
 		lblThanksForPlaying.setBounds(335, 502, 333, 49);
 		window.getContentPane().add(lblThanksForPlaying);
 		
-		lblGameOver.setText("Yeet" + reasonForEnd);
+		lblGameOver.setText(gameEnvironment.getReasonForEnding());
 	}
 
 }

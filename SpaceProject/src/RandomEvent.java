@@ -27,7 +27,9 @@ public class RandomEvent {
 	 * @param crew The crew that is being effected by space plague
 	 */
 	public String spacePlague(Crew crew) {
+		if(crew.getCrewSize() > 0){
 		int chance = random.nextInt(10);
+
 		if(chance <= 2) {
 			int crewMemberIndex = random.nextInt(crew.getCrewSize());
 			CrewMember crewMember = crew.getCrewMembers().get(crewMemberIndex);
@@ -37,7 +39,7 @@ public class RandomEvent {
 			}
 			
 		}
-		
+		}
 		return "";
 			
 		

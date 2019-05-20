@@ -31,6 +31,16 @@ public class GameEnvironment {
 	
 	/** The players current score */
 	private static int score;
+	
+	private String reasonForEnding;
+
+	public String getReasonForEnding() {
+		return reasonForEnding;
+	}
+
+	public void setReasonForEnding(String reasonForEnding) {
+		this.reasonForEnding = reasonForEnding;
+	}
 
 	public RandomEvent getRandomEvent() {
 		return randomEvent;
@@ -66,8 +76,8 @@ public class GameEnvironment {
 		mainScreen.closeWindow();
 	}
 	
-	public void launchEndScreen(String reasonForEnding) {
-		EndScreen endScreen = new EndScreen(this, reasonForEnding);
+	public void launchEndScreen() {
+		EndScreen endScreen = new EndScreen(this);
 	}
 	
 	public void closeEndScreen(EndScreen endScreen) {

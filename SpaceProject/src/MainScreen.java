@@ -91,8 +91,9 @@ public class MainScreen {
 		Ship ship = gameEnvironment.getShip();
 		lblShipShieldLevel.setText("Ship shield level: " + ship.getCurrentShieldLevel() + "/" + ship.getMaxShieldLevel());
 		if(ship.getCurrentShieldLevel() <=0) {
+			gameEnvironment.setReasonForEnding("Game over, The ship lost all shields!");
 			closeWindow();
-			gameEnvironment.launchEndScreen("Game over, The ship lost all shields!");
+			gameEnvironment.launchEndScreen();
 		}
 	}
 	
@@ -189,8 +190,9 @@ public class MainScreen {
 				updateCrewmemberInfoPanel(crewMember1, lblMember1NameType, lblMember1Health, lblMember1Tiredness, lblMember1Hunger, lblMember1ActionsRemaining, lblMember1Plague);
 				break;
 			default:
+				gameEnvironment.setReasonForEnding("Game over, all crew died!");
 				closeWindow();
-				gameEnvironment.launchEndScreen("Game over, all crew died!");
+				gameEnvironment.launchEndScreen();
 		}
 	
 	}
@@ -236,8 +238,9 @@ public class MainScreen {
 		btnMoveToNextDay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(gameEnvironment.getCurrentDay() == gameEnvironment.getGameLength()) {
+					gameEnvironment.setReasonForEnding("Game over, you ran out of days!");
 					closeWindow();
-					gameEnvironment.launchEndScreen("Game over, you ran out of days!");
+					gameEnvironment.launchEndScreen();
 				}
 					
 				else {
@@ -284,8 +287,9 @@ public class MainScreen {
 					updateMoney();
 					updateAllCrewInfoPanels();
 					if(gameEnvironment.getCrew().foundAllParts()) {
+						gameEnvironment.setReasonForEnding("You won by finding all parts!");
 						closeWindow();
-						gameEnvironment.launchEndScreen("You won by finding all parts!");
+						gameEnvironment.launchEndScreen();
 					}
 					else {
 						updateParts();
