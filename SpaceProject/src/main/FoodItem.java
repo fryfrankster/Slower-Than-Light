@@ -1,4 +1,7 @@
 package main;
+/**
+ * Subclass of type Item, used to store food. Has a name, price, description, hunger increase(benefit) and type
+ */
 public class FoodItem extends Item {
  
 	/**

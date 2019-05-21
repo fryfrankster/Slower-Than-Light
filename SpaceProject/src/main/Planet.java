@@ -3,6 +3,10 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Collections;
 
+/**
+ * Represents the planet the user is currently on. stores whether the part has been found and the items available for sale
+ * Resets when the user pilots to a new planet
+ */
 public class Planet {
 	/** A boolean representing if the part stored on the planet has been found by the player */
 	public boolean partFound;

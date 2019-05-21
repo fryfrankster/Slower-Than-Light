@@ -1,4 +1,7 @@
 package main;
+/**
+ * Subclass of type Item, used to store Medicine. Has a name, price, boolean showing if cures space plague, description, health increase(benefit) and type
+ */
 public class MedicalItem extends Item {
    
 	/**A boolean representing whether or not the item cures the space plague */

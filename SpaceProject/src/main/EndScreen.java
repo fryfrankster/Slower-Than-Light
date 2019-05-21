@@ -7,9 +7,12 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
+/**
+ * Screen displayed at the end of the game. Shows users score, ship and crew name and parts found.
+ */
 public class EndScreen {
 
-
+	/** Window used to hold contents of the GUI*/
 	private JFrame window;
 	
 	/** Instance of game environment used to access game logic and state */
@@ -19,7 +22,8 @@ public class EndScreen {
 	private JLabel lblGameOver;
 
 	/**
-	 * Create the application.
+	 * Constructor for end screen
+	 * @param GameEnvironment incomingGameEnvironment the current state of the game
 	 */
 	public EndScreen(GameEnvironment incomingGameEnvironment) {
 		gameEnvironment = incomingGameEnvironment;
@@ -27,10 +31,16 @@ public class EndScreen {
 		window.setVisible(true);
 	}
 	
+	/**
+	 * Closes the window
+	 */
 	public void closeWindow() {
 		window.dispose();
 	}
 	
+	/**
+	 * Closes the window
+	 */
 	public void finishedWindow() {
 		gameEnvironment.closeEndScreen(this);
 	}

@@ -3,6 +3,9 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * Stores information about a specific Crew member. Also contains methods representing actions the crew member can make
+ */
 public class CrewMember {
 	/**The name of the crew member */
 	private String name;

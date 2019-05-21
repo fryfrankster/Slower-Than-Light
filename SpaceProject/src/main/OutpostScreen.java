@@ -13,6 +13,9 @@ import javax.swing.border.LineBorder;
 
 import java.awt.Color;
 
+/**
+ * GUI allowing user to view and buy items in a space outpost
+ */
 public class OutpostScreen {
 
 	private JFrame window;
@@ -65,7 +68,10 @@ public class OutpostScreen {
 	private JLabel lblMoney;
 	private JLabel lblDialougeBox;
 	
-
+	/**
+	 * Called when user clicks the purchase button
+	 * @param int index the index of the button clicked relating to the item the player wants to purchase
+	 */
 	private void purchaseButtonClicked(int index) {
 		if(gameEnvironment.getCrew().canPurchaseItem(gameEnvironment.getCrew(), gameEnvironment.getPlanet(), index)) {
 			lblDialougeBox.setText("You have purchased " + gameEnvironment.getPlanet().getPlanetsItems().get(index).getName() );

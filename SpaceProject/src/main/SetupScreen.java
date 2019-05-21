@@ -16,7 +16,9 @@ import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-
+/**
+ * GUI allowing the user to choose the crews name, ships name and number of days to play for
+ */
 public class SetupScreen {
 
 	private JFrame window;

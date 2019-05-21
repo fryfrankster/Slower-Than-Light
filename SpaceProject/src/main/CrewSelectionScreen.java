@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
+/**
+ *Screen allowing the user to choose their crew
+ */
 public class CrewSelectionScreen {
 
 	/** The window holding contents displayed to the user */

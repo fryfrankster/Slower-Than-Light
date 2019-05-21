@@ -3,7 +3,9 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-
+/**
+ * Holds game logic and initializes key classes such as the crews ship, crew and planet
+ */
 public class GameEnvironment {
 
 	/** The current day the player is on */
@@ -11,12 +13,6 @@ public class GameEnvironment {
 	
 	/** The number of days the player has selected to play for */
 	private static int gameLength;
-	
-	/** The number of pieces the player has found of the ship */
-	//private static int currentPieces;
-	
-	/** The total number of ship pieces the player has to find */
-	//private static int piecesToFind;
 	
 	/** The players crew */
 	private static Crew crew;
@@ -33,90 +29,168 @@ public class GameEnvironment {
 	/** The players current score */
 	private static int score;
 	
+	/**A string describing the reason why the game ended*/
 	private String reasonForEnding;
 
+	/**
+	 * Returns a string describing the reason why the game ended
+	 * @return a string describing the reason why the game ended
+	 */
 	public String getReasonForEnding() {
 		return reasonForEnding;
 	}
 
+	/**
+	 * Sets the reason for ending the game
+	 * @param String reasonForEnding A String describing to the user why the game ended
+	 */
 	public void setReasonForEnding(String reasonForEnding) {
 		this.reasonForEnding = reasonForEnding;
 	}
 
+	/**
+	 * Gets the instance of the random event class used to make random events happen in game
+	 * @return the instance of the random event class
+	 */
 	public RandomEvent getRandomEvent() {
 		return randomEvent;
 	}
 	
-	private static int crewSelection;
-	
+
+	/**
+	 * Returns the users score
+	 * @return an integer showing the users score
+	 */
 	public int getScore() {
 		return score;
 	}
 	
+	/**
+	 * Launches the Setup GUI
+	 */
 	public void launchSetupScreen() {
 		SetupScreen setupScreen = new SetupScreen(this);
 	}
 	
+	/**
+	 * Closes the Setup Screen GUI
+	 * @param SetupScreen setupScreen the screen to be closed
+	 */
 	public void closeSetupScreen(SetupScreen setupScreen) {
 		setupScreen.closeWindow();
 	}
 	
+	/**
+	 * Launches the Crew Selection GUI
+	 */
 	public void launchCrewSelectionScreen() {
 		CrewSelectionScreen crewSelectionScreen = new CrewSelectionScreen(this);
 	}
 	
+	/**
+	 * Closes the Crew Selection GUI
+	 *  @param CrewSelectionScreen crewSelectionScreen the screen to be closed
+	 */
 	public void closeCrewSelectionScreen(CrewSelectionScreen crewSelectionScreen) {
 		crewSelectionScreen.closeWindow();
 	}
 	
+	/**
+	 * Launches the Main Screen GUI
+	 */
 	public void launchMainScreen() {
 		MainScreen mainScreen = new MainScreen(this);
 	}
 	
+	/**
+	 * Closes the Main Screen GUI
+	 * @param MainScreen mainScreen the screen to be closed
+	 */
 	public void closeMainScreen(MainScreen mainScreen) {
 		mainScreen.closeWindow();
 	}
 	
+	/**
+	 * Launches the End Screen GUI
+	 */
 	public void launchEndScreen() {
 		EndScreen endScreen = new EndScreen(this);
 	}
 	
+	/**
+	 * Closes the End Screen GUI
+	 * @param EndScreen endScreen the screen to be closed
+	 */
 	public void closeEndScreen(EndScreen endScreen) {
 		endScreen.closeWindow();
 	}
 	
+	/**
+	 * Launches the Inventory Screen GUI
+	 */
 	public void launchInventoryScreen() {
 		InventoryScreen inventoryScreen = new InventoryScreen(this);
 	}
 	
+	
+	/**
+	 * Closes the Inventory Screen GUI
+	 * @param InventoryScreen inventoryScreen the screen to be closed
+	 */
 	public void closeInventoryScreen(InventoryScreen inventoryScreen) {
 		inventoryScreen.closeWindow();
 	}
+	
 	
 	public void launchOutpostScreen() {
 		OutpostScreen outpostScreen = new OutpostScreen(this);
 	}
 	
+
+	/**
+	 * Closes the Outpost Screen GUI
+	 * @param OutpostScreen outpostScreen the screen to be closed
+	 */
 	public void closeOutpostScreen(OutpostScreen outpostScreen) {
 		outpostScreen.closeWindow();
 	}
 	
+	/**
+	 * Returns the ship the player has
+	 * @return the ship the player has
+	 */
 	public Ship getShip() {
 		return ship;
 	}
 	
+	/**
+	 * Returns the Crew the player has
+	 * @return the crew the player has
+	 */
 	public Crew getCrew() {
 		return crew;
 	}
 	
+	/**
+	 * Returns the number of days the game runs for
+	 * @return an integer showing the number of days the game runs for
+	 */
 	public int getGameLength() {
 		return gameLength;
 	}
 	
+	/**
+	 * Returns the current day the player is on
+	 * @return the current day the player is on
+	 */
 	public int getCurrentDay() {
 		return currentDay;
 	}
 	
+	/**
+	 * Returns the planet the player is on
+	 * @return the planet the player is on
+	 */
 	public Planet getPlanet() {
 		return planet;
 	}

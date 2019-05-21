@@ -13,9 +13,15 @@ import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
+/**
+ * Screen showing the user the contents of their inventory
+ */
 public class InventoryScreen {
 
+	/** Window holding GUI components */
 	private JFrame window;
+	
+	/** Label holding all items in the players inventory */
 	private JLabel inventoryContents;
 	private GameEnvironment gameEnvironment;
 
@@ -28,14 +34,17 @@ public class InventoryScreen {
 		window.setVisible(true);
 	}
 	
+	/** Closes the Inventory Screen */
 	public void closeWindow() {
 		window.dispose();
 	}
 	
+	/** Closes the Inventory Screen */
 	public void finishedWindow() {
 		gameEnvironment.closeInventoryScreen(this);
 	}
 	
+	/** Updates the inventory label to show the items the player now has*/
 	private void updateInventoryLabel() {
 		String itemsString = "<html>";
 		ArrayList<Item> crewsItems = gameEnvironment.getCrew().getItems();

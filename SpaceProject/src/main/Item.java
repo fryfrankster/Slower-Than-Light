@@ -1,4 +1,8 @@
 package main;
+/**
+ * Superclass of FoodItem and Medical Item.
+ * Stores information about an item such as it's name and price.
+ */
 public class Item {
  
 	/** The name of the item */

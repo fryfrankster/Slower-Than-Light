@@ -1,6 +1,9 @@
 package main;
 import java.util.Random;
 
+/**
+ * Stores logic about random events in the game such as space pirates, space plague and asteroids.
+ */
 public class RandomEvent {
 
 	/** Used for random chances */
@@ -25,7 +28,7 @@ public class RandomEvent {
 	
 	/** 
 	 * When called there is a 20% chance a crew member will get space plague.
-	 * @param crew The crew that is being effected by space plague
+	 * @param Crew crew The crew that is being effected by space plague
 	 */
 	public String spacePlague(Crew crew) {
 		if(crew.getCrewSize() > 0){
@@ -49,7 +52,7 @@ public class RandomEvent {
 	
 	/**
 	 * When called there is a 30% chance the ship will hit an asteroid belt, reducing it's shield health by an amount that scales off missing health
-	 * @param ship the ship that hits the asteroid belt
+	 * @param Ship ship the ship that hits the asteroid belt
 	 */
 	public String asteroidBelt(Ship ship) {
 		int chance = random.nextInt(10);
