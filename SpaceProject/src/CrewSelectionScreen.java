@@ -63,14 +63,25 @@ public class CrewSelectionScreen {
 		window.setVisible(true);
 	}
 	
+	/**
+	 * Closes the Crew Selection screen
+	 */
 	public void closeWindow() {
 		window.dispose();
 	}
 	
+	/**
+	 * Closes the Crew Selection screen
+	 */
 	public void finishedWindow() {
 		gameEnvironment.closeCrewSelectionScreen(this);
 	}
 	
+	/**
+	 * Adds the given crew member to the crew if they are given a name that isn't empty 
+	 * Displays that crew member in a list at the bottom
+	 * @param crewMember the CrewMember to be added to the crew
+	 */
 	public void addMemberToCrew(CrewMember crewMember) {
 		int numMembers = gameEnvironment.getCrew().getCrewSize();
 		

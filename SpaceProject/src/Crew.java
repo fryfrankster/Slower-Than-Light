@@ -112,6 +112,10 @@ public class Crew {
 		
 	}
 	
+	/**
+	 * Returns an integer showing how many crew members can complete actions on the current day
+	 * @return an integer showing how many crew members can complete actions on the current day
+	 */
 	public int getAvailableCrewMembers() {
 		int availableMembers = 0;
 		for(CrewMember crewMember: crewMembers) {
