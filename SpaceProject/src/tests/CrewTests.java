@@ -9,17 +9,22 @@ import main.Crew;
 import main.FoodItem;
 import main.Item;
 import main.Scavenger;
+import main.Chungus;
 
+
+//Test that two of the same crew type class can be added to the crew members list
 class CrewTests {
 	private Crew testCrew;
 	private Item testItemFood;
 	private Scavenger testScavenger;
+	private Chungus testChungus;
 	
 	@BeforeEach
 	void init() {
 	  	testCrew = new Crew ("Crew Name");
 	  	testItemFood = new FoodItem("Dehydrated Chicken roast", 75, 100, "<html>Hearty meal after a long day in space,<br> restores a large amount of hunger.</html>");
-	  	testScavenger = new Scavenger("Scvanger");
+	  	testScavenger = new Scavenger("Scavanger");
+	  	testChungus = new Chungus("Chungus");
 	}
 
 	@Test
@@ -39,6 +44,11 @@ class CrewTests {
 	void addCrewMemberTest() {
 		testCrew.addCrewMember(testScavenger);
 		assertTrue(testCrew.getCrewMembers().contains(testScavenger));
+	}
+	
+	@Test
+	void removeCrewMemberTest() {
+		
 	}
 
 }
