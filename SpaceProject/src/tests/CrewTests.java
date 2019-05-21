@@ -10,6 +10,7 @@ import main.Engineer;
 import main.FoodItem;
 import main.Item;
 import main.MedicalItem;
+import main.Planet;
 import main.Scavenger;
 import main.Chungus;
 
@@ -22,6 +23,7 @@ class CrewTests {
 	private Scavenger testScavenger;
 	private Chungus testChungus;
 	private Engineer testEngineer;
+	private Planet testPlanet;
 	
 	@BeforeEach
 	void init() {
@@ -31,6 +33,8 @@ class CrewTests {
 	  	testScavenger = new Scavenger("Scavanger");
 	  	testChungus = new Chungus("Chungus");
 	  	testEngineer = new Engineer("Engineer");
+	  	testPlanet = new Planet();
+	  	
 	}
 
 	@Test
@@ -111,9 +115,28 @@ class CrewTests {
 	
 	@Test
 	public void canPurchaseItemTest() {
-		testCrew.getMoney();
+		assertTrue(testItemFood.getPrice() <= testCrew.getMoney());
+		testCrew.decreaseMoney(50);
+		assertTrue(testItemFood.getPrice() >= testCrew.getMoney());
+	}
+	
+	@Test
+	public void purchaseItemTest() {
+		testCrew.addMoney(1000);
+		testCrew.purchaseItem(testCrew, testPlanet, 0);
+		assertTrue(0 < testCrew.getInventorySize());
 		
 	}
 	
+	@Test
+	public void resetCrewActionsTest() {
+		testCrew.addCrewMember(testChungus);
+		testCrew.addCrewMember(testScavenger);
+		testCrew.addCrewMember(testEngineer);
+		
+		testChungus.setActionsCompleted(0);
+		testScavenger.setActionsCompleted(1);
+		testEngineer.setActionsCompleted(2);
+	}
 
 }
