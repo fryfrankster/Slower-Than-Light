@@ -88,5 +88,27 @@ class CrewTests {
 		assertTrue(0 < testCrew.getInventorySize());
 		assertFalse(testCrew.isInventoryEmpty());
 	}
+	
+	@Test
+	void getAvailableCrewMembersTest() {
+		assertTrue(0 == testCrew.getAvailableCrewMembers());
+		
+		testCrew.addCrewMember(testChungus);
+		
+		testChungus.setActionsCompleted(0);
+		assertTrue(1 == testCrew.getAvailableCrewMembers());
+		assertNotEquals(0, testCrew.getAvailableCrewMembers());
+		
+		testChungus.setActionsCompleted(1);
+		assertTrue(1 == testCrew.getAvailableCrewMembers());
+		assertFalse(0 == testCrew.getAvailableCrewMembers());
+		assertFalse(2 == testCrew.getAvailableCrewMembers());
+		
+		testChungus.setActionsCompleted(2);
+		assertTrue(0 == testCrew.getAvailableCrewMembers());
+		assertFalse(1 == testCrew.getAvailableCrewMembers());
+	}
+	
+	
 
 }
