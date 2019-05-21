@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import main.Crew;
+import main.Engineer;
 import main.FoodItem;
 import main.Item;
 import main.Scavenger;
@@ -18,6 +19,7 @@ class CrewTests {
 	private Item testItemFood;
 	private Scavenger testScavenger;
 	private Chungus testChungus;
+	private Engineer testEngineer;
 	
 	@BeforeEach
 	void init() {
@@ -25,6 +27,7 @@ class CrewTests {
 	  	testItemFood = new FoodItem("Dehydrated Chicken roast", 75, 100, "<html>Hearty meal after a long day in space,<br> restores a large amount of hunger.</html>");
 	  	testScavenger = new Scavenger("Scavanger");
 	  	testChungus = new Chungus("Chungus");
+	  	testEngineer = new Engineer("Engineer");
 	}
 
 	@Test
