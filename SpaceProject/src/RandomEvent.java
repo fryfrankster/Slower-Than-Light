@@ -30,7 +30,7 @@ public class RandomEvent {
 		if(crew.getCrewSize() > 0){
 		int chance = random.nextInt(10);
 
-		if(chance <= 2) {
+		if(chance <= 20) {
 			int crewMemberIndex = random.nextInt(crew.getCrewSize());
 			CrewMember crewMember = crew.getCrewMembers().get(crewMemberIndex);
 			if(crewMember.hasSpacePlague() == false && crewMember.isPlaugeImmune() == false) {

@@ -242,7 +242,7 @@ public class CrewMember {
 		}
 		
 		else if (currentTiredness == 0) {
-			System.out.println(name + " Is exhausted and cannot perform any actions until the next day! Use a different crew member!");
+			System.out.println(name + " is exhausted and cannot perform any actions until the next day! Use a different crew member!");
 		}
 		return (actionsCompleted < actionsPerDay && currentTiredness != 0);
 	}
@@ -268,16 +268,13 @@ public class CrewMember {
 	 * Checks if a crew member has reached maximum tiredness. Will not be able to perform an action if member is exhausted.
 	 * @return exhausted a boolean value, true if the member is exhausted, false if the member is not exhausted.
 	 */
-	public boolean isExhausted() {
-		boolean isExhausted = false;
+	public String isExhausted() {
 		if (currentTiredness == 0) {
 			setActionsCompleted(actionsPerDay);
-			System.out.println(name + " is exhausted!");
-			System.out.println(name + " cannot perform any more actions until the next day and will be forced to take a nap");
-			isExhausted = true;
+			return " " + name + " is exhausted & cannot perform any more actions today!";
 		}
 		
-		return isExhausted;
+		return "";
 	}
 	
 	
@@ -322,8 +319,8 @@ public class CrewMember {
 		
 		increaseTiredness();
 		
-		isExhausted();
-		return outputToUser;
+		
+		return outputToUser + isExhausted();
 		
 	}
 	
@@ -354,10 +351,8 @@ public class CrewMember {
 		otherMember.increaseHunger();
 		increaseTiredness();
 		otherMember.increaseTiredness();
-		isExhausted();
-		otherMember.isExhausted();
 		planet.newPlanet();
-		return name + " and " + otherMember.name + " have piloted the ship to a new planet. " + randomEvent.asteroidBelt(ship);
+		return name + " and " + otherMember.name + " have piloted the ship to a new planet. " + randomEvent.asteroidBelt(ship) + isExhausted() + otherMember.isExhausted();
 	}
 
 	/**
@@ -373,8 +368,7 @@ public class CrewMember {
 		increaseHunger();
 		increaseTiredness();
 		actionsCompleted += 1;
-		isExhausted();
-		return name + " has repaired the ships shields";
+		return name + " has repaired the ships shields" + isExhausted();
 		}
 	}
 	
@@ -388,7 +382,6 @@ public class CrewMember {
 		increaseTiredness();
 		actionsCompleted += 1;
 		String result = "";
-		isExhausted();
 		
 		Random random = new Random();
 		int searchingFor;
@@ -448,7 +441,7 @@ public class CrewMember {
 				
 		}
 		
-		return result;
+		return result + isExhausted();
 	}
 	
 }

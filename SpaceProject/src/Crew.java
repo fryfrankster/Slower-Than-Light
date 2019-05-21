@@ -27,17 +27,19 @@ public class Crew {
 	/** Stores the items the crew has */
 	private ArrayList<Item> items;
 	
+	/** Returns if the player has found all the ships parts*/
 	public boolean foundAllParts() {
 		return currentPieces == piecesToFind;
 	}
 	
+	/** Returns The name the user has chosen for the crew */
 	public String getName() {
 		return name;
 	}
 	
 	/**
-	 * Adds an object of type CrewMember to the crew
-	 * @param CrewMember crewMember object of type crew member to be added
+	 * Adds an object of type CrewMember to the crew members Array List
+	 * @param CrewMember crewMember object of type crew member to be added to the crew members list
 	 */
 	public void addCrewMember(CrewMember crewMember) {
 		crewMembers.add(crewMember);
@@ -61,7 +63,7 @@ public class Crew {
 	
 	/**
 	 * Decreases the crew's money 
-	 * @param int toDecrease the amount of money lost
+	 * @param int toDecrease the amount of money lost by the crew
 	 */
 	public void decreaseMoney(int toDecrease) {
 		money -= toDecrease;
@@ -78,8 +80,8 @@ public class Crew {
 	
 	
 	/**
-	 * returns an ArrayList of the crew's members
-	 * @return The ArrayList of the crew's crew members 
+	 * Returns an ArrayList of the crew's members
+	 * @return The ArrayList of type CrewMember holding the crew's crew members 
 	 */
 	public ArrayList<CrewMember> getCrewMembers(){
 		return crewMembers;
@@ -93,15 +95,6 @@ public class Crew {
 		return items;
 	}
 	
-	public int getAvailableCrewMembers() {
-		int availableMembers = 0;
-		for(CrewMember crewMember: crewMembers) {
-			if(crewMember.canPerformAction()) {
-				availableMembers += 1;
-			}
-		}
-		return availableMembers;
-	}
 	
 	/**
 	 * Allows the crew to purchase an item from a space outpost
@@ -119,6 +112,13 @@ public class Crew {
 		
 	}
 	
+	/**
+	 * Returns a boolean value showing if the crew has enough money to purchase an item
+	 * @param crew The crew attempting to purchase an item
+	 * @param planet The planet the crew is purchasing the item from
+	 * @param itemIndex The index of the item in the planets item list the crew wishes to purchase
+	 * @return
+	 */
 	public boolean canPurchaseItem(Crew crew, Planet planet, int itemIndex) {
 		return crew.getMoney() >= planet.getPlanetsItems().get(itemIndex).getPrice();
 	}
@@ -132,7 +132,7 @@ public class Crew {
 	}
 	
 	/**
-	 * Resets crew Member actions to 0 and decreases a crew member's health if they have space plague
+	 * Resets crew Member actions to 0 and decreases a crew member's health if they have space plague or are missing hunger
 	 */
 	public void resetCrewActions() {
 
@@ -159,11 +159,11 @@ public class Crew {
 		    else if (member.getHunger() <= 0) {
 		    	if (member.getHealth() > 25) {
 			        member.decreaseHealth(25, this);
-			        System.out.println(member.getName() + " has lost 35 health due to starvation! Their current health is " + member.getHealth() + "/" + member.getMaxHealth());
+			        //System.out.println(member.getName() + " has lost 35 health due to starvation! Their current health is " + member.getHealth() + "/" + member.getMaxHealth());
 			    	}
 			    else {
 			    	iterator.remove();
-			    	System.out.println(member.getName() + " has died from hunger!!"); 
+			    	//System.out.println(member.getName() + " has died from hunger!!"); 
 			    }
 		    }
 		    
@@ -174,7 +174,7 @@ public class Crew {
 	}
 	
 	/**
-	 * Calculates the users score for the day
+	 * Calculates the players score for the day
 	 * @return the increase in users score
 	 */
 	public int getDailyScore() {
@@ -211,7 +211,7 @@ public class Crew {
 	}
 	
 	/**
-	 * Returns an item the crew owns
+	 * Returns an item the crew owns at the desired index
 	 * @param int  userInput the index of the item in the crew's item list
 	 * @return The Item object at the specified index in the crew's item list
 	 */
@@ -246,7 +246,8 @@ public class Crew {
 	}
 	
 	/**
-	 * 
+	 * Constructor for Object of Type Crew
+	 * Initializes crews starting money, crew members, items and name.
 	 * @param crewName the name of the crew
 	 */
 	public Crew(String crewName) {
@@ -257,23 +258,10 @@ public class Crew {
 		
 	}
 	
-	
 	/**
-	 * Prints the items in the crews inventory
+	 * Returns the crews items as a string array for display in the drop down selection box in the GUI
+	 * @return A String Array showing items and their frequencies.
 	 */
-	public void viewInventory() {
-		if (items.isEmpty()) {
-			System.out.println("There are no items in the inventory");
-		}
-		else {
-			int counter = 1;
-			for(Item item: items) {
-				System.out.println(counter + ") " + item.getInfo());
-				counter += 1;
-			}
-		}
-	}
-	
 	public String[] getItemsAsStringArray(){
 		ArrayList<String> crewsItemsNames = new ArrayList<>();
 		
@@ -293,18 +281,36 @@ public class Crew {
 		return choices;
 	}
 	
+	/**
+	 * Returns the amount of ship pieces the crew has found
+	 * @return an integer showing the amount of ship pieces the crew has found
+	 */
 	public int getCurrentPieces() {
 		return currentPieces;
 	}
 	
+	/**
+	 * Return the amount of total ship pieces the crew has to find
+	 * @return an integer showing the total amount of ship pieces the crew has to find
+	 */
 	public int getPiecesToFind() {
 		return piecesToFind;
 	}
 	
+	
+	/**
+	 * Sets the current pieces that the crew has found to the parameter
+	 * @param pieces an integer representing how many pieces the crew has found
+	 */
 	public void setCurrentPieces(int pieces) {
 		currentPieces = pieces;
 	}
 	
+	
+	/**
+	 * Sets the total pieces that the crew has to find to the parameter
+	 * @param pieces an integer representing how many total pieces the crew has to find
+	 */
 	public void setPiecesToFind(int pieces) {
 		piecesToFind = pieces;
 	}

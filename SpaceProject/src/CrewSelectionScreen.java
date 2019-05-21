@@ -15,18 +15,43 @@ import java.awt.Color;
 
 public class CrewSelectionScreen {
 
+	/** The window holding contents displayed to the user */
 	private JFrame window;
+	
+	/**Used to access all game logic so buttons can effect game*/
 	private GameEnvironment gameEnvironment;
+	
+	/** Shows the name and type of crew member 1*/
 	private JLabel lblCrewMember1;
+	
+	/** Shows the name and type of crew member 2*/
 	private JLabel lblCrewMember2;
+	
+	/** Shows the name and type of crew member 3*/
 	private JLabel lblCrewMember3;
+	
+	/** Shows the name and type of crew member 4*/
 	private JLabel lblCrewMember4;
+	
+	/** Label storing an error message that shows if user inputs something invalid*/
 	private JLabel lblErrorText;
+	
+	/**Adds a crew member of type robot to the players crew */
 	private JButton btnRobot;
+	
+	/**Adds a crew member of type scavenger to the players crew */
 	private JButton btnScavenger;
+	
+	/**Adds a crew member of type worker to the players crew */
 	private JButton btnWorker;
+	
+	/**Adds a crew member of type chungus to the players crew */
 	private JButton btnChungus;
+	
+	/**Adds a crew member of type engineer to the players crew */
 	private JButton btnEngineer;
+	
+	/**Adds a crew member of type Soldier to the players crew */
 	private JButton btnSoldier;
 
 	/**

@@ -1,3 +1,9 @@
+/**
+ * 
+ * @author Andrew
+ * Chungus is a subclass of CrewMember
+ * Chunguses have the unique attribute of having an extra 50 health
+ */
 public class Chungus extends CrewMember {
 	/**
 	 * 
