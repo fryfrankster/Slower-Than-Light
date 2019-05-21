@@ -48,7 +48,17 @@ class CrewTests {
 	
 	@Test
 	void removeCrewMemberTest() {
-		
+		testCrew.addCrewMember(testScavenger);
+		assertTrue(testCrew.getCrewMembers().contains(testScavenger));
+		testCrew.removeCrewMember(testScavenger);
+		assertFalse(testCrew.getCrewMembers().contains(testScavenger));
+	}
+	
+	@Test
+	void decreaseMoneyTest() {
+		int initialMoney = testCrew.getMoney();
+		testCrew.decreaseMoney(1);
+		assertTrue(initialMoney > testCrew.getMoney());
 	}
 
 }
