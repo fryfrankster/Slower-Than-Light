@@ -9,11 +9,14 @@ import javax.swing.SwingConstants;
 
 public class EndScreen {
 
-	private JFrame window;
-	private GameEnvironment gameEnvironment;
-	private JLabel lblGameOver;
-	private String reasonForEnd;
 
+	private JFrame window;
+	
+	/** Instance of game environment used to access game logic and state */
+	private GameEnvironment gameEnvironment;
+	
+	/**Label displays the reason for the game ending */
+	private JLabel lblGameOver;
 
 	/**
 	 * Create the application.

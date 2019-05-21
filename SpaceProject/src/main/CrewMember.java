@@ -108,8 +108,8 @@ public class CrewMember {
 	
 	/**
 	 * Decreases a crew members health by a specified amount, calls crewMemberDeath if the members health drops to 0
-	 * @param toDecrease the amount of health to decrease the crew member by
-	 * @param crew the crew the crew member is from
+	 * @param int toDecrease the amount of health to decrease the crew member by
+	 * @param Crew crew the crew the crew member is from
 	 */
 	public void decreaseHealth(int toDecrease, Crew crew) {
 		currentHealth = Math.max(currentHealth - toDecrease, 0);
@@ -119,7 +119,7 @@ public class CrewMember {
 	}
 	
 	/**
-	 * Increases the crew members tiredness by their tiredness increase rate
+	 * Increases the crew members tiredness by their specified tiredness increase rate
 	 */
 	public void increaseTiredness() {
 		currentTiredness = Math.max(0, currentTiredness - tirednessIncreaseRate);
@@ -145,19 +145,23 @@ public class CrewMember {
 	
 	/**
 	 * Sets the number of crew members actions completed to the given value
-	 * @param actions the number of actions the crew member has now completed
+	 * @param int actions the number of actions the crew member has now completed
 	 */
 	public void setActionsCompleted(int actions) {
 		actionsCompleted = actions;
 	}
 	
+	/**
+	 * Returns the number of available actions the crew member has
+	 * @return an integer showing the number of available actions the crew member has
+	 */
 	public int getAvailableActions() {
 		return actionsPerDay - actionsCompleted;
 	}
 	
 	/**
-	 * 
-	 * @param crew
+	 * Called when a crew member dies, removes them from the crew
+	 * @param Crew crew the crew that the dying crew member is from
 	 */
 	public void crewMemberDeath(Crew crew) {
 		System.out.println(name + " has died!"); 
@@ -173,11 +177,9 @@ public class CrewMember {
 	}
 	
 	
-	
-	
 	/**
 	 * Increases the health of the crew member by the specified value
-	 * @param increase the amount of health to increase the crew member by
+	 * @param int increase the amount of health to increase the crew member by
 	 */
 	public void incraseHealth(int increase) {
 		currentHealth = Math.min(maxHealth, currentHealth + increase);
@@ -261,7 +263,7 @@ public class CrewMember {
 	
 	/**
 	 * Gives a crew member space plague or cures them of it
-	 * @param plague a boolean value, true if the member is given plague, false if the member is cured.
+	 * @param boolean plague a boolean value, true if the member is given plague, false if the member is cured.
 	 */
 	public void setSpacePlague(boolean plague) {
 		hasPlague = plague;
@@ -280,7 +282,10 @@ public class CrewMember {
 		return "";
 	}
 	
-	
+	/**
+	 * Called when a crew member has reached maximum tiredness, slightly increases their sleep level 
+	 * and sets their available actions to 1
+	 */
 	public void nap() {
 		currentTiredness += 20;
 		setActionsCompleted(1);
@@ -290,8 +295,9 @@ public class CrewMember {
 	
 	/**
 	 * A crew member uses an item. The crew member benefits from the item and it is removed from the crews inventory
-	 * @param crew the crew the crew member is from
-	 * @param userInput an integer representing the item the player has chosen to use
+	 * @param Crew crew the crew the crew member is from
+	 * @param int userInput an integer representing the item the player has chosen to use
+	 * @return the result of using the item to be displayed to the user
 	 */
 	public String useItem(Crew crew, int userInput) {
 		String outputToUser = "";
@@ -311,13 +317,9 @@ public class CrewMember {
 			outputToUser += name + " has eaten " + itemChosen.getName() + "!";
 		}
 			
-		
-		
-		//Actions completed increases by 1
-		//useItem(crew, userInput);
+
 		actionsCompleted += 1;
 		
-		//Remove from the inventory once the item has been used
 		crew.removeInInventory(userInput);
 		
 		increaseTiredness();
@@ -329,6 +331,7 @@ public class CrewMember {
 	
 	/**
 	 * Decreases the crew members tiredness, uses an action and increases hunger
+	 * @return A string showing the result of the action to be displayed to the user
 	 */
 	public String sleep(){
 		if(currentTiredness == maxTiredness) {
@@ -342,10 +345,11 @@ public class CrewMember {
 	
 	/**
 	 * Uses two crew members to pilot the ship to another planet
-	 * @param otherMember The other crew member piloting the ship
-	 * @param planet The planet the crew member is currently on
-	 * @param randomEvent instance of random event used to create the asteroid event
-	 * @param ship the ship to be piloted
+	 * @param CrewMember otherMember The other crew member piloting the ship
+	 * @param Planet planet The planet the crew member is currently on
+	 * @param RandomEvent randomEvent instance of random event used to create the asteroid event
+	 * @param Ship ship the ship to be piloted
+	 * @return A string showing the result of the action to be displayed to the user
 	 */
 	public String pilotShip(CrewMember otherMember, Planet planet, RandomEvent randomEvent, Ship ship) {
 		actionsCompleted += 1;
@@ -360,7 +364,8 @@ public class CrewMember {
 
 	/**
 	 * Repairs the ships shields by the crew members specified repair skill
-	 * @param ship the ship to be repaired
+	 * @param Ship ship the ship to be repaired
+	 * @return A string showing the result of the action to be displayed to the user
 	 */
 	public String repairShields(Ship ship) {
 		if(ship.getCurrentShieldLevel() == ship.getMaxShieldLevel()) {
@@ -377,8 +382,9 @@ public class CrewMember {
 	
 	/** 
 	 * A crew member searches the planet for parts. They can find a spaceship part, an item, money or nothing
-	 * @param planet the planet to be searched
-	 * @param crew the crew that the member is from
+	 * @param Planet planet the planet to be searched
+	 * @param Crew crew the crew that the member is from
+	 * @return A string showing the result of the action to be displayed to the user
 	 */
 	public String searchForParts(Planet planet, Crew crew) {
 		increaseHunger();

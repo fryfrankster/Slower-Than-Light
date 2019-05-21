@@ -1,5 +1,4 @@
 package main;
-//Testing
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
@@ -21,40 +20,38 @@ import java.awt.event.ActionEvent;
 public class SetupScreen {
 
 	private JFrame window;
-	/**
-	 * For the user to enter the ships name
-	 */
+	
+	
+	
+    /** Text field for the user to choose the name of their ship */
 	private JTextField shipNameEntryField;
+	
+	 /** Text field for the user to choose the name of their crew */
 	private JTextField crewNameEntryField;
+	
+	 /** Button user clicks when they have finished choosing their crew */
 	private JButton btnNext;
+	
+	 /** Displays text prompting user to choose their crew members */
 	private JLabel lblChooseYourCrew;
+	
+	
 	private JLabel label;
+	
+	/**Prompts the user to choose how many days to play for */
 	private JLabel lblChooseHowMany;
+	
+	/**Label displaying the games name */
 	private JLabel lblSlowerThanLight;
+	
+	/**Label storing error message that shows if user doesn't fill in fields */
 	private JLabel lblErrorFillIn;
 	
+	/**An instance of the game used so buttons can effect the game */
 	private GameEnvironment gameEnvironment;
-	
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					GameSetupScreen2 window = new GameSetupScreen2();
-//					window.frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-	
-	
 
 	/**
-	 * Create the application.
+	 * Creates the Setup Screen
 	 */
 	public SetupScreen(GameEnvironment incomingGameEnvironment) {
 		gameEnvironment = incomingGameEnvironment;
@@ -62,16 +59,18 @@ public class SetupScreen {
 		window.setVisible(true);
 	}
 	
+	/**Closes the setup screen */
 	public void closeWindow() {
 		window.dispose();
 	}
 	
+	/**Closes the setup screen */
 	public void finishedWindow() {
 		gameEnvironment.closeSetupScreen(this);
 	}
 
 	/**
-	 * Initialize the contents of the frame!
+	 * Initialize the contents of the frame
 	 */
 	private void initialize() {
 		window = new JFrame();

@@ -5,7 +5,6 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.TreeSet;
 
-//commit
 
 /** Stores information about crew members, their ship, and their current inventory.
 */
@@ -129,10 +128,10 @@ public class Crew {
 	
 	/**
 	 * Returns a boolean value showing if the crew has enough money to purchase an item
-	 * @param crew The crew attempting to purchase an item
-	 * @param planet The planet the crew is purchasing the item from
-	 * @param itemIndex The index of the item in the planets item list the crew wishes to purchase
-	 * @return
+	 * @param Crew crew The crew attempting to purchase an item
+	 * @param Planet planet The planet the crew is purchasing the item from
+	 * @param int itemIndex The index of the item in the planets item list the crew wishes to purchase
+	 * @return A boolean showing if the crew has enough money to purchase an item
 	 */
 	public boolean canPurchaseItem(Crew crew, Planet planet, int itemIndex) {
 		return crew.getMoney() >= planet.getPlanetsItems().get(itemIndex).getPrice();
@@ -151,7 +150,6 @@ public class Crew {
 	 */
 	public void resetCrewActions() {
 
-		//Have to do it this way with iterator because of issues with space plague
 		for (Iterator<CrewMember> iterator = crewMembers.iterator(); iterator.hasNext(); ) {
 		    CrewMember member = iterator.next();
 		    member.setActionsCompleted(0);
@@ -174,11 +172,11 @@ public class Crew {
 		    else if (member.getHunger() <= 0) {
 		    	if (member.getHealth() > 25) {
 			        member.decreaseHealth(25, this);
-			        //System.out.println(member.getName() + " has lost 35 health due to starvation! Their current health is " + member.getHealth() + "/" + member.getMaxHealth());
+			       
 			    	}
 			    else {
 			    	iterator.remove();
-			    	//System.out.println(member.getName() + " has died from hunger!!"); 
+
 			    }
 		    }
 		    
@@ -263,7 +261,7 @@ public class Crew {
 	/**
 	 * Constructor for Object of Type Crew
 	 * Initializes crews starting money, crew members, items and name.
-	 * @param crewName the name of the crew
+	 * @param String crewName the name of the crew
 	 */
 	public Crew(String crewName) {
 		crewMembers = new ArrayList<CrewMember>();
@@ -315,7 +313,7 @@ public class Crew {
 	
 	/**
 	 * Sets the current pieces that the crew has found to the parameter
-	 * @param pieces an integer representing how many pieces the crew has found
+	 * @param int pieces an integer representing how many pieces the crew has found
 	 */
 	public void setCurrentPieces(int pieces) {
 		currentPieces = pieces;
@@ -324,7 +322,7 @@ public class Crew {
 	
 	/**
 	 * Sets the total pieces that the crew has to find to the parameter
-	 * @param pieces an integer representing how many total pieces the crew has to find
+	 * @param int pieces an integer representing how many total pieces the crew has to find
 	 */
 	public void setPiecesToFind(int pieces) {
 		piecesToFind = pieces;

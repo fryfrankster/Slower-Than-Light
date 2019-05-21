@@ -81,7 +81,7 @@ public class CrewSelectionScreen {
 	/**
 	 * Adds the given crew member to the crew if they are given a name that isn't empty 
 	 * Displays that crew member in a list at the bottom
-	 * @param crewMember the CrewMember to be added to the crew
+	 * @param CrewMember crewMember the CrewMember to be added to the crew
 	 */
 	public void addMemberToCrew(CrewMember crewMember) {
 		int numMembers = gameEnvironment.getCrew().getCrewSize();

@@ -1,4 +1,8 @@
 package main;
+/**
+ * Engineer is a subclass of CrewMember
+ * Engineers have the unique attribute of repairing the ships shields more effectively
+ */
 public class Engineer extends CrewMember {
 	/**
 	 * @param String name The name of the Engineer
