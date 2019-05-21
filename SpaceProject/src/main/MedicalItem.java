@@ -1,3 +1,4 @@
+package main;
 public class MedicalItem extends Item {
    
 	/**A boolean representing whether or not the item cures the space plague */

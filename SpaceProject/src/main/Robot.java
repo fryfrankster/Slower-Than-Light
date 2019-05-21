@@ -1,3 +1,4 @@
+package main;
 public class Robot extends CrewMember {
 	/** 
 	 * @param String name The name of the robot

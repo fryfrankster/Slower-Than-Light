@@ -1,3 +1,4 @@
+package main;
 public class Worker extends CrewMember {
 	
 	/**

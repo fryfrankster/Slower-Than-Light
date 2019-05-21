@@ -1,3 +1,4 @@
+package main;
 public class Soldier extends CrewMember {
 	/**
 	 * @param String name the name of the soldier
