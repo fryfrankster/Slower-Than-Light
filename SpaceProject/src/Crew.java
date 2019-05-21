@@ -112,6 +112,16 @@ public class Crew {
 		
 	}
 	
+	public int getAvailableCrewMembers() {
+		int availableMembers = 0;
+		for(CrewMember crewMember: crewMembers) {
+			if(crewMember.canPerformAction()) {
+				availableMembers += 1;
+			}
+		}
+		return availableMembers;
+	}
+	
 	/**
 	 * Returns a boolean value showing if the crew has enough money to purchase an item
 	 * @param crew The crew attempting to purchase an item
