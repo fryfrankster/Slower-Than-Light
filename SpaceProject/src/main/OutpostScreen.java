@@ -18,54 +18,124 @@ import java.awt.Color;
  */
 public class OutpostScreen {
 
+	/** Window holding all GUI components */
 	private JFrame window;
+	
+	/** Instance of the GameEnvironment used to access game logic*/
 	private GameEnvironment gameEnvironment;
 	
+	/** The name of item 1 in the list*/
 	private JLabel lblItem1Name;
+	
+	/** The description of item 1 in the list*/
 	private JLabel lblItem1Description;
+	
+	/** The benefit of item 1 in the list*/
 	private JLabel lblItem1Benefit;
+	
+	/** The price of item 1 in the list*/
 	private JLabel lblItem1Price;
 	
+	/** The name of item 2 in the list*/
 	private JLabel lblItem2Name;
+	
+	/** The description of item 2 in the list*/
 	private JLabel lblItem2Description;
+	
+	/** The description of item 2 in the list*/
 	private JLabel lblItem2Benefit;
+	
+	/** The price of item 2 in the list*/
 	private JLabel lblItem2Price;
 	
+	/** The name of item 3 in the list*/
 	private JLabel lblItem3Name;
+	
+	/** The description of item 3 in the list*/
 	private JLabel lblItem3Description;
+	
+	/** The description of item 3 in the list*/
 	private JLabel lblItem3Benefit;
+	
+	/** The price of item 3 in the list*/
 	private JLabel lblItem3Price;
 	
+	/** The name of item 4 in the list*/
 	private JLabel lblItem4Name;
+	
+	/** The description of item 4 in the list*/
 	private JLabel lblItem4Description;
+	
+	/** The description of item 4 in the list*/
 	private JLabel lblItem4Benefit;
+	
+	/** The price of item 4 in the list*/
 	private JLabel lblItem4Price;
 	
+	/** The name of item 5 in the list*/
 	private JLabel lblItem5Name;
+	
+	/** The description of item 5 in the list*/
 	private JLabel lblItem5Description;
+	
+	/** The description of item 5 in the list*/
 	private JLabel lblItem5Benefit;
+	
+	/** The price of item 5 in the list*/
 	private JLabel lblItem5Price;
 	
+	/** The name of item 6 in the list*/
 	private JLabel lblItem6Name;
+	
+	/** The description of item 6 in the list*/
 	private JLabel lblItem6Description;
+	
+	/** The description of item 6 in the list*/
 	private JLabel lblItem6Benefit;
+	
+	/** The price of item 6 in the list*/
 	private JLabel lblItem6Price;
 	
+	/** Panel containing information about item 1 in the list*/
 	private JPanel panelItem1;
+	
+	/** Panel containing information about item 2 in the list*/
 	private JPanel panelItem2;
+	
+	/** Panel containing information about item 3 in the list*/
 	private JPanel panelItem3;
+	
+	/** Panel containing information about item 4 in the list*/
 	private JPanel panelItem4;
+	
+	/** Panel containing information about item 5 in the list*/
 	private JPanel panelItem5;
+	
+	/** Panel containing information about item 6 in the list*/
 	private JPanel panelItem6;
 	
+	/** Button user can click to purchase item 1 in the list*/
 	private JButton btnPurchaseItem1;
+	
+	/** Button user can click to purchase item 2 in the list*/
 	private JButton btnPurchaseItem2;
+	
+	/** Button user can click to purchase item 3 in the list*/
 	private JButton btnPurchaseItem3;
+	
+	/** Button user can click to purchase item 4 in the list*/
 	private JButton btnPurchaseItem4;
+	
+	/** Button user can click to purchase item 5 in the list*/
 	private JButton btnPurchaseItem5;
+	
+	/** Button user can click to purchase item 6 in the list*/
 	private JButton btnPurchaseItem6;
 	
+	/** Label showing the players current money*/
 	private JLabel lblMoney;
+	
+	/** Label that displays dialogue informing the user of what is happening in the game*/
 	private JLabel lblDialougeBox;
 	
 	/**
@@ -95,18 +165,29 @@ public class OutpostScreen {
 		window.setVisible(true);
 	}
 
+	/** Closes the Outpost screen*/
 	public void closeWindow() {
 		window.dispose();
 	}
 	
+	/** Closes the Outpost screen*/
 	public void finishedWindow() {
 		gameEnvironment.closeOutpostScreen(this);
 	}
 	
+	/** Updates the money label to show the crews current money*/
 	private void updateMoneyLabel() {
 		lblMoney.setText("Money: $" + gameEnvironment.getCrew().getMoney());
 	}
 	
+	/**
+	 * Updates the information panel for one item
+	 * @param Item item the item to be displayed
+	 * @param JLabel name the name of the item
+	 * @param JLabel description the description of the item
+	 * @param JLabel benefit the amount of health/hunger the item heals
+	 * @param JLabel price the price of the item
+	 */
 	private void updateItemInfoPanel(Item item, JLabel name, JLabel description, JLabel benefit, JLabel price) {
 	    name.setText(item.getName() + "(" +  item.getType() + ")");
 		description.setText(item.getDescription());
@@ -114,6 +195,7 @@ public class OutpostScreen {
 		price.setText("$" + String.valueOf(item.getPrice()));
 	}
 	
+	/**Updates the information panel for all items */
 	private void updateAllItemInfoPanels() {
 		panelItem1.setVisible(false);
 		panelItem2.setVisible(false);

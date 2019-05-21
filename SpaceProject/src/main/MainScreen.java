@@ -23,64 +23,147 @@ public class MainScreen {
 	private JFrame window;
 	private GameEnvironment gameEnvironment;
 	
+	/** Label showing the name and type of crew member 1 */
 	private JLabel lblMember1NameType;
+	
+	/** Label showing the health of crew member 1 */
 	private JLabel lblMember1Health;
+	
+	/** Label showing the tiredness of crew member 1 */
 	private JLabel lblMember1Tiredness;
+	
+	/** Label showing the hunger of crew member 1 */
 	private JLabel lblMember1Hunger;
+	
+	/** Label showing the actions remaining of crew member 1 */
 	private JLabel lblMember1ActionsRemaining;
 	
+	/** Label showing the name and type of crew member 2 */
 	private JLabel lblMember2NameType;
+	
+	/** Label showing the health of crew member 2 */
 	private JLabel lblMember2Health;
+	
+	/** Label showing the tiredness of crew member 2 */
 	private JLabel lblMember2Tiredness;
+	
+	/** Label showing the hunger of crew member 2 */
 	private JLabel lblMember2Hunger;
+	
+	/** Label showing the actions remaining of crew member 2 */
 	private JLabel lblMember2ActionsRemaining;
 	
+	/** Label showing the name and type of crew member 3 */
 	private JLabel lblMember3NameType;
+	
+	/** Label showing the health of crew member 3 */
 	private JLabel lblMember3Health;
+	
+	/** Label showing the tiredness of crew member 3 */
 	private JLabel lblMember3Tiredness;
+	
+	/** Label showing the hunger of crew member 3 */
 	private JLabel lblMember3Hunger;
+	
+	/** Label showing the actions remaining of crew member 3 */
 	private JLabel lblMember3ActionsRemaining;
 	
+	/** Label showing the name and type of crew member 4 */
 	private JLabel lblMember4NameType;
+	
+	/** Label showing the health of crew member 4 */
 	private JLabel lblMember4Health;
+	
+	/** Label showing the tiredness of crew member 4 */
 	private JLabel lblMember4Tiredness;
+	
+	/** Label showing the hunger of crew member 4 */
 	private JLabel lblMember4Hunger;
+	
+	/** Label showing the actions remaining of crew member 4 */
 	private JLabel lblMember4ActionsRemaining;
 	
+	/** Panel containing an information about crew member 1*/
 	private JPanel member1Panel;
+	
+	/** Panel containing an information about crew member 2*/
 	private JPanel member2Panel;
+	
+	/** Panel containing an information about crew member 3*/
 	private JPanel member3Panel;
+	
+	/** Panel containing an information about crew member 4*/
 	private JPanel member4Panel;
-	private JButton button_3;
+	
+	/** Button that moves user to next day when clicked*/
 	private JButton btnMoveToNextDay;
+	
+	/** Button that makes a crew member sleep when clicked*/
 	private JButton btnSleep;
+	
+	/** Button that makes a crew member use an item when clicked*/
 	private JButton btnUseItems;
 	
+	/** Button that sets the current crew member being used to member 1*/
 	private JButton btnUseCrewmember1;
+	
+	/** Button that sets the current crew member being used to member 2*/
 	private JButton btnUseCrewmember2;
+	
+	/** Button that sets the current crew member being used to member 3*/
 	private JButton btnUseCrewmember3;
+	
+	/** Button that sets the current crew member being used to member 4*/
 	private JButton btnUseCrewmember4;
 	
+	/** Stores which crew member is currently performing actions */
 	private CrewMember selectedCrewMember = null;
+	
+	/**Label that displays information about what is happening in the game to the user */
 	private JLabel lblGameDialouge;
+	
+	/** Label Showing the user the amount of parts they have found*/
 	private JLabel lblPartsFound;
+	
+	/** Label Showing the user current day and total days*/
 	private JLabel lblDay;
+	
+	/**Label showing heading for the general actions buttons*/
 	private JLabel lblGeneralActions;
+	
+	/**Label showing heading for the crew member actions buttons*/
 	private JLabel lblCrewMemberActions;
+	
+	/**Shows the player how much money the crew has*/
 	private JLabel lblMoney;
+	
+	/**Label showing the player the ships shield level*/
 	private JLabel lblShipShieldLevel;
 	
+	/**The button related to the selected crew member. Used when pilot ship so user cannot pilot ship with the same crew member*/
 	private JButton selectedMemberButton;
+	
+	/**Boolean showing whether the user is currently choosing a crew member to help pilot the ship with*/
 	private boolean pilotMode = false;
+	
+	/**Label showing heading for the general actions buttons*/
 	private CrewMember otherCrewMember = null;
 	
+	/**Label that shows whether crew member 1 has space plague*/
 	private JLabel lblMember1Plague;
+	
+	/**Label that shows whether crew member 2 has space plague*/
 	private JLabel lblMember2Plague;
+	
+	/**Label that shows whether crew member 3 has space plague*/
 	private JLabel lblMember3Plague;
+	
+	/**Label that shows whether crew member 4 has space plague*/
 	private JLabel lblMember4Plague;
 
 	/**
-	 * Create the application.
+	 * Creates the Main Screen GUI
+	 * @param GameEnvironment incomingGameEnvironment instance of the game environment used to control game logic
 	 */
 	public MainScreen(GameEnvironment incomingGameEnvironment) {
 		gameEnvironment = incomingGameEnvironment;
@@ -88,6 +171,10 @@ public class MainScreen {
 		window.setVisible(true);
 	}
 	
+	
+	/**
+	 * Updates the label showing the ships current and maximum shield level
+	 */
 	private void updateShieldLabel() {
 		Ship ship = gameEnvironment.getShip();
 		lblShipShieldLevel.setText("Ship shield level: " + ship.getCurrentShieldLevel() + "/" + ship.getMaxShieldLevel());
@@ -98,10 +185,18 @@ public class MainScreen {
 		}
 	}
 	
+	/**
+	 * Closes the main screen GUI
+	 */
 	public void closeWindow() {
 		window.dispose();
 	}
 	
+	/**
+	 * Gets the other crew member who is piloting the ship, and pilots the ship with both crew members
+	 * Updates GUI with information
+	 * @param int memberIndex the index in the Crew Member array of the other member to pilot the ship with
+	 */
 	public void getOtherPilot(int memberIndex) {
 		otherCrewMember = gameEnvironment.getCrew().getCrewMembers().get(memberIndex);
 		
@@ -112,15 +207,24 @@ public class MainScreen {
 		updateShieldLabel();
 	}
 	
+	/**
+	 * Closes the main screen GUI
+	 */
 	public void finishedWindow() {
 		gameEnvironment.closeMainScreen(this);
 	}
 	
-	
+	/**
+	 * Updates the label showing the crews current money
+	 */
 	private void updateMoney() {
 		lblMoney.setText("Money: $" + gameEnvironment.getCrew().getMoney());
 	}
 	
+	 /**
+	  * Checks if the selected user can do an action and Updates game dialogue lbl
+	  * @return if the crew member can perform an action
+	  */
 	private boolean selectedMemberCanDoAction() {
 
 		if (selectedCrewMember == null) {
@@ -138,16 +242,29 @@ public class MainScreen {
 		}
 	}
 	
+	/**
+	 * Updates the label showing the current day and the total days
+	 */
 	private void updateDay() {
 		lblDay.setText("Day " + gameEnvironment.getCurrentDay() + "/" + gameEnvironment.getGameLength());
 	}
 	
+	/**
+	 * Updates the label showing the amount of parts the user has found
+	 */
 	private void updateParts() {
 		lblPartsFound.setText("Parts found: " + gameEnvironment.getCrew().getCurrentPieces() + "/" + gameEnvironment.getCrew().getPiecesToFind());
 	}
 	
 	/**
-	 * Updates a crewmember information on the panel
+	 * Updates all the information labels associated with a given crewmember
+	 * @param CrewMember crewMember
+	 * @param JLabel nameType label showing the members name and type
+	 * @param JLabel health label showing the members health
+	 * @param JLabel tiredness label showing the members tiredness
+	 * @param JLabel hunger label showing the members hunger
+	 * @param JLabel actions label showing the members actions
+	 * @param JLabel plague label showing whether the member has space plague
 	 */
 	private void updateCrewmemberInfoPanel(CrewMember crewMember, JLabel nameType, JLabel health, JLabel tiredness, JLabel hunger, JLabel actions, JLabel plague) {
 	    nameType.setText(crewMember.getName() + " - " + crewMember.getType());
@@ -158,6 +275,9 @@ public class MainScreen {
 		plague.setVisible(crewMember.hasSpacePlague());
 	}
 	
+	/**
+	 * Updates the information panels of all crew members.
+	 */
 	private void updateAllCrewInfoPanels() {
 		member1Panel.setVisible(false);
 		member2Panel.setVisible(false);
