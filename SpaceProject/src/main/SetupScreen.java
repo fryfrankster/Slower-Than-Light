@@ -21,6 +21,9 @@ import java.awt.event.ActionEvent;
 public class SetupScreen {
 
 	private JFrame window;
+	/**
+	 * For the user to enter the ships name
+	 */
 	private JTextField shipNameEntryField;
 	private JTextField crewNameEntryField;
 	private JButton btnNext;
