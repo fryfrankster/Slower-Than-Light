@@ -28,6 +28,7 @@ class PlanetTest {
 	public void removeItemTest() {
 		int intialPlanetItemsSize = testPlanet.getPlanetsItemsSize();
 		
+//		Comparing array lists
 //		ArrayList<Item> initialPlanetItems = new ArrayList<Item>();
 //		initialPlanetItems.copy(initialPlanetItems, testPlanet.getPlanetsItems());
 		

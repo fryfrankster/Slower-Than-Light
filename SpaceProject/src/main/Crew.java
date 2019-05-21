@@ -266,7 +266,7 @@ public class Crew {
 	public Crew(String crewName) {
 		crewMembers = new ArrayList<CrewMember>();
 		items = new ArrayList<Item>();
-		money = 1000000;
+		money = 100;
 		name = crewName;
 		
 	}

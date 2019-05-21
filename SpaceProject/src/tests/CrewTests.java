@@ -109,6 +109,11 @@ class CrewTests {
 		assertFalse(1 == testCrew.getAvailableCrewMembers());
 	}
 	
+	@Test
+	public void canPurchaseItemTest() {
+		testCrew.getMoney();
+		
+	}
 	
 
 }
