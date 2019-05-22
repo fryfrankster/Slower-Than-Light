@@ -106,14 +106,14 @@ public class SetupScreen {
 		daysSlider.setMinimum(3);
 		daysSlider.setMaximum(10);
 		daysSlider.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		daysSlider.setBounds(299, 435, 378, 60);
+		daysSlider.setBounds(285, 435, 378, 60);
 		window.getContentPane().add(daysSlider);
 		
 		
 		
-		btnNext = new JButton("NEXT");
-		btnNext.setBackground(Color.LIGHT_GRAY);
-		btnNext.setForeground(Color.DARK_GRAY);
+		btnNext = new JButton("Next");
+		btnNext.setBackground(Color.WHITE);
+		btnNext.setForeground(Color.BLACK);
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String shipName = shipNameEntryField.getText();
@@ -154,7 +154,7 @@ public class SetupScreen {
 		lblChooseHowMany.setForeground(Color.WHITE);
 		lblChooseHowMany.setHorizontalAlignment(SwingConstants.CENTER);
 		lblChooseHowMany.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblChooseHowMany.setBounds(257, 395, 463, 30);
+		lblChooseHowMany.setBounds(255, 395, 463, 30);
 		window.getContentPane().add(lblChooseHowMany);
 		
 		lblSlowerThanLight = new JLabel("Slower Than Light");

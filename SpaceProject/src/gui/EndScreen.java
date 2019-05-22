@@ -61,13 +61,13 @@ public class EndScreen {
 		JLabel lblScore = new JLabel("Score: " + gameEnvironment.getScore());
 		lblScore.setForeground(Color.WHITE);
 		lblScore.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblScore.setBounds(335, 347, 382, 67);
+		lblScore.setBounds(335, 347, 382, 49);
 		window.getContentPane().add(lblScore);
 		
 		JLabel lblPartsFound = new JLabel("Parts Found: " + gameEnvironment.getCrew().getCurrentPieces() + "/" + gameEnvironment.getCrew().getPiecesToFind() );
 		lblPartsFound.setForeground(Color.WHITE);
 		lblPartsFound.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblPartsFound.setBounds(335, 424, 382, 67);
+		lblPartsFound.setBounds(335, 401, 382, 57);
 		window.getContentPane().add(lblPartsFound);
 		
 		JLabel lblCrewName = new JLabel("Crew: " + gameEnvironment.getCrew().getName());
@@ -89,10 +89,11 @@ public class EndScreen {
 		lblGameOver.setBounds(34, 53, 929, 150);
 		window.getContentPane().add(lblGameOver);
 		
-		JLabel lblThanksForPlaying = new JLabel("Thanks for playing!!!");
+		JLabel lblThanksForPlaying = new JLabel("Thanks For Playing");
+		lblThanksForPlaying.setHorizontalAlignment(SwingConstants.CENTER);
 		lblThanksForPlaying.setForeground(Color.WHITE);
 		lblThanksForPlaying.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblThanksForPlaying.setBounds(335, 502, 333, 49);
+		lblThanksForPlaying.setBounds(328, 503, 333, 49);
 		window.getContentPane().add(lblThanksForPlaying);
 		
 		lblGameOver.setText(gameEnvironment.getReasonForEnding());

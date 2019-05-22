@@ -86,6 +86,7 @@ public class InventoryScreen {
 		window.getContentPane().add(lblNewLabel);
 		
 		JButton btnBack = new JButton("Back To Main");
+		btnBack.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnBack.setBackground(new Color(255, 255, 255));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -93,10 +94,11 @@ public class InventoryScreen {
 				gameEnvironment.launchMainScreen();
 			}
 		});
-		btnBack.setBounds(28, 537, 134, 51);
+		btnBack.setBounds(28, 537, 152, 51);
 		window.getContentPane().add(btnBack);
 		
 		JButton btnVisitOutpost = new JButton("Visit Outpost");
+		btnVisitOutpost.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnVisitOutpost.setBackground(new Color(255, 255, 255));
 		btnVisitOutpost.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -104,7 +106,7 @@ public class InventoryScreen {
 				gameEnvironment.launchOutpostScreen();
 			}
 		});
-		btnVisitOutpost.setBounds(755, 537, 191, 51);
+		btnVisitOutpost.setBounds(790, 537, 160, 51);
 		window.getContentPane().add(btnVisitOutpost);
 		
 		inventoryContents = new JLabel("New label");

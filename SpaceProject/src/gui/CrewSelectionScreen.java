@@ -189,7 +189,7 @@ public class CrewSelectionScreen {
 		window.getContentPane().add(lblCrewSelection);
 		
 		btnEngineer = new JButton("Engineer");
-		btnEngineer.setBackground(Color.LIGHT_GRAY);
+		btnEngineer.setBackground(Color.WHITE);
 		btnEngineer.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnEngineer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -201,7 +201,7 @@ public class CrewSelectionScreen {
 		window.getContentPane().add(btnEngineer);
 		
 		btnScavenger = new JButton("Scavenger");
-		btnScavenger.setBackground(Color.LIGHT_GRAY);
+		btnScavenger.setBackground(Color.WHITE);
 		btnScavenger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = JOptionPane.showInputDialog("Enter a name for the crew member");
@@ -214,7 +214,7 @@ public class CrewSelectionScreen {
 		window.getContentPane().add(btnScavenger);
 		
 		btnRobot = new JButton("Robot");
-		btnRobot.setBackground(Color.LIGHT_GRAY);
+		btnRobot.setBackground(Color.WHITE);
 		btnRobot.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = JOptionPane.showInputDialog("Enter a name for the crew member");
@@ -226,7 +226,7 @@ public class CrewSelectionScreen {
 		window.getContentPane().add(btnRobot);
 		
 		btnWorker = new JButton("Worker");
-		btnWorker.setBackground(Color.LIGHT_GRAY);
+		btnWorker.setBackground(Color.WHITE);
 		btnWorker.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = JOptionPane.showInputDialog("Enter a name for the crew member");
@@ -238,7 +238,7 @@ public class CrewSelectionScreen {
 		window.getContentPane().add(btnWorker);
 		
 		btnSoldier = new JButton("Soldier");
-		btnSoldier.setBackground(Color.LIGHT_GRAY);
+		btnSoldier.setBackground(Color.WHITE);
 		btnSoldier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = JOptionPane.showInputDialog("Enter a name for the crew member");
@@ -253,7 +253,7 @@ public class CrewSelectionScreen {
 	
 		
 		btnChungus = new JButton("Chungus");
-		btnChungus.setBackground(Color.LIGHT_GRAY);
+		btnChungus.setBackground(Color.WHITE);
 		btnChungus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = JOptionPane.showInputDialog("Enter a name for the crew member");
@@ -307,7 +307,7 @@ public class CrewSelectionScreen {
 		window.getContentPane().add(lblHasIncreasedHealth);
 		
 		JButton btnNext = new JButton("NEXT");
-		btnNext.setBackground(Color.LIGHT_GRAY);
+		btnNext.setBackground(Color.WHITE);
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(gameEnvironment.getCrew().getCrewSize() < 2) {

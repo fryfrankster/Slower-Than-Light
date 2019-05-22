@@ -257,14 +257,14 @@ public class OutpostScreen {
 		
 		JButton btnNewButton = new JButton("Back To Main");
 		btnNewButton.setBackground(Color.WHITE);
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				closeWindow();
 				gameEnvironment.launchMainScreen();
 			}
 		});
-		btnNewButton.setBounds(25, 523, 120, 55);
+		btnNewButton.setBounds(25, 527, 155, 55);
 		window.getContentPane().add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("Welcome To The Outpost");
@@ -275,14 +275,14 @@ public class OutpostScreen {
 		
 		JButton btnViewInventory = new JButton("View Inventory");
 		btnViewInventory.setBackground(Color.WHITE);
-		btnViewInventory.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnViewInventory.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnViewInventory.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				closeWindow();
 				gameEnvironment.launchInventoryScreen();
 			}
 		});
-		btnViewInventory.setBounds(809, 523, 150, 55);
+		btnViewInventory.setBounds(795, 527, 164, 55);
 		window.getContentPane().add(btnViewInventory);
 		
 		lblMoney = new JLabel("Money: $");
@@ -293,7 +293,7 @@ public class OutpostScreen {
 		
 		//ITEM 1
 		panelItem1 = new JPanel();
-		panelItem1.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelItem1.setBorder(null);
 		panelItem1.setBounds(25, 138, 270, 171);
 		window.getContentPane().add(panelItem1);
 		panelItem1.setLayout(null);
@@ -318,6 +318,7 @@ public class OutpostScreen {
 		panelItem1.add(lblItem1Price);
 		
 		btnPurchaseItem1 = new JButton("Buy Item");
+		btnPurchaseItem1.setBackground(Color.WHITE);
 		btnPurchaseItem1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
@@ -330,7 +331,7 @@ public class OutpostScreen {
 		
 		//ITEM 2
 		panelItem2 = new JPanel();
-		panelItem2.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelItem2.setBorder(null);
 		panelItem2.setLayout(null);
 		panelItem2.setBounds(360, 138, 270, 171);
 		window.getContentPane().add(panelItem2);
@@ -355,6 +356,7 @@ public class OutpostScreen {
 		panelItem2.add(lblItem2Price);
 		
 		btnPurchaseItem2 = new JButton("Buy Item");
+		btnPurchaseItem2.setBackground(Color.WHITE);
 		btnPurchaseItem2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
@@ -367,7 +369,7 @@ public class OutpostScreen {
 		
 		//ITEM 3
 		panelItem3 = new JPanel();
-		panelItem3.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelItem3.setBorder(null);
 		panelItem3.setLayout(null);
 		panelItem3.setBounds(694, 138, 265, 171);
 		window.getContentPane().add(panelItem3);
@@ -392,6 +394,7 @@ public class OutpostScreen {
 		panelItem3.add(lblItem3Price);
 		
 		btnPurchaseItem3 = new JButton("Buy Item");
+		btnPurchaseItem3.setBackground(Color.WHITE);
 		btnPurchaseItem3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
@@ -405,7 +408,7 @@ public class OutpostScreen {
 		//ITEM 4
 		panelItem4 = new JPanel();
 		panelItem4.setLayout(null);
-		panelItem4.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelItem4.setBorder(null);
 		panelItem4.setBounds(25, 332, 270, 171);
 		window.getContentPane().add(panelItem4);
 		
@@ -429,6 +432,7 @@ public class OutpostScreen {
 		panelItem4.add(lblItem4Price);
 		
 		btnPurchaseItem4 = new JButton("Buy Item");
+		btnPurchaseItem4.setBackground(Color.WHITE);
 		btnPurchaseItem4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
@@ -442,7 +446,7 @@ public class OutpostScreen {
 		//ITEM 5
 		panelItem5 = new JPanel();
 		panelItem5.setLayout(null);
-		panelItem5.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelItem5.setBorder(null);
 		panelItem5.setBounds(360, 332, 270, 171);
 		window.getContentPane().add(panelItem5);
 		
@@ -466,6 +470,7 @@ public class OutpostScreen {
 		panelItem5.add(lblItem5Price);
 		
 		btnPurchaseItem5 = new JButton("Buy Item");
+		btnPurchaseItem5.setBackground(Color.WHITE);
 		btnPurchaseItem5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
@@ -479,7 +484,7 @@ public class OutpostScreen {
 		//ITEM 6
 		panelItem6 = new JPanel();
 		panelItem6.setLayout(null);
-		panelItem6.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelItem6.setBorder(null);
 		panelItem6.setBounds(694, 332, 265, 171);
 		window.getContentPane().add(panelItem6);
 		
@@ -503,6 +508,7 @@ public class OutpostScreen {
 		panelItem6.add(lblItem6Price);
 		
 		btnPurchaseItem6 = new JButton("Buy Item");
+		btnPurchaseItem6.setBackground(Color.WHITE);
 		btnPurchaseItem6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
