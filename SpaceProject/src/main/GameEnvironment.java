@@ -3,6 +3,12 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import gui.CrewSelectionScreen;
+import gui.InventoryScreen;
+import gui.MainScreen;
+import gui.OutpostScreen;
+import gui.SetupScreen;
+
 /**
  * Holds game logic and initializes key classes such as the crews ship, crew and planet
  */

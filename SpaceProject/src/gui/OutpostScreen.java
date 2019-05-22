@@ -1,4 +1,4 @@
-package main;
+package gui;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -10,6 +10,9 @@ import java.awt.Font;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
+
+import main.GameEnvironment;
+import main.Item;
 
 import java.awt.Color;
 

@@ -1,10 +1,14 @@
-package main;
+package gui;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+
+import main.CrewMember;
+import main.GameEnvironment;
+
 import java.awt.Font;
 import javax.swing.JTextPane;
 import javax.swing.JTextArea;
@@ -13,6 +17,13 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+
+import main.Chungus;
+import main.Scavenger;
+import main.Soldier;
+import main.Worker;
+import main.Engineer;
+import main.Robot;
 
 /**
  *Screen allowing the user to choose their crew

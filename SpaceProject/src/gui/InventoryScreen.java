@@ -1,4 +1,4 @@
-package main;
+package gui;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -12,6 +12,9 @@ import java.util.TreeSet;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+
+import main.GameEnvironment;
+import main.Item;
 
 /**
  * Screen showing the user the contents of their inventory

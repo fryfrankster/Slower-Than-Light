@@ -1,4 +1,4 @@
-package main;
+package gui;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -9,6 +9,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
+import main.CrewMember;
+import main.GameEnvironment;
+import main.Ship;
 
 import java.awt.Color;
 import javax.swing.SwingConstants;

@@ -1,10 +1,12 @@
-package main;
+package gui;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.event.*;
+
+import main.GameEnvironment;
 
 import java.awt.Color;
 import java.awt.Event;
@@ -36,9 +38,6 @@ public class SetupScreen {
 	
 	 /** Displays text prompting user to choose their crew members */
 	private JLabel lblChooseYourCrew;
-	
-	
-	private JLabel label;
 	
 	/**Prompts the user to choose how many days to play for */
 	private JLabel lblChooseHowMany;
@@ -144,10 +143,6 @@ public class SetupScreen {
 		lblChooseYourCrew.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblChooseYourCrew.setBounds(349, 275, 256, 30);
 		window.getContentPane().add(lblChooseYourCrew);
-		
-		label = new JLabel("");
-		label.setBounds(247, 438, 46, 13);
-		window.getContentPane().add(label);
 		
 		lblChooseHowMany = new JLabel("Choose how many days you want to play for\r\n");
 		lblChooseHowMany.setHorizontalAlignment(SwingConstants.CENTER);

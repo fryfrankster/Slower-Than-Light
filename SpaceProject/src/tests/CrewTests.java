@@ -87,7 +87,7 @@ class CrewTests {
 	void isInventoryEmptyTest() {
 		assertTrue(0 == testCrew.getInventorySize());
 		assertTrue(testCrew.isInventoryEmpty());
-		
+		//Not empty
 		testCrew.addItem(testItemFood);
 		assertTrue(0 < testCrew.getInventorySize());
 		assertFalse(testCrew.isInventoryEmpty());
