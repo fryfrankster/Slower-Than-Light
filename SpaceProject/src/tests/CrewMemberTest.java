@@ -81,6 +81,18 @@ class CrewMemberTest {
 
 	}
 	
+	@Test
+	public void searchForPartsTest() {
+		assertFalse(testPlanet.partFound());
+		testCrew.addCrewMember(testScavenger);
+		testScavenger.searchForParts(testPlanet, testCrew);
+		assertTrue(testScavenger.getActionsCompleted() == 1);
+		assertNotEquals(testScavenger.getMaxTiredness(), testScavenger.getTiredness());
+		assertNotEquals(testScavenger.getMaxHunger(), testScavenger.getHunger());
+
+		testPlanet.setPartFound(true);
+		testScavenger.searchForParts(testPlanet, testCrew);
+	}
 	
 	
 	@Test
