@@ -371,6 +371,7 @@ public class MainScreen {
 				lblGameDialouge.setText(gameEnvironment.nextDay());
 				updateAllCrewInfoPanels();
 				updateDay();
+				pilotMode = false;
 				}
 			}
 		});

@@ -139,7 +139,6 @@ public class GameEnvironment {
 		InventoryScreen inventoryScreen = new InventoryScreen(this);
 	}
 	
-	
 	/**
 	 * Closes the Inventory Screen GUI
 	 * @param InventoryScreen inventoryScreen the screen to be closed
@@ -147,7 +146,6 @@ public class GameEnvironment {
 	public void closeInventoryScreen(InventoryScreen inventoryScreen) {
 		inventoryScreen.closeWindow();
 	}
-	
 	
 	public void launchOutpostScreen() {
 		OutpostScreen outpostScreen = new OutpostScreen(this);

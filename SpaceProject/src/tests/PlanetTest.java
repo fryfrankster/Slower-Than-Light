@@ -15,6 +15,7 @@ class PlanetTest {
 	@BeforeEach
 	public void init() {
 		testPlanet = new Planet();
+		
 	}
 	
 	@Test
@@ -36,6 +37,8 @@ class PlanetTest {
 		testPlanet.removeItem(0);
 		assertTrue(intialPlanetItemsSize > testPlanet.getPlanetsItemsSize());
 	}
+	
+	
 	
 
 }

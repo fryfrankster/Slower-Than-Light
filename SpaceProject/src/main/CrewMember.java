@@ -184,7 +184,7 @@ public class CrewMember {
 	 * Increases the health of the crew member by the specified value
 	 * @param int increase the amount of health to increase the crew member by
 	 */
-	public void incraseHealth(int increase) {
+	public void increaseHealth(int increase) {
 		currentHealth = Math.min(maxHealth, currentHealth + increase);
 	}
 	

@@ -46,6 +46,8 @@ class CrewMemberTest {
 		
 		testCrew.addItem(new FoodItem("Dehydrated Chicken roast", 75, 100, "<html>Hearty meal after a long day in space,<br> restores a large amount of hunger.</html>"));
 		testCrew.addItem(new MedicalItem("Alien antibiotics", 75, 25, "Cures space plague and restores health ", true));
+		testCrew.addItem(new MedicalItem("Band Aid", 25, 10, "Restores a small amount of health", false));
+
  	}
 
 	@Test
@@ -65,8 +67,18 @@ class CrewMemberTest {
 		
 		//No more available actions left
 		testChungus.setActionsCompleted(2);
-//		assertEquals(testChungus.getActionsCompleted(), testChungus.getActionsPerDay());
-//		assertFalse(testChungus.canPerformAction());
+		assertEquals(testChungus.getActionsCompleted(), testChungus.getActionsPerDay());
+		assertFalse(testChungus.canPerformAction());
+		
+		//If tired
+		testChungus.increaseTiredness();
+		testChungus.increaseTiredness();
+		testChungus.increaseTiredness();
+		testChungus.increaseTiredness();
+		testChungus.increaseTiredness();
+		assertTrue(0 == testChungus.getTiredness());
+		assertFalse(testChungus.canPerformAction());
+
 	}
 	
 	
@@ -104,7 +116,12 @@ class CrewMemberTest {
 	@Test 
 	public void pilotShipTest() {
 		//Check the outpost items to compare difference, checks if moved to a new planet
+		assertTrue(testEngineer.getActionsCompleted() == 0);
+		assertTrue(testChungus.getActionsCompleted() == 0);
 		testEngineer.pilotShip(testChungus, testPlanet, testRandomEvent, testShip);
+		
+		assertTrue(testEngineer.getActionsCompleted() == 1);
+		assertTrue(testChungus.getActionsCompleted() == 1);
 
 	}
 	
@@ -114,7 +131,11 @@ class CrewMemberTest {
 		//Check if action completed increases
 		//Initialise crew member to have health and hunger below maximum amount, also has space plague
 		testCrew.addCrewMember(testScavenger);
-		testScavenger.decreaseHealth(50, testCrew);
+		
+		assertEquals(testScavenger.getHealth(), testScavenger.getMaxHealth());
+		assertEquals(testScavenger.getHunger(), testScavenger.getMaxHunger());
+
+		testScavenger.decreaseHealth(80, testCrew);
 		testScavenger.increaseHunger();
 		testScavenger.setSpacePlague(true);
 		
@@ -125,11 +146,75 @@ class CrewMemberTest {
 		testScavenger.useItem(testCrew, 0);
 		assertTrue(testScavenger.getHunger() > beforeFood);
 		
-		//If medical item increases health/cures space plague
+		//Has plague and cures - If medical item increases health/cures space plague
 		assertTrue(testScavenger.hasSpacePlague());
+		if (testCrew.getItem(0) instanceof MedicalItem) {
+			MedicalItem itemChosen = (MedicalItem) testCrew.getItem(0);
+			assertTrue(itemChosen.doesCurePlauge());
+		}
+		
+		//Check if the item cures plague
 		testScavenger.useItem(testCrew, 0);
 		assertTrue(testScavenger.getHealth() > beforeMedical);
 		assertFalse(testScavenger.hasSpacePlague());
+		
+		//If medical item increases health/cures space plague
+		assertFalse(testScavenger.hasSpacePlague());
+		if (testCrew.getItem(0) instanceof MedicalItem) {
+			MedicalItem itemChosen = (MedicalItem) testCrew.getItem(0);
+			assertFalse(itemChosen.doesCurePlauge());
+		}
+				
+		//Check if the item cures plague
+		testScavenger.useItem(testCrew, 0);
+		assertTrue(testScavenger.getHealth() > beforeMedical);
+		assertFalse(testScavenger.hasSpacePlague());
+	}
+	
+	
+	@Test 
+	public void isExhaustedTest() {
+		assertEquals(0, testScavenger.getActionsCompleted());
+		assertEquals(testScavenger.getMaxTiredness(), testScavenger.getTiredness());
+		testScavenger.increaseTiredness();
+		
+		//Doesn't perform actions but tiredness decreases
+		assertEquals(0, testScavenger.getActionsCompleted());
+		
+		//Not yet exhausted
+		assertTrue("" == testScavenger.isExhausted());
+		assertNotEquals(testScavenger.getMaxTiredness(),testScavenger.getTiredness());
+		
+		//Decreasing to tiredness = 0 
+		testScavenger.increaseTiredness();
+		testScavenger.increaseTiredness();
+		testScavenger.increaseTiredness();
+		testScavenger.increaseTiredness();
+		
+		//Before isExhausted is called, actions completed would be less than 2
+		assertTrue(2 > testScavenger.getActionsCompleted());
+		assertTrue(0 == testScavenger.getTiredness());
+		assertEquals(" " + testScavenger.getName() + " is exhausted & cannot perform any more actions today!", testScavenger.isExhausted());
+		assertEquals(2, testScavenger.getActionsCompleted());
+
+	}
+	
+	/**
+	 * 
+	 */
+	@Test
+	public void decreaseHealthTest() {
+		testCrew.addCrewMember(testRobot);
+		
+		testRobot.decreaseHealth(10, testCrew);
+		assertTrue(testRobot.getHealth() < testRobot.getMaxHealth());
+		
+		testRobot.decreaseHealth(90, testCrew);
+		assertTrue(testRobot.getHealth() == 0);
+		
+		//Doesn't go to a negative integer
+		testRobot.decreaseHealth(10, testCrew);
+		assertTrue(testRobot.getHealth() == 0);		
 	}
 	
 	
