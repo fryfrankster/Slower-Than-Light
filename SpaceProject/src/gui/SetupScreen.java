@@ -17,6 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 /**
  * GUI allowing the user to choose the crews name, ships name and number of days to play for
@@ -50,6 +51,7 @@ public class SetupScreen {
 	
 	/**An instance of the game used so buttons can effect the game */
 	private GameEnvironment gameEnvironment;
+	private JLabel lblNewLabel;
 
 	/**
 	 * Creates the Setup Screen
@@ -110,6 +112,8 @@ public class SetupScreen {
 		
 		
 		btnNext = new JButton("NEXT");
+		btnNext.setBackground(Color.LIGHT_GRAY);
+		btnNext.setForeground(Color.DARK_GRAY);
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String shipName = shipNameEntryField.getText();
@@ -133,24 +137,28 @@ public class SetupScreen {
 		window.getContentPane().add(btnNext);
 		
 		JLabel lblChooseYourShip = new JLabel("Choose your ship name");
+		lblChooseYourShip.setForeground(Color.WHITE);
 		lblChooseYourShip.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblChooseYourShip.setHorizontalAlignment(SwingConstants.CENTER);
 		lblChooseYourShip.setBounds(349, 153, 256, 30);
 		window.getContentPane().add(lblChooseYourShip);
 		
 		lblChooseYourCrew = new JLabel("Choose your crew name");
+		lblChooseYourCrew.setForeground(Color.WHITE);
 		lblChooseYourCrew.setHorizontalAlignment(SwingConstants.CENTER);
 		lblChooseYourCrew.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblChooseYourCrew.setBounds(349, 275, 256, 30);
 		window.getContentPane().add(lblChooseYourCrew);
 		
 		lblChooseHowMany = new JLabel("Choose how many days you want to play for\r\n");
+		lblChooseHowMany.setForeground(Color.WHITE);
 		lblChooseHowMany.setHorizontalAlignment(SwingConstants.CENTER);
 		lblChooseHowMany.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblChooseHowMany.setBounds(257, 395, 463, 30);
 		window.getContentPane().add(lblChooseHowMany);
 		
 		lblSlowerThanLight = new JLabel("Slower Than Light");
+		lblSlowerThanLight.setForeground(Color.WHITE);
 		lblSlowerThanLight.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSlowerThanLight.setFont(new Font("Tahoma", Font.PLAIN, 80));
 		lblSlowerThanLight.setBounds(157, 10, 683, 120);
@@ -163,5 +171,10 @@ public class SetupScreen {
 		lblErrorFillIn.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblErrorFillIn.setBounds(285, 577, 397, 25);
 		window.getContentPane().add(lblErrorFillIn);
+		
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(SetupScreen.class.getResource("/img/rsz_space2.jpg")));
+		lblNewLabel.setBounds(0, 0, 986, 613);
+		window.getContentPane().add(lblNewLabel);
 	}
 }

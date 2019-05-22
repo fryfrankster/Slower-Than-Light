@@ -15,6 +15,8 @@ import javax.swing.SwingConstants;
 
 import main.GameEnvironment;
 import main.Item;
+import javax.swing.ImageIcon;
+import java.awt.Color;
 
 /**
  * Screen showing the user the contents of their inventory
@@ -78,11 +80,13 @@ public class InventoryScreen {
 		window.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Inventory");
+		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
 		lblNewLabel.setBounds(28, 10, 183, 42);
 		window.getContentPane().add(lblNewLabel);
 		
 		JButton btnBack = new JButton("Back To Main");
+		btnBack.setBackground(new Color(255, 255, 255));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				closeWindow();
@@ -93,20 +97,27 @@ public class InventoryScreen {
 		window.getContentPane().add(btnBack);
 		
 		JButton btnVisitOutpost = new JButton("Visit Outpost");
+		btnVisitOutpost.setBackground(new Color(255, 255, 255));
 		btnVisitOutpost.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				closeWindow();
 				gameEnvironment.launchOutpostScreen();
 			}
 		});
-		btnVisitOutpost.setBounds(328, 537, 191, 51);
+		btnVisitOutpost.setBounds(755, 537, 191, 51);
 		window.getContentPane().add(btnVisitOutpost);
 		
 		inventoryContents = new JLabel("New label");
+		inventoryContents.setForeground(Color.WHITE);
 		inventoryContents.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		inventoryContents.setVerticalAlignment(SwingConstants.TOP);
 		inventoryContents.setBounds(28, 62, 948, 465);
 		window.getContentPane().add(inventoryContents);
+		
+		JLabel lblBackground = new JLabel("");
+		lblBackground.setIcon(new ImageIcon(InventoryScreen.class.getResource("/img/rsz_space2.jpg")));
+		lblBackground.setBounds(0, 0, 986, 613);
+		window.getContentPane().add(lblBackground);
 		
 		updateInventoryLabel();
 	}

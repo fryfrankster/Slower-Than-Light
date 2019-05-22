@@ -24,6 +24,7 @@ import main.Soldier;
 import main.Worker;
 import main.Engineer;
 import main.Robot;
+import javax.swing.ImageIcon;
 
 /**
  *Screen allowing the user to choose their crew
@@ -68,6 +69,7 @@ public class CrewSelectionScreen {
 	
 	/**Adds a crew member of type Soldier to the players crew */
 	private JButton btnSoldier;
+	private JLabel lblBackground;
 
 	/**
 	 * Create the application.
@@ -152,36 +154,42 @@ public class CrewSelectionScreen {
 		window.getContentPane().setLayout(null);
 		
 		lblCrewMember1 = new JLabel("Crew Member 1");
+		lblCrewMember1.setForeground(Color.WHITE);
 		lblCrewMember1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblCrewMember1.setVisible(false);
 		lblCrewMember1.setBounds(43, 488, 253, 40);
 		window.getContentPane().add(lblCrewMember1);
 		
 		lblCrewMember2 = new JLabel("Crew Member 2");
+		lblCrewMember2.setForeground(Color.WHITE);
 		lblCrewMember2.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblCrewMember2.setVisible(false);
 		lblCrewMember2.setBounds(43, 550, 253, 26);
 		window.getContentPane().add(lblCrewMember2);
 		
 		lblCrewMember3 = new JLabel("Crew Member 3");
+		lblCrewMember3.setForeground(Color.WHITE);
 		lblCrewMember3.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblCrewMember3.setVisible(false);
 		lblCrewMember3.setBounds(318, 496, 257, 32);
 		window.getContentPane().add(lblCrewMember3);
 		
 		lblCrewMember4 = new JLabel("Crew Member 4");
+		lblCrewMember4.setForeground(Color.WHITE);
 		lblCrewMember4.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblCrewMember4.setVisible(false);
 		lblCrewMember4.setBounds(318, 550, 257, 26);
 		window.getContentPane().add(lblCrewMember4);
 		
 		JLabel lblCrewSelection = new JLabel("Crew Selection");
+		lblCrewSelection.setForeground(Color.WHITE);
 		lblCrewSelection.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCrewSelection.setFont(new Font("Tahoma", Font.PLAIN, 36));
 		lblCrewSelection.setBounds(374, 20, 259, 70);
 		window.getContentPane().add(lblCrewSelection);
 		
 		btnEngineer = new JButton("Engineer");
+		btnEngineer.setBackground(Color.LIGHT_GRAY);
 		btnEngineer.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnEngineer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -193,6 +201,7 @@ public class CrewSelectionScreen {
 		window.getContentPane().add(btnEngineer);
 		
 		btnScavenger = new JButton("Scavenger");
+		btnScavenger.setBackground(Color.LIGHT_GRAY);
 		btnScavenger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = JOptionPane.showInputDialog("Enter a name for the crew member");
@@ -205,6 +214,7 @@ public class CrewSelectionScreen {
 		window.getContentPane().add(btnScavenger);
 		
 		btnRobot = new JButton("Robot");
+		btnRobot.setBackground(Color.LIGHT_GRAY);
 		btnRobot.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = JOptionPane.showInputDialog("Enter a name for the crew member");
@@ -216,6 +226,7 @@ public class CrewSelectionScreen {
 		window.getContentPane().add(btnRobot);
 		
 		btnWorker = new JButton("Worker");
+		btnWorker.setBackground(Color.LIGHT_GRAY);
 		btnWorker.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = JOptionPane.showInputDialog("Enter a name for the crew member");
@@ -227,6 +238,7 @@ public class CrewSelectionScreen {
 		window.getContentPane().add(btnWorker);
 		
 		btnSoldier = new JButton("Soldier");
+		btnSoldier.setBackground(Color.LIGHT_GRAY);
 		btnSoldier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = JOptionPane.showInputDialog("Enter a name for the crew member");
@@ -241,6 +253,7 @@ public class CrewSelectionScreen {
 	
 		
 		btnChungus = new JButton("Chungus");
+		btnChungus.setBackground(Color.LIGHT_GRAY);
 		btnChungus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = JOptionPane.showInputDialog("Enter a name for the crew member");
@@ -252,42 +265,49 @@ public class CrewSelectionScreen {
 		window.getContentPane().add(btnChungus);
 		
 		JLabel lblExperiencedWithReparing = new JLabel("<html><center>Experienced with<br>reparing shields</center></html>");
+		lblExperiencedWithReparing.setForeground(Color.WHITE);
 		lblExperiencedWithReparing.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblExperiencedWithReparing.setHorizontalAlignment(SwingConstants.CENTER);
 		lblExperiencedWithReparing.setBounds(43, 226, 180, 46);
 		window.getContentPane().add(lblExperiencedWithReparing);
 		
 		JLabel lblSkilledAtSearching = new JLabel("<html><center>Skilled at searching<br>planets</center></html>");
+		lblSkilledAtSearching.setForeground(Color.WHITE);
 		lblSkilledAtSearching.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSkilledAtSearching.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblSkilledAtSearching.setBounds(395, 226, 176, 46);
 		window.getContentPane().add(lblSkilledAtSearching);
 		
 		JLabel lblDoesntGetHungry = new JLabel("<html><center>Doesn't get hungry<br>and is plague immune</center></html>");
+		lblDoesntGetHungry.setForeground(Color.WHITE);
 		lblDoesntGetHungry.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDoesntGetHungry.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblDoesntGetHungry.setBounds(732, 226, 193, 46);
 		window.getContentPane().add(lblDoesntGetHungry);
 		
 		JLabel lblCanPerformAn = new JLabel("<html><center>Can perform an extra<br>action per day</center></html>");
+		lblCanPerformAn.setForeground(Color.WHITE);
 		lblCanPerformAn.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCanPerformAn.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblCanPerformAn.setBounds(43, 365, 180, 46);
 		window.getContentPane().add(lblCanPerformAn);
 		
 		JLabel lblDoesntGetHungry_1 = new JLabel("<html><center>Doesn't get hungry<br>or tired as easily</center></html>");
+		lblDoesntGetHungry_1.setForeground(Color.WHITE);
 		lblDoesntGetHungry_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDoesntGetHungry_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblDoesntGetHungry_1.setBounds(395, 365, 176, 46);
 		window.getContentPane().add(lblDoesntGetHungry_1);
 		
 		JLabel lblHasIncreasedHealth = new JLabel("<html><center>Has increased health</center></html>");
+		lblHasIncreasedHealth.setForeground(Color.WHITE);
 		lblHasIncreasedHealth.setHorizontalAlignment(SwingConstants.CENTER);
 		lblHasIncreasedHealth.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblHasIncreasedHealth.setBounds(732, 365, 180, 46);
 		window.getContentPane().add(lblHasIncreasedHealth);
 		
 		JButton btnNext = new JButton("NEXT");
+		btnNext.setBackground(Color.LIGHT_GRAY);
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(gameEnvironment.getCrew().getCrewSize() < 2) {
@@ -305,6 +325,7 @@ public class CrewSelectionScreen {
 		window.getContentPane().add(btnNext);
 		
 		JLabel lblCurrentCrewMembers = new JLabel("Current Crew Members");
+		lblCurrentCrewMembers.setForeground(Color.WHITE);
 		lblCurrentCrewMembers.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblCurrentCrewMembers.setBounds(43, 435, 305, 55);
 		window.getContentPane().add(lblCurrentCrewMembers);
@@ -317,9 +338,15 @@ public class CrewSelectionScreen {
 		window.getContentPane().add(lblErrorText);
 		
 		JLabel lblNewLabel = new JLabel("Select the crew members you would like to take on your adventure. Choose between 2 to 4 members by clicking on the buttons below.");
+		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel.setBounds(43, 74, 933, 70);
 		window.getContentPane().add(lblNewLabel);
+		
+		lblBackground = new JLabel("");
+		lblBackground.setIcon(new ImageIcon(CrewSelectionScreen.class.getResource("/img/rsz_space2.jpg")));
+		lblBackground.setBounds(0, 0, 986, 613);
+		window.getContentPane().add(lblBackground);
 		
 		
 	}
