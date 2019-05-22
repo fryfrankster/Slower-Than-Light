@@ -15,6 +15,7 @@ import main.GameEnvironment;
 import main.Item;
 
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 /**
  * GUI allowing user to view and buy items in a space outpost
@@ -140,6 +141,7 @@ public class OutpostScreen {
 	
 	/** Label that displays dialogue informing the user of what is happening in the game*/
 	private JLabel lblDialougeBox;
+	private JLabel lblNewLabel_1;
 	
 	/**
 	 * Called when user clicks the purchase button
@@ -254,6 +256,7 @@ public class OutpostScreen {
 		window.getContentPane().setLayout(null);
 		
 		JButton btnNewButton = new JButton("Back To Main");
+		btnNewButton.setBackground(Color.WHITE);
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -265,11 +268,13 @@ public class OutpostScreen {
 		window.getContentPane().add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("Welcome To The Outpost");
+		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		lblNewLabel.setBounds(25, 26, 353, 55);
 		window.getContentPane().add(lblNewLabel);
 		
 		JButton btnViewInventory = new JButton("View Inventory");
+		btnViewInventory.setBackground(Color.WHITE);
 		btnViewInventory.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnViewInventory.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -277,10 +282,11 @@ public class OutpostScreen {
 				gameEnvironment.launchInventoryScreen();
 			}
 		});
-		btnViewInventory.setBounds(738, 523, 221, 55);
+		btnViewInventory.setBounds(809, 523, 150, 55);
 		window.getContentPane().add(btnViewInventory);
 		
 		lblMoney = new JLabel("Money: $");
+		lblMoney.setForeground(Color.WHITE);
 		lblMoney.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblMoney.setBounds(25, 91, 291, 22);
 		window.getContentPane().add(lblMoney);
@@ -512,6 +518,11 @@ public class OutpostScreen {
 		lblDialougeBox.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblDialougeBox.setBounds(356, 88, 564, 25);
 		window.getContentPane().add(lblDialougeBox);
+		
+		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(OutpostScreen.class.getResource("/img/rsz_space2.jpg")));
+		lblNewLabel_1.setBounds(0, 0, 986, 613);
+		window.getContentPane().add(lblNewLabel_1);
 		
 		updateAllItemInfoPanels();
 		updateMoneyLabel();
