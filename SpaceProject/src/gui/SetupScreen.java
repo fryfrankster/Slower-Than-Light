@@ -51,6 +51,8 @@ public class SetupScreen {
 	
 	/**An instance of the game used so buttons can effect the game */
 	private GameEnvironment gameEnvironment;
+	
+	/**Label holding the background image of the screen*/
 	private JLabel lblNewLabel;
 
 	/**

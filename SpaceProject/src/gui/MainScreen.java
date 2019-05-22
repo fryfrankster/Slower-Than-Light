@@ -164,6 +164,8 @@ public class MainScreen {
 	
 	/**Label that shows whether crew member 4 has space plague*/
 	private JLabel lblMember4Plague;
+	
+	/**Label containing the background image of the screen */
 	private JLabel lblBackground;
 
 	/**

@@ -69,6 +69,8 @@ public class CrewSelectionScreen {
 	
 	/**Adds a crew member of type Soldier to the players crew */
 	private JButton btnSoldier;
+	
+	/** Holds the background image of the screen */
 	private JLabel lblBackground;
 
 	/**

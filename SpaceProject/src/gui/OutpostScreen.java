@@ -141,7 +141,9 @@ public class OutpostScreen {
 	
 	/** Label that displays dialogue informing the user of what is happening in the game*/
 	private JLabel lblDialougeBox;
-	private JLabel lblNewLabel_1;
+	
+	/** Holds the background image of the screen */
+	private JLabel lblImage;
 	
 	/**
 	 * Called when user clicks the purchase button
@@ -153,10 +155,10 @@ public class OutpostScreen {
 			gameEnvironment.getCrew().purchaseItem(gameEnvironment.getCrew(), gameEnvironment.getPlanet(), index);
 			updateAllItemInfoPanels();
 			updateMoneyLabel();
-			lblDialougeBox.setBackground(Color.GREEN);
+			lblDialougeBox.setForeground(Color.GREEN);
 		}
 		else {
-			lblDialougeBox.setBackground(Color.RED);
+			lblDialougeBox.setForeground(Color.RED);
 			lblDialougeBox.setText("YOU ARE TOO POOR TO AFFORD THIS ITEM!");
 		}
 	}
@@ -267,11 +269,11 @@ public class OutpostScreen {
 		btnNewButton.setBounds(25, 527, 155, 55);
 		window.getContentPane().add(btnNewButton);
 		
-		JLabel lblNewLabel = new JLabel("Welcome To The Outpost");
-		lblNewLabel.setForeground(Color.WHITE);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblNewLabel.setBounds(25, 26, 353, 55);
-		window.getContentPane().add(lblNewLabel);
+		JLabel lblWelcomeToOutpost = new JLabel("Welcome To The Outpost");
+		lblWelcomeToOutpost.setForeground(Color.WHITE);
+		lblWelcomeToOutpost.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblWelcomeToOutpost.setBounds(25, 26, 353, 55);
+		window.getContentPane().add(lblWelcomeToOutpost);
 		
 		JButton btnViewInventory = new JButton("View Inventory");
 		btnViewInventory.setBackground(Color.WHITE);
@@ -525,10 +527,10 @@ public class OutpostScreen {
 		lblDialougeBox.setBounds(356, 88, 564, 25);
 		window.getContentPane().add(lblDialougeBox);
 		
-		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(OutpostScreen.class.getResource("/img/rsz_space2.jpg")));
-		lblNewLabel_1.setBounds(0, 0, 986, 613);
-		window.getContentPane().add(lblNewLabel_1);
+		lblImage = new JLabel("");
+		lblImage.setIcon(new ImageIcon(OutpostScreen.class.getResource("/img/rsz_space2.jpg")));
+		lblImage.setBounds(0, 0, 986, 613);
+		window.getContentPane().add(lblImage);
 		
 		updateAllItemInfoPanels();
 		updateMoneyLabel();
