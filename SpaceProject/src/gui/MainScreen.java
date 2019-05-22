@@ -652,7 +652,7 @@ public class MainScreen {
 		lblCrewMembers.setBounds(20, 389, 229, 28);
 		window.getContentPane().add(lblCrewMembers);
 		
-		btnUseCrewmember1 = new JButton("Use " + gameEnvironment.getCrew().getCrewMembers().get(0).getName());
+		btnUseCrewmember1 = new JButton("Use Crewmember");
 		btnUseCrewmember1.setBackground(Color.WHITE);
 		btnUseCrewmember1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -665,7 +665,7 @@ public class MainScreen {
 				}
 			}
 		});
-		btnUseCrewmember1.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnUseCrewmember1.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnUseCrewmember1.setBounds(10, 143, 209, 25);
 		member1Panel.add(btnUseCrewmember1);
 		
@@ -674,7 +674,7 @@ public class MainScreen {
 		lblMember1Plague.setBounds(10, 61, 120, 14);
 		member1Panel.add(lblMember1Plague);
 		
-		btnUseCrewmember2 = new JButton("Use " + gameEnvironment.getCrew().getCrewMembers().get(1).getName());
+		btnUseCrewmember2 = new JButton("Use Crewmember");
 		btnUseCrewmember2.setBackground(Color.WHITE);
 		btnUseCrewmember2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -687,7 +687,7 @@ public class MainScreen {
 				}
 			}
 		});
-		btnUseCrewmember2.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnUseCrewmember2.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnUseCrewmember2.setBounds(10, 143, 209, 25);
 		member2Panel.add(btnUseCrewmember2);
 		
@@ -696,7 +696,7 @@ public class MainScreen {
 		lblMember2Plague.setBounds(10, 61, 120, 14);
 		member2Panel.add(lblMember2Plague);
 		
-		btnUseCrewmember3 = new JButton("Use " + gameEnvironment.getCrew().getCrewMembers().get(2).getName());
+		btnUseCrewmember3 = new JButton("Use Crewmember");
 		btnUseCrewmember3.setBackground(Color.WHITE);
 		btnUseCrewmember3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -709,7 +709,7 @@ public class MainScreen {
 				}
 			}
 		});
-		btnUseCrewmember3.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnUseCrewmember3.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnUseCrewmember3.setBounds(10, 143, 209, 25);
 		member3Panel.add(btnUseCrewmember3);
 		
@@ -718,7 +718,7 @@ public class MainScreen {
 		lblMember3Plague.setBounds(10, 61, 120, 14);
 		member3Panel.add(lblMember3Plague);
 		
-		btnUseCrewmember4 = new JButton("Use " + gameEnvironment.getCrew().getCrewMembers().get(3).getName());
+		btnUseCrewmember4 = new JButton("Use Crewmember");
 		btnUseCrewmember4.setBackground(Color.WHITE);
 		btnUseCrewmember4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -731,7 +731,7 @@ public class MainScreen {
 				}
 			}
 		});
-		btnUseCrewmember4.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnUseCrewmember4.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnUseCrewmember4.setBounds(10, 143, 209, 25);
 		member4Panel.add(btnUseCrewmember4);
 		
