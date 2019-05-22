@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import gui.CrewSelectionScreen;
+import gui.EndScreen;
 import gui.InventoryScreen;
 import gui.MainScreen;
 import gui.OutpostScreen;

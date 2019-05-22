@@ -1,4 +1,4 @@
-package main;
+package gui;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -6,6 +6,8 @@ import javax.swing.JLabel;
 
 import java.awt.Font;
 import javax.swing.SwingConstants;
+
+import main.GameEnvironment;
 
 /**
  * Screen displayed at the end of the game. Shows users score, ship and crew name and parts found.
