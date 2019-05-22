@@ -394,6 +394,7 @@ public class MainScreen {
 		btnPilotShipTo.setBackground(Color.WHITE);
 		btnPilotShipTo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			pilotMode = false;
 			if(selectedMemberCanDoAction()){
 				if(gameEnvironment.getCrew().getAvailableCrewMembers() < 2) {
 					lblGameDialouge.setText("You need two crew members to pilot the ship buster!");
@@ -416,6 +417,7 @@ public class MainScreen {
 		btnSearchPlanetFor.setBackground(Color.WHITE);
 		btnSearchPlanetFor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				pilotMode = false;
 				if(selectedMemberCanDoAction()) {
 					lblGameDialouge.setText(selectedCrewMember.searchForParts(gameEnvironment.getPlanet(), gameEnvironment.getCrew()));
 					updateMoney();
@@ -441,6 +443,7 @@ public class MainScreen {
 		btnRepairShields.setBackground(Color.WHITE);
 		btnRepairShields.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				pilotMode = false;
 				if(selectedMemberCanDoAction()) {
 					lblGameDialouge.setText(selectedCrewMember.repairShields(gameEnvironment.getShip()));
 					updateAllCrewInfoPanels();
@@ -457,6 +460,7 @@ public class MainScreen {
 		btnSleep.setBackground(Color.WHITE);
 		btnSleep.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				pilotMode = false;
 				
 				if(selectedMemberCanDoAction()) {
 					
@@ -477,6 +481,7 @@ public class MainScreen {
 		btnUseItems.setBackground(Color.WHITE);
 		btnUseItems.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				pilotMode = false;
 				if(gameEnvironment.getCrew().getInventorySize() == 0) {
 					lblGameDialouge.setText("Your inventory is empty!");
 				}
