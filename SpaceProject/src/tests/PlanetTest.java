@@ -13,9 +13,9 @@ import main.Planet;
 class PlanetTest {
 	private Planet testPlanet;
 	@BeforeEach
+	
 	public void init() {
 		testPlanet = new Planet();
-		
 	}
 	
 	@Test
@@ -28,17 +28,21 @@ class PlanetTest {
 	@Test
 	public void removeItemTest() {
 		int intialPlanetItemsSize = testPlanet.getPlanetsItemsSize();
+		ArrayList<Item> initialPlanetItems = new ArrayList<Item>(testPlanet.getPlanetsItems());
 		
-//		Comparing array lists
-//		ArrayList<Item> initialPlanetItems = new ArrayList<Item>();
-//		initialPlanetItems.copy(initialPlanetItems, testPlanet.getPlanetsItems());
-		
-		assertEquals(intialPlanetItemsSize, testPlanet.getPlanetsItemsSize());
+		//The same but not identical
+		assertTrue(initialPlanetItems.equals(testPlanet.getPlanetsItems()));
+
 		testPlanet.removeItem(0);
-		assertTrue(intialPlanetItemsSize > testPlanet.getPlanetsItemsSize());
+		assertNotEquals(initialPlanetItems, testPlanet.getPlanetsItems());
+		assertNotEquals(intialPlanetItemsSize, testPlanet.getPlanetsItemsSize());
+		
+		//Remove item when there are no more items left
 	}
 	
-	
-	
+	@Test
+	public void getAllItemsTest() {
+		assertNotNull(testPlanet.getAllItems());
+	}
 
 }

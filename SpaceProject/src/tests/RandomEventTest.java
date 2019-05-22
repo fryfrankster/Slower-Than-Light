@@ -32,11 +32,19 @@ class RandomEventTest {
 	
 	@Test
 	public void spacePlagueTest() {
-		assertTrue(false == testChungus.hasSpacePlague());
+		assertFalse(testScavenger.hasSpacePlague());
+
+		
 		
 		
 		testRandomEvent.spacePlague(testCrew);
 		
+		
+		
+//		testScavenger.setSpacePlague(true);
+//		assertTrue(testScavenger.hasSpacePlague());
+//		testScavenger.setSpacePlague(false);
+//		assertFalse(testScavenger.hasSpacePlague());
 	}
 
 }
