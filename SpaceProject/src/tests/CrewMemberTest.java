@@ -280,6 +280,16 @@ class CrewMemberTest {
 		assertTrue(testScavenger.getAvailableActions() == (testScavenger.getActionsPerDay() - 1));
 	}
 	
+	@Test
+	public void getTypeTest() {
+		assertEquals(testScavenger.getType(), "Scavenger");
+		assertEquals(testEngineer.getType(), "Engineer");
+		assertEquals(testRobot.getType(), "Robot");
+		assertEquals(testChungus.getType(), "Chungus");
+		assertEquals(testWorker.getType(), "Worker");
+		assertEquals(testSoldier.getType(), "Soldier");
+
+	}	
 	
 	
 

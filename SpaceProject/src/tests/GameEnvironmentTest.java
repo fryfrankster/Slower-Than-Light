@@ -20,13 +20,10 @@ class GameEnvironmentTest {
 		testCrew = new Crew("Crew");
 	}
 	
-	@Test
-	public void setupGameTest() {
-		testGameEnvironment.setupGame("Ship", "Crew", 10);
-		assertEquals("Ship", testGameEnvironment.getShip().getName());
-		assertEquals("Crew", testGameEnvironment.getCrew().getName());
-		assertEquals(1, testGameEnvironment.getCurrentDay());
-		assertEquals(10, testGameEnvironment.getGameLength());
-	}
+//	@Test
+//	public void getRandomEventTest() {
+//		testGameEnvironment.getRandomEvent();
+//	}
+
 
 }

@@ -12,8 +12,8 @@ import main.Planet;
 
 class PlanetTest {
 	private Planet testPlanet;
-	@BeforeEach
 	
+	@BeforeEach
 	public void init() {
 		testPlanet = new Planet();
 	}
@@ -25,6 +25,10 @@ class PlanetTest {
 		assertTrue(testPlanet.partFound());
 	}
 	
+	/**
+	 * Removes an item from the outpost
+	 * @result planetItems has one less item given the item chosen to be removed
+	 */
 	@Test
 	public void removeItemTest() {
 		int intialPlanetItemsSize = testPlanet.getPlanetsItemsSize();

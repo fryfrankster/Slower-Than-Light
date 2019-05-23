@@ -116,8 +116,12 @@ class CrewTests {
 	@Test
 	public void canPurchaseItemTest() {
 		assertTrue(testItemFood.getPrice() <= testCrew.getMoney());
+		assertTrue(testCrew.canPurchaseItem(testCrew, testPlanet, 0));
+		
 		testCrew.decreaseMoney(testCrew.getMoney());
-		assertTrue(testItemFood.getPrice() >= testCrew.getMoney());
+		
+		assertFalse(testItemFood.getPrice() <= testCrew.getMoney());
+		assertFalse(testCrew.canPurchaseItem(testCrew, testPlanet, 0));		
 	}
 	
 	@Test
@@ -171,6 +175,12 @@ class CrewTests {
 		testCrew.setCurrentPieces(testCrew.getCurrentPieces() + 1);
 		assertTrue(testCrew.foundAllParts());
 
+	}
+	
+	@Test
+	public void getItemTest() {
+		testCrew.addItem(testItemFood);
+		assertNotNull(testCrew.getItem(0));
 	}
 	
 
