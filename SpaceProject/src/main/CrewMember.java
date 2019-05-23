@@ -408,7 +408,7 @@ public class CrewMember {
 			
 			//Finding money
 			case 0:
-				if((searchScore + searchSkill) > 50){
+				if((searchScore + searchSkill) > 30){
 					int moneyGained = random.nextInt(60);
 					crew.addMoney(moneyGained);
 					searchSuccess = true;
@@ -418,7 +418,7 @@ public class CrewMember {
 				
 				//Finding an item
 			case 1:
-				if((searchScore + searchSkill) > 100){
+				if((searchScore + searchSkill) > 50){
 					int itemIndex = random.nextInt(planet.getNumTotalItems());
 					Item itemFound = planet.getAllItems().get(itemIndex);
 					crew.addItem(itemFound);
@@ -429,7 +429,7 @@ public class CrewMember {
 		
 			//Finding a transporter part
 			case 2:
-				if((searchScore + searchSkill) > 100){
+				if((searchScore + searchSkill) > 50){
 					planet.setPartFound(true);
 					searchSuccess = true;
 					result = name + " found a transporter part!";

@@ -86,7 +86,7 @@ public class SetupScreen {
 		shipNameEntryField = new JTextField();
 		shipNameEntryField.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		shipNameEntryField.setHorizontalAlignment(SwingConstants.CENTER);
-		shipNameEntryField.setBounds(311, 193, 332, 47);
+		shipNameEntryField.setBounds(285, 193, 408, 47);
 		window.getContentPane().add(shipNameEntryField);
 		shipNameEntryField.setColumns(10);
 		
@@ -94,7 +94,7 @@ public class SetupScreen {
 		crewNameEntryField.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		crewNameEntryField.setHorizontalAlignment(SwingConstants.CENTER);
 		crewNameEntryField.setColumns(10);
-		crewNameEntryField.setBounds(311, 319, 332, 47);
+		crewNameEntryField.setBounds(285, 319, 408, 47);
 		window.getContentPane().add(crewNameEntryField);
 		
 		JSlider daysSlider = new JSlider();
@@ -107,8 +107,10 @@ public class SetupScreen {
 		daysSlider.setValue(3);
 		daysSlider.setMinimum(3);
 		daysSlider.setMaximum(10);
-		daysSlider.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		daysSlider.setBounds(285, 435, 378, 60);
+		daysSlider.setFont(new Font("Tahoma", Font.BOLD, 18));
+		daysSlider.setForeground(Color.WHITE);
+		daysSlider.setBounds(285, 435, 408, 60);
+		daysSlider.setOpaque(false);
 		window.getContentPane().add(daysSlider);
 		
 		
