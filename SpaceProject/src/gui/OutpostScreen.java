@@ -301,7 +301,7 @@ public class OutpostScreen {
 		panelItem1.setLayout(null);
 		
 		lblItem1Name = new JLabel("Item 1 name");
-		lblItem1Name.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblItem1Name.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblItem1Name.setBounds(10, 10, 250, 28);
 		panelItem1.add(lblItem1Name);
 		
@@ -312,14 +312,15 @@ public class OutpostScreen {
 		panelItem1.add(lblItem1Description);
 		
 		lblItem1Benefit = new JLabel("Item 1 benefit");
-		lblItem1Benefit.setBounds(10, 115, 83, 13);
+		lblItem1Benefit.setBounds(10, 115, 112, 13);
 		panelItem1.add(lblItem1Benefit);
 		
 		lblItem1Price = new JLabel("Item 1 price");
-		lblItem1Price.setBounds(10, 138, 83, 13);
+		lblItem1Price.setBounds(10, 138, 112, 13);
 		panelItem1.add(lblItem1Price);
 		
 		btnPurchaseItem1 = new JButton("Buy Item");
+		btnPurchaseItem1.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnPurchaseItem1.setBackground(Color.WHITE);
 		btnPurchaseItem1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -328,7 +329,7 @@ public class OutpostScreen {
 				
 			}
 		});
-		btnPurchaseItem1.setBounds(175, 126, 85, 37);
+		btnPurchaseItem1.setBounds(159, 126, 101, 37);
 		panelItem1.add(btnPurchaseItem1);
 		
 		//ITEM 2
@@ -339,7 +340,7 @@ public class OutpostScreen {
 		window.getContentPane().add(panelItem2);
 		
 		lblItem2Name = new JLabel("Item 2 name");
-		lblItem2Name.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblItem2Name.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblItem2Name.setBounds(10, 10, 250, 28);
 		panelItem2.add(lblItem2Name);
 		
@@ -350,14 +351,15 @@ public class OutpostScreen {
 		panelItem2.add(lblItem2Description);
 		
 		lblItem2Benefit = new JLabel("item 2 benefit");
-		lblItem2Benefit.setBounds(10, 115, 83, 13);
+		lblItem2Benefit.setBounds(10, 115, 112, 13);
 		panelItem2.add(lblItem2Benefit);
 		
 		lblItem2Price = new JLabel("Item 2 price");
-		lblItem2Price.setBounds(10, 138, 83, 13);
+		lblItem2Price.setBounds(10, 138, 112, 13);
 		panelItem2.add(lblItem2Price);
 		
 		btnPurchaseItem2 = new JButton("Buy Item");
+		btnPurchaseItem2.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnPurchaseItem2.setBackground(Color.WHITE);
 		btnPurchaseItem2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -366,7 +368,7 @@ public class OutpostScreen {
 				
 			}
 		});
-		btnPurchaseItem2.setBounds(175, 126, 85, 37);
+		btnPurchaseItem2.setBounds(159, 126, 101, 37);
 		panelItem2.add(btnPurchaseItem2);
 		
 		//ITEM 3
@@ -377,7 +379,7 @@ public class OutpostScreen {
 		window.getContentPane().add(panelItem3);
 		
 		lblItem3Name = new JLabel("Item 3 name");
-		lblItem3Name.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblItem3Name.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblItem3Name.setBounds(10, 10, 245, 28);
 		panelItem3.add(lblItem3Name);
 		
@@ -388,14 +390,15 @@ public class OutpostScreen {
 		panelItem3.add(lblItem3Description);
 		
 		lblItem3Benefit = new JLabel("Item 3 benefit");
-		lblItem3Benefit.setBounds(10, 115, 83, 13);
+		lblItem3Benefit.setBounds(10, 115, 112, 13);
 		panelItem3.add(lblItem3Benefit);
 		
 		lblItem3Price = new JLabel("Item 3 price");
-		lblItem3Price.setBounds(10, 138, 83, 13);
+		lblItem3Price.setBounds(10, 138, 112, 13);
 		panelItem3.add(lblItem3Price);
 		
 		btnPurchaseItem3 = new JButton("Buy Item");
+		btnPurchaseItem3.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnPurchaseItem3.setBackground(Color.WHITE);
 		btnPurchaseItem3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -404,7 +407,7 @@ public class OutpostScreen {
 				
 			}
 		});
-		btnPurchaseItem3.setBounds(170, 126, 85, 37);
+		btnPurchaseItem3.setBounds(154, 126, 106, 37);
 		panelItem3.add(btnPurchaseItem3);
 		
 		//ITEM 4
@@ -415,7 +418,7 @@ public class OutpostScreen {
 		window.getContentPane().add(panelItem4);
 		
 		lblItem4Name = new JLabel("Item 4 name");
-		lblItem4Name.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblItem4Name.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblItem4Name.setBounds(10, 10, 250, 28);
 		panelItem4.add(lblItem4Name);
 		
@@ -426,14 +429,15 @@ public class OutpostScreen {
 		panelItem4.add(lblItem4Description);
 		
 		lblItem4Benefit = new JLabel("Item 4 benefit");
-		lblItem4Benefit.setBounds(10, 115, 83, 13);
+		lblItem4Benefit.setBounds(10, 115, 112, 13);
 		panelItem4.add(lblItem4Benefit);
 		
 		lblItem4Price = new JLabel("Item 4 price");
-		lblItem4Price.setBounds(10, 138, 83, 13);
+		lblItem4Price.setBounds(10, 138, 112, 13);
 		panelItem4.add(lblItem4Price);
 		
 		btnPurchaseItem4 = new JButton("Buy Item");
+		btnPurchaseItem4.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnPurchaseItem4.setBackground(Color.WHITE);
 		btnPurchaseItem4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -442,7 +446,7 @@ public class OutpostScreen {
 				
 			}
 		});
-		btnPurchaseItem4.setBounds(175, 126, 85, 37);
+		btnPurchaseItem4.setBounds(159, 126, 101, 37);
 		panelItem4.add(btnPurchaseItem4);
 		
 		//ITEM 5
@@ -453,7 +457,7 @@ public class OutpostScreen {
 		window.getContentPane().add(panelItem5);
 		
 		lblItem5Name = new JLabel("Item 5 name");
-		lblItem5Name.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblItem5Name.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblItem5Name.setBounds(10, 10, 250, 28);
 		panelItem5.add(lblItem5Name);
 		
@@ -464,14 +468,15 @@ public class OutpostScreen {
 		panelItem5.add(lblItem5Description);
 		
 		lblItem5Benefit = new JLabel("Item 5 benefit");
-		lblItem5Benefit.setBounds(10, 115, 83, 13);
+		lblItem5Benefit.setBounds(10, 115, 112, 13);
 		panelItem5.add(lblItem5Benefit);
 		
 		lblItem5Price = new JLabel("Item 5 price");
-		lblItem5Price.setBounds(10, 138, 83, 13);
+		lblItem5Price.setBounds(10, 138, 112, 13);
 		panelItem5.add(lblItem5Price);
 		
 		btnPurchaseItem5 = new JButton("Buy Item");
+		btnPurchaseItem5.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnPurchaseItem5.setBackground(Color.WHITE);
 		btnPurchaseItem5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -480,7 +485,7 @@ public class OutpostScreen {
 				
 			}
 		});
-		btnPurchaseItem5.setBounds(175, 126, 85, 37);
+		btnPurchaseItem5.setBounds(159, 126, 101, 37);
 		panelItem5.add(btnPurchaseItem5);
 		
 		//ITEM 6
@@ -491,7 +496,7 @@ public class OutpostScreen {
 		window.getContentPane().add(panelItem6);
 		
 		lblItem6Name = new JLabel("Item 6 name");
-		lblItem6Name.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblItem6Name.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblItem6Name.setBounds(10, 10, 245, 28);
 		panelItem6.add(lblItem6Name);
 		
@@ -502,14 +507,15 @@ public class OutpostScreen {
 		panelItem6.add(lblItem6Description);
 		
 		lblItem6Benefit = new JLabel("Item 6 benefit");
-		lblItem6Benefit.setBounds(10, 115, 83, 13);
+		lblItem6Benefit.setBounds(10, 115, 112, 13);
 		panelItem6.add(lblItem6Benefit);
 		
 		lblItem6Price = new JLabel("Item 6 price");
-		lblItem6Price.setBounds(10, 138, 83, 13);
+		lblItem6Price.setBounds(10, 138, 112, 13);
 		panelItem6.add(lblItem6Price);
 		
 		btnPurchaseItem6 = new JButton("Buy Item");
+		btnPurchaseItem6.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnPurchaseItem6.setBackground(Color.WHITE);
 		btnPurchaseItem6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -518,17 +524,17 @@ public class OutpostScreen {
 				
 			}
 		});
-		btnPurchaseItem6.setBounds(170, 126, 85, 37);
+		btnPurchaseItem6.setBounds(154, 126, 106, 37);
 		panelItem6.add(btnPurchaseItem6);
 		
 		lblDialougeBox = new JLabel("");
 		lblDialougeBox.setForeground(Color.RED);
-		lblDialougeBox.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblDialougeBox.setBounds(356, 88, 564, 25);
+		lblDialougeBox.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblDialougeBox.setBounds(268, 88, 691, 25);
 		window.getContentPane().add(lblDialougeBox);
 		
 		lblImage = new JLabel("");
-		lblImage.setIcon(new ImageIcon(OutpostScreen.class.getResource("/img/rsz_space2.jpg")));
+		lblImage.setIcon(new ImageIcon(OutpostScreen.class.getResource("/img/milky_way2.jpg")));
 		lblImage.setBounds(0, 0, 986, 613);
 		window.getContentPane().add(lblImage);
 		

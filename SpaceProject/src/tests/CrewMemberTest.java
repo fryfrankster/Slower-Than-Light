@@ -226,7 +226,7 @@ class CrewMemberTest {
 		
 		//Doesn't go to a negative integer
 		testRobot.decreaseHealth(10, testCrew);
-		assertTrue(testRobot.getHealth() == 0);		
+		assertTrue(testRobot.getHealth() == 0);	
 	}
 	
 	@Test

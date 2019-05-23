@@ -157,28 +157,28 @@ public class CrewSelectionScreen {
 		
 		lblCrewMember1 = new JLabel("Crew Member 1");
 		lblCrewMember1.setForeground(Color.WHITE);
-		lblCrewMember1.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblCrewMember1.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblCrewMember1.setVisible(false);
 		lblCrewMember1.setBounds(43, 488, 253, 40);
 		window.getContentPane().add(lblCrewMember1);
 		
 		lblCrewMember2 = new JLabel("Crew Member 2");
 		lblCrewMember2.setForeground(Color.WHITE);
-		lblCrewMember2.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblCrewMember2.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblCrewMember2.setVisible(false);
 		lblCrewMember2.setBounds(43, 550, 253, 26);
 		window.getContentPane().add(lblCrewMember2);
 		
 		lblCrewMember3 = new JLabel("Crew Member 3");
 		lblCrewMember3.setForeground(Color.WHITE);
-		lblCrewMember3.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblCrewMember3.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblCrewMember3.setVisible(false);
 		lblCrewMember3.setBounds(318, 496, 257, 32);
 		window.getContentPane().add(lblCrewMember3);
 		
 		lblCrewMember4 = new JLabel("Crew Member 4");
 		lblCrewMember4.setForeground(Color.WHITE);
-		lblCrewMember4.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblCrewMember4.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblCrewMember4.setVisible(false);
 		lblCrewMember4.setBounds(318, 550, 257, 26);
 		window.getContentPane().add(lblCrewMember4);
@@ -186,8 +186,8 @@ public class CrewSelectionScreen {
 		JLabel lblCrewSelection = new JLabel("Crew Selection");
 		lblCrewSelection.setForeground(Color.WHITE);
 		lblCrewSelection.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCrewSelection.setFont(new Font("Tahoma", Font.PLAIN, 36));
-		lblCrewSelection.setBounds(374, 20, 259, 70);
+		lblCrewSelection.setFont(new Font("Tahoma", Font.BOLD, 36));
+		lblCrewSelection.setBounds(43, 10, 903, 70);
 		window.getContentPane().add(lblCrewSelection);
 		
 		btnEngineer = new JButton("Engineer");
@@ -199,7 +199,7 @@ public class CrewSelectionScreen {
 				addMemberToCrew(new Engineer(name));
 			}
 		});
-		btnEngineer.setBounds(43, 161, 180, 55);
+		btnEngineer.setBounds(43, 161, 253, 55);
 		window.getContentPane().add(btnEngineer);
 		
 		btnScavenger = new JButton("Scavenger");
@@ -212,7 +212,7 @@ public class CrewSelectionScreen {
 			}
 		});
 		btnScavenger.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnScavenger.setBounds(395, 161, 180, 55);
+		btnScavenger.setBounds(353, 161, 264, 55);
 		window.getContentPane().add(btnScavenger);
 		
 		btnRobot = new JButton("Robot");
@@ -224,7 +224,7 @@ public class CrewSelectionScreen {
 			}
 		});
 		btnRobot.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnRobot.setBounds(732, 161, 180, 55);
+		btnRobot.setBounds(670, 161, 276, 55);
 		window.getContentPane().add(btnRobot);
 		
 		btnWorker = new JButton("Worker");
@@ -236,7 +236,7 @@ public class CrewSelectionScreen {
 			}
 		});
 		btnWorker.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnWorker.setBounds(43, 300, 180, 55);
+		btnWorker.setBounds(43, 300, 253, 55);
 		window.getContentPane().add(btnWorker);
 		
 		btnSoldier = new JButton("Soldier");
@@ -249,7 +249,7 @@ public class CrewSelectionScreen {
 			}
 		});
 		btnSoldier.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnSoldier.setBounds(395, 300, 180, 55);
+		btnSoldier.setBounds(353, 300, 264, 55);
 		window.getContentPane().add(btnSoldier);
 		
 	
@@ -263,49 +263,49 @@ public class CrewSelectionScreen {
 			}
 		});
 		btnChungus.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnChungus.setBounds(732, 300, 180, 55);
+		btnChungus.setBounds(670, 300, 276, 55);
 		window.getContentPane().add(btnChungus);
 		
 		JLabel lblExperiencedWithReparing = new JLabel("<html><center>Experienced with<br>reparing shields</center></html>");
 		lblExperiencedWithReparing.setForeground(Color.WHITE);
-		lblExperiencedWithReparing.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblExperiencedWithReparing.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblExperiencedWithReparing.setHorizontalAlignment(SwingConstants.CENTER);
-		lblExperiencedWithReparing.setBounds(43, 226, 180, 46);
+		lblExperiencedWithReparing.setBounds(43, 226, 253, 46);
 		window.getContentPane().add(lblExperiencedWithReparing);
 		
 		JLabel lblSkilledAtSearching = new JLabel("<html><center>Skilled at searching<br>planets</center></html>");
 		lblSkilledAtSearching.setForeground(Color.WHITE);
 		lblSkilledAtSearching.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSkilledAtSearching.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblSkilledAtSearching.setBounds(395, 226, 176, 46);
+		lblSkilledAtSearching.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblSkilledAtSearching.setBounds(353, 226, 264, 46);
 		window.getContentPane().add(lblSkilledAtSearching);
 		
 		JLabel lblDoesntGetHungry = new JLabel("<html><center>Doesn't get hungry<br>and is plague immune</center></html>");
 		lblDoesntGetHungry.setForeground(Color.WHITE);
 		lblDoesntGetHungry.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDoesntGetHungry.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblDoesntGetHungry.setBounds(732, 226, 193, 46);
+		lblDoesntGetHungry.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblDoesntGetHungry.setBounds(670, 226, 276, 46);
 		window.getContentPane().add(lblDoesntGetHungry);
 		
 		JLabel lblCanPerformAn = new JLabel("<html><center>Can perform an extra<br>action per day</center></html>");
 		lblCanPerformAn.setForeground(Color.WHITE);
 		lblCanPerformAn.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCanPerformAn.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblCanPerformAn.setBounds(43, 365, 180, 46);
+		lblCanPerformAn.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblCanPerformAn.setBounds(43, 365, 253, 46);
 		window.getContentPane().add(lblCanPerformAn);
 		
 		JLabel lblDoesntGetHungry_1 = new JLabel("<html><center>Doesn't get hungry<br>or tired as easily</center></html>");
 		lblDoesntGetHungry_1.setForeground(Color.WHITE);
 		lblDoesntGetHungry_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDoesntGetHungry_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblDoesntGetHungry_1.setBounds(395, 365, 176, 46);
+		lblDoesntGetHungry_1.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblDoesntGetHungry_1.setBounds(353, 365, 264, 46);
 		window.getContentPane().add(lblDoesntGetHungry_1);
 		
 		JLabel lblHasIncreasedHealth = new JLabel("<html><center>Has increased health</center></html>");
 		lblHasIncreasedHealth.setForeground(Color.WHITE);
 		lblHasIncreasedHealth.setHorizontalAlignment(SwingConstants.CENTER);
-		lblHasIncreasedHealth.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblHasIncreasedHealth.setBounds(732, 365, 180, 46);
+		lblHasIncreasedHealth.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblHasIncreasedHealth.setBounds(670, 365, 276, 46);
 		window.getContentPane().add(lblHasIncreasedHealth);
 		
 		JButton btnNext = new JButton("NEXT");
@@ -328,7 +328,7 @@ public class CrewSelectionScreen {
 		
 		JLabel lblCurrentCrewMembers = new JLabel("Current Crew Members");
 		lblCurrentCrewMembers.setForeground(Color.WHITE);
-		lblCurrentCrewMembers.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblCurrentCrewMembers.setFont(new Font("Tahoma", Font.BOLD, 22));
 		lblCurrentCrewMembers.setBounds(43, 435, 305, 55);
 		window.getContentPane().add(lblCurrentCrewMembers);
 		
@@ -339,15 +339,16 @@ public class CrewSelectionScreen {
 		lblErrorText.setBounds(531, 463, 267, 113);
 		window.getContentPane().add(lblErrorText);
 		
-		JLabel lblNewLabel = new JLabel("Select the crew members you would like to take on your adventure. Choose between 2 to 4 members by clicking on the buttons below.");
+		JLabel lblNewLabel = new JLabel("<html><center>Select the crew members you would like to take on your adventure.<br>Choose between 2 to 4 members by clicking on the buttons below.</center></html>");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setForeground(Color.WHITE);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel.setBounds(43, 74, 933, 70);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel.setBounds(43, 74, 892, 70);
 		window.getContentPane().add(lblNewLabel);
 		
 		lblBackground = new JLabel("");
-		lblBackground.setIcon(new ImageIcon(CrewSelectionScreen.class.getResource("/img/rsz_space2.jpg")));
-		lblBackground.setBounds(0, 0, 986, 613);
+		lblBackground.setIcon(new ImageIcon(CrewSelectionScreen.class.getResource("/img/milky_way2.jpg")));
+		lblBackground.setBounds(-19, 0, 1028, 613);
 		window.getContentPane().add(lblBackground);
 		
 		

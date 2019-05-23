@@ -99,7 +99,7 @@ public class EndScreen {
 		lblGameOver.setText(gameEnvironment.getReasonForEnding());
 		
 		JLabel lblBackground = new JLabel("New label");
-		lblBackground.setIcon(new ImageIcon(EndScreen.class.getResource("/img/rsz_space2.jpg")));
+		lblBackground.setIcon(new ImageIcon(EndScreen.class.getResource("/img/milky_way2.jpg")));
 		lblBackground.setBounds(0, 0, 986, 613);
 		window.getContentPane().add(lblBackground);
 	}

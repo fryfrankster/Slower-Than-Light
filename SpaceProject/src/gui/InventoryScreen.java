@@ -117,7 +117,7 @@ public class InventoryScreen {
 		window.getContentPane().add(inventoryContents);
 		
 		JLabel lblBackground = new JLabel("");
-		lblBackground.setIcon(new ImageIcon(InventoryScreen.class.getResource("/img/rsz_space2.jpg")));
+		lblBackground.setIcon(new ImageIcon(InventoryScreen.class.getResource("/img/milky_way2.jpg")));
 		lblBackground.setBounds(0, 0, 986, 613);
 		window.getContentPane().add(lblBackground);
 		

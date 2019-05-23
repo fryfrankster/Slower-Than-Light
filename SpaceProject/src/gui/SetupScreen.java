@@ -140,7 +140,7 @@ public class SetupScreen {
 		
 		JLabel lblChooseYourShip = new JLabel("Choose your ship name");
 		lblChooseYourShip.setForeground(Color.WHITE);
-		lblChooseYourShip.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblChooseYourShip.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblChooseYourShip.setHorizontalAlignment(SwingConstants.CENTER);
 		lblChooseYourShip.setBounds(349, 153, 256, 30);
 		window.getContentPane().add(lblChooseYourShip);
@@ -148,21 +148,21 @@ public class SetupScreen {
 		lblChooseYourCrew = new JLabel("Choose your crew name");
 		lblChooseYourCrew.setForeground(Color.WHITE);
 		lblChooseYourCrew.setHorizontalAlignment(SwingConstants.CENTER);
-		lblChooseYourCrew.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblChooseYourCrew.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblChooseYourCrew.setBounds(349, 275, 256, 30);
 		window.getContentPane().add(lblChooseYourCrew);
 		
 		lblChooseHowMany = new JLabel("Choose how many days you want to play for\r\n");
 		lblChooseHowMany.setForeground(Color.WHITE);
 		lblChooseHowMany.setHorizontalAlignment(SwingConstants.CENTER);
-		lblChooseHowMany.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblChooseHowMany.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblChooseHowMany.setBounds(255, 395, 463, 30);
 		window.getContentPane().add(lblChooseHowMany);
 		
 		lblSlowerThanLight = new JLabel("Slower Than Light");
 		lblSlowerThanLight.setForeground(Color.WHITE);
 		lblSlowerThanLight.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSlowerThanLight.setFont(new Font("Tahoma", Font.PLAIN, 80));
+		lblSlowerThanLight.setFont(new Font("Tahoma", Font.BOLD, 60));
 		lblSlowerThanLight.setBounds(157, 10, 683, 120);
 		window.getContentPane().add(lblSlowerThanLight);
 		
@@ -170,12 +170,12 @@ public class SetupScreen {
 		lblErrorFillIn.setVisible(false);
 		lblErrorFillIn.setForeground(Color.RED);
 		lblErrorFillIn.setHorizontalAlignment(SwingConstants.CENTER);
-		lblErrorFillIn.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblErrorFillIn.setBounds(285, 577, 397, 25);
+		lblErrorFillIn.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblErrorFillIn.setBounds(481, 530, 397, 25);
 		window.getContentPane().add(lblErrorFillIn);
 		
 		lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(SetupScreen.class.getResource("/img/rsz_space2.jpg")));
+		lblNewLabel.setIcon(new ImageIcon(SetupScreen.class.getResource("/img/milky_way2.jpg")));
 		lblNewLabel.setBounds(0, 0, 986, 613);
 		window.getContentPane().add(lblNewLabel);
 	}
