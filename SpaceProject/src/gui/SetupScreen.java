@@ -54,6 +54,9 @@ public class SetupScreen {
 	
 	/**Label holding the background image of the screen*/
 	private JLabel lblNewLabel;
+	
+	/** Label holding the introduction to the game */
+	private JLabel lblGameIntro;
 
 	/**
 	 * Creates the Setup Screen
@@ -86,7 +89,7 @@ public class SetupScreen {
 		shipNameEntryField = new JTextField();
 		shipNameEntryField.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		shipNameEntryField.setHorizontalAlignment(SwingConstants.CENTER);
-		shipNameEntryField.setBounds(285, 193, 408, 47);
+		shipNameEntryField.setBounds(283, 258, 408, 47);
 		window.getContentPane().add(shipNameEntryField);
 		shipNameEntryField.setColumns(10);
 		
@@ -94,7 +97,7 @@ public class SetupScreen {
 		crewNameEntryField.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		crewNameEntryField.setHorizontalAlignment(SwingConstants.CENTER);
 		crewNameEntryField.setColumns(10);
-		crewNameEntryField.setBounds(285, 319, 408, 47);
+		crewNameEntryField.setBounds(283, 359, 408, 47);
 		window.getContentPane().add(crewNameEntryField);
 		
 		JSlider daysSlider = new JSlider();
@@ -109,7 +112,7 @@ public class SetupScreen {
 		daysSlider.setMaximum(10);
 		daysSlider.setFont(new Font("Tahoma", Font.BOLD, 18));
 		daysSlider.setForeground(Color.WHITE);
-		daysSlider.setBounds(285, 435, 408, 60);
+		daysSlider.setBounds(283, 451, 408, 60);
 		daysSlider.setOpaque(false);
 		window.getContentPane().add(daysSlider);
 		
@@ -137,35 +140,35 @@ public class SetupScreen {
 		
 		
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnNext.setBounds(419, 519, 127, 47);
+		btnNext.setBounds(418, 521, 127, 47);
 		window.getContentPane().add(btnNext);
 		
 		JLabel lblChooseYourShip = new JLabel("Choose your ship name");
 		lblChooseYourShip.setForeground(Color.WHITE);
 		lblChooseYourShip.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblChooseYourShip.setHorizontalAlignment(SwingConstants.CENTER);
-		lblChooseYourShip.setBounds(349, 153, 256, 30);
+		lblChooseYourShip.setBounds(347, 218, 256, 30);
 		window.getContentPane().add(lblChooseYourShip);
 		
 		lblChooseYourCrew = new JLabel("Choose your crew name");
 		lblChooseYourCrew.setForeground(Color.WHITE);
 		lblChooseYourCrew.setHorizontalAlignment(SwingConstants.CENTER);
 		lblChooseYourCrew.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblChooseYourCrew.setBounds(349, 275, 256, 30);
+		lblChooseYourCrew.setBounds(347, 315, 256, 30);
 		window.getContentPane().add(lblChooseYourCrew);
 		
 		lblChooseHowMany = new JLabel("Choose how many days you want to play for\r\n");
 		lblChooseHowMany.setForeground(Color.WHITE);
 		lblChooseHowMany.setHorizontalAlignment(SwingConstants.CENTER);
 		lblChooseHowMany.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblChooseHowMany.setBounds(255, 395, 463, 30);
+		lblChooseHowMany.setBounds(253, 411, 463, 30);
 		window.getContentPane().add(lblChooseHowMany);
 		
 		lblSlowerThanLight = new JLabel("Slower Than Light");
 		lblSlowerThanLight.setForeground(Color.WHITE);
 		lblSlowerThanLight.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSlowerThanLight.setFont(new Font("Tahoma", Font.BOLD, 60));
-		lblSlowerThanLight.setBounds(157, 10, 683, 120);
+		lblSlowerThanLight.setBounds(155, -11, 683, 120);
 		window.getContentPane().add(lblSlowerThanLight);
 		
 		lblErrorFillIn = new JLabel("Error, fill in both fields!");
@@ -173,8 +176,15 @@ public class SetupScreen {
 		lblErrorFillIn.setForeground(Color.RED);
 		lblErrorFillIn.setHorizontalAlignment(SwingConstants.CENTER);
 		lblErrorFillIn.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblErrorFillIn.setBounds(481, 530, 397, 25);
+		lblErrorFillIn.setBounds(477, 532, 397, 25);
 		window.getContentPane().add(lblErrorFillIn);
+		
+		lblGameIntro = new JLabel("<html><center>SpaceX has your crew to space to collect samples for their research. On your journey your space ship crashed into an asteroid field. Pieces of the ship broke off and were scattered around the surrounding planets. Your ship is now unable to make long distance space travel. Your mission is to find these pieces so you can take your samples back to Earth</center></html>");
+		lblGameIntro.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblGameIntro.setHorizontalAlignment(SwingConstants.CENTER);
+		lblGameIntro.setForeground(Color.WHITE);
+		lblGameIntro.setBounds(97, 103, 801, 105);
+		window.getContentPane().add(lblGameIntro);
 		
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(SetupScreen.class.getResource("/img/milky_way2.jpg")));
