@@ -229,6 +229,18 @@ class CrewMemberTest {
 		assertTrue(testRobot.getHealth() == 0);		
 	}
 	
+	@Test
+	public void napTest() {
+		//Decreasing to tiredness = 0 
+		testScavenger.increaseTiredness();
+		testScavenger.increaseTiredness();
+		testScavenger.increaseTiredness();
+		testScavenger.increaseTiredness();
+		testScavenger.increaseTiredness();
+		testScavenger.nap();
+		assertTrue(testScavenger.getTiredness() == 20);
+		assertTrue(testScavenger.getAvailableActions() == (testScavenger.getActionsPerDay() - 1));
+	}
 	
 	
 	

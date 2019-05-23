@@ -46,10 +46,10 @@ class CrewTests {
 	
 	@Test
 	void removeInInventoryTest() {
-		testCrew.addItem(testItemFood);
+		testCrew.addItem(testItemMedical);
 		testCrew.removeInInventory(0);
 		assertEquals(0, testCrew.getInventorySize());
-		assertFalse(testCrew.getItems().contains(testItemFood));
+		assertFalse(testCrew.getItems().contains(testItemMedical));
 	}
 	
 	@Test
@@ -137,6 +137,15 @@ class CrewTests {
 		testChungus.setActionsCompleted(0);
 		testScavenger.setActionsCompleted(1);
 		testEngineer.setActionsCompleted(2);
+	}
+	
+	@Test
+	public void itemsAsStringTest() {
+		testCrew.addItem(testItemFood);
+		testCrew.addItem(testItemMedical);
+		testCrew.getItemsAsStringArray();
+		
+		
 	}
 
 }
