@@ -173,6 +173,14 @@ public class MainScreen {
 	/**Label containing the background image of the screen */
 	private JLabel lblBackground;
 
+	private void highlightUsedCrewMember(JLabel toHighlight){
+		lblMember1NameType.setForeground(Color.BLACK);
+		lblMember2NameType.setForeground(Color.BLACK);
+		lblMember3NameType.setForeground(Color.BLACK);
+		lblMember4NameType.setForeground(Color.BLACK);
+		toHighlight.setForeground(Color.BLUE);
+	}
+	
 	/**
 	 * Creates the Main Screen GUI
 	 * @param incomingGameEnvironment instance of the game environment used to control game logic
@@ -672,6 +680,7 @@ public class MainScreen {
 					getOtherPilot(0);		
 				}
 				else {
+				highlightUsedCrewMember(lblMember1NameType);
 				selectedCrewMember = gameEnvironment.getCrew().getCrewMembers().get(0);
 				selectedMemberButton = btnUseCrewmember1;
 				}
@@ -694,6 +703,7 @@ public class MainScreen {
 					getOtherPilot(1);
 				}
 				else {
+				highlightUsedCrewMember(lblMember2NameType);
 				selectedCrewMember = gameEnvironment.getCrew().getCrewMembers().get(1);
 				selectedMemberButton = btnUseCrewmember2;
 				}
@@ -716,6 +726,7 @@ public class MainScreen {
 					getOtherPilot(2);
 				}
 				else {
+				highlightUsedCrewMember(lblMember3NameType);
 				selectedCrewMember = gameEnvironment.getCrew().getCrewMembers().get(2);
 				selectedMemberButton = btnUseCrewmember3;
 				}
@@ -738,6 +749,7 @@ public class MainScreen {
 					getOtherPilot(3);
 				}
 				else {
+				highlightUsedCrewMember(lblMember4NameType);
 				selectedCrewMember = gameEnvironment.getCrew().getCrewMembers().get(3);
 				selectedMemberButton = btnUseCrewmember4;
 				}
