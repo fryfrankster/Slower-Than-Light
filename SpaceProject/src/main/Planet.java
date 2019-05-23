@@ -18,7 +18,7 @@ public class Planet {
 	public ArrayList<Item> planetsItems;
 	
 	public Planet() {
-		allItems.add(new FoodItem("Dehydrated Chicken roast", 75, 100, "<html>Hearty meal after a long day in space</html>"));
+		allItems.add(new FoodItem("Dehydrated Chicken Roast", 75, 100, "<html>Hearty meal after a long day in space</html>"));
 		allItems.add(new FoodItem("Skylab Candy Bar", 20 , 15, "<html>Skylab's best selling space candy bar</html>"));
 		allItems.add(new FoodItem("Gemini Pouched Apple Juice", 50, 50, "<html>A refreshing drink to quench your thirst</html>"));
 		allItems.add(new FoodItem("Apollo Brownie Cubes ", 55, 70, "<html>Satisfies your sweet cravings</html>"));
@@ -27,7 +27,7 @@ public class Planet {
 		allItems.add(new MedicalItem("Anti-Nausea Patch", 25, 10, "<html>Relief from disorientation in space</html>", false));
 		allItems.add(new MedicalItem("Roll of Dressing", 50, 50, "<html>Wrap around wounds or burns to promote healing</html>", false));
 		allItems.add(new MedicalItem("Alien Toe", 35, 0, "<html>Rumoured to cure space diseases when eaten</html>", true));
-		allItems.add(new MedicalItem("Gemini Med Kit", 100, 100, "<html>Contains a wide variety of medical supplies</html>", false));
+		allItems.add(new MedicalItem("Gemini Medical Kit", 100, 100, "<html>Contains a wide variety of medical supplies</html>", false));
 		allItems.add(new MedicalItem("Topical Ointment", 50, 1, "<html>Apply on areas to fight against infection</html>", false));
 		allItems.add(new MedicalItem("RX2 Antibiotics", 75, 25, "<html>Cures space plague and restores health</html>", true));
 		newPlanet();

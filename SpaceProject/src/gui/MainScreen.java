@@ -275,7 +275,7 @@ public class MainScreen {
 	 * @param JLabel plague label showing whether the member has space plague
 	 */
 	private void updateCrewmemberInfoPanel(CrewMember crewMember, JLabel nameType, JLabel health, JLabel tiredness, JLabel hunger, JLabel actions, JLabel plague) {
-	    nameType.setText(crewMember.getName() + " - " + crewMember.getType());
+	    nameType.setText("<html>" + crewMember.getName() + " - " + crewMember.getType() + "</html>");
 		health.setText("Health: " + String.valueOf(crewMember.getHealth()) + "/" + crewMember.getMaxHealth());
 		tiredness.setText("Tiredness: " + String.valueOf(crewMember.getTiredness()) + "/" + crewMember.getMaxTiredness());
 		hunger.setText("Hunger: " + String.valueOf(crewMember.getHunger()) + "/" + crewMember.getMaxHunger());
@@ -465,7 +465,7 @@ public class MainScreen {
 				
 				if(selectedMemberCanDoAction()) {
 					
-					lblGameDialouge.setText(selectedCrewMember.sleep());
+					lblGameDialouge.setText("<html>" + selectedCrewMember.sleep() + "</html>");
 					updateAllCrewInfoPanels();
 				
 				
@@ -512,7 +512,7 @@ public class MainScreen {
 					    if(input != null) {
 						    int indexOfItem = Integer.parseInt(Character.toString(input.charAt(0)));
 						   
-						    lblGameDialouge.setText(selectedCrewMember.useItem(gameEnvironment.getCrew(), indexOfItem));
+						    lblGameDialouge.setText("<html>" + selectedCrewMember.useItem(gameEnvironment.getCrew(), indexOfItem) + "</html>");
 						    updateAllCrewInfoPanels();
 					    }
 					    
@@ -534,7 +534,7 @@ public class MainScreen {
 		
 		lblMember1NameType = new JLabel("Name - Type");
 		lblMember1NameType.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblMember1NameType.setBounds(10, 10, 209, 25);
+		lblMember1NameType.setBounds(10, 0, 209, 39);
 		member1Panel.add(lblMember1NameType);
 		
 		lblMember1Health = new JLabel("Health");
@@ -566,7 +566,7 @@ public class MainScreen {
 		
 		lblMember2NameType = new JLabel("<dynamic> - <dynamic>");
 		lblMember2NameType.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblMember2NameType.setBounds(10, 10, 209, 25);
+		lblMember2NameType.setBounds(10, 0, 209, 39);
 		member2Panel.add(lblMember2NameType);
 		
 		lblMember2Health = new JLabel("Health: 0");
@@ -598,7 +598,7 @@ public class MainScreen {
 		
 		lblMember3NameType = new JLabel("<dynamic> - <dynamic>");
 		lblMember3NameType.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblMember3NameType.setBounds(10, 10, 209, 25);
+		lblMember3NameType.setBounds(10, 0, 209, 39);
 		member3Panel.add(lblMember3NameType);
 		
 		lblMember3Health = new JLabel("Health: 0");
@@ -630,7 +630,7 @@ public class MainScreen {
 		
 		lblMember4NameType = new JLabel("<dynamic> - <dynamic>");
 		lblMember4NameType.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblMember4NameType.setBounds(10, 10, 209, 25);
+		lblMember4NameType.setBounds(10, 0, 209, 39);
 		member4Panel.add(lblMember4NameType);
 		
 		lblMember4Health = new JLabel("Health: 0");
