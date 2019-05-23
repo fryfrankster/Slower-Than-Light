@@ -167,7 +167,6 @@ public class CrewMember {
 	 * @param Crew crew the crew that the dying crew member is from
 	 */
 	public void crewMemberDeath(Crew crew) {
-		System.out.println(name + " has died!"); 
 		crew.removeCrewMember(this);
 	}
 	
@@ -245,13 +244,6 @@ public class CrewMember {
 	 * @return true if the crew member can perform an action, false otherwise
 	 */
 	public boolean canPerformAction() {
-		if(actionsCompleted >= actionsPerDay) {
-			System.out.println(name + " Has no actions left! Use a different crew member!");
-		}
-		
-		else if (currentTiredness == 0) {
-			System.out.println(name + " is exhausted and cannot perform any actions until the next day! Use a different crew member!");
-		}
 		return (actionsCompleted < actionsPerDay && currentTiredness != 0);
 	}
 	
@@ -292,7 +284,6 @@ public class CrewMember {
 	public void nap() {
 		currentTiredness += 20;
 		setActionsCompleted(1);
-		System.out.println(name + " was forced to take a nap from exhaustion, this counts as a player action.");
 	}
 	
 	

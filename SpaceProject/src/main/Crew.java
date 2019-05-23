@@ -160,12 +160,10 @@ public class Crew {
 		    
 		    if (member.hasSpacePlague()) {
 		    	if (member.getHealth() > 35) {
-		        member.decreaseHealth(35, this);
-		        System.out.println(member.getName() + " has lost 35 health from space plauge! Their current health is " + member.getHealth() + "/" + member.getMaxHealth());
+		    		member.decreaseHealth(35, this);
 		    	}
 		    	else {
 		    		iterator.remove();
-		    		System.out.println(member.getName() + " has died from space plague!"); 
 		    	}
 		    }
 
