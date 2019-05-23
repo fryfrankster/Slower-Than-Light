@@ -18,18 +18,18 @@ public class Planet {
 	public ArrayList<Item> planetsItems;
 	
 	public Planet() {
-		allItems.add(new FoodItem("Dehydrated Chicken roast", 75, 100, "<html>Hearty meal after a long day in space,<br> restores a large amount of hunger.</html>"));
-		allItems.add(new FoodItem("Skylab Candy Bar", 20 , 15, "<html>A bar of space candy, <br> restores a small amount of hunger</html>"));
-		allItems.add(new FoodItem("Gemini Pouched Apple Juice", 50, 50, "<html>A refreshing drink to quench your thirst,<br> restores a moderate amount of hunger.</html>"));
-		allItems.add(new FoodItem("Apollo Brownie Cubes ", 55, 70, "<html>Satisfies your sweet cravings,<br> restores a moderate amount of hunger.</html>"));
-		allItems.add(new FoodItem("Thermostabilised Ribs ", 85, 125, "<html>Delicious rack of ribs,<br> restores a large amount of hunger</html>"));
-		allItems.add(new FoodItem("Unidentified Food Packet", 10, 10, "<html>Discovered on the planet,<br> restores a small amount of hunger.</html>"));
-		allItems.add(new MedicalItem("Anti-Nausea Patch", 25, 10, "Restores a small amount of health", false));
-		allItems.add(new MedicalItem("Roll of Dressing", 50, 50, "Restores a moderate amount of health", false));
-		allItems.add(new MedicalItem("Alien Toe", 35, 0, "Rumoured to cure space diseases when eaten", true));
-		allItems.add(new MedicalItem("Gemini Med Kit", 100, 100, "Restores a large amount of health", false));
-		allItems.add(new MedicalItem("Topical Ointment", 50, 1, "The usefullness of herbal medicine is unknown", false));
-		allItems.add(new MedicalItem("RX2 Antibiotics", 75, 25, "Cures space plague and restores health ", true));
+		allItems.add(new FoodItem("Dehydrated Chicken roast", 75, 100, "<html>Hearty meal after a long<br>day in space</html>"));
+		allItems.add(new FoodItem("Skylab Candy Bar", 20 , 15, "<html>Skylab's best selling space<br>candy bar</html>"));
+		allItems.add(new FoodItem("Gemini Pouched Apple Juice", 50, 50, "<html>A refreshing drink to quench<br>your thirst</html>"));
+		allItems.add(new FoodItem("Apollo Brownie Cubes ", 55, 70, "<html>Satisfies your sweet cravings</html>"));
+		allItems.add(new FoodItem("Thermostabilised Ribs ", 85, 125, "<html>Delicious rack of ribs</html>"));
+		allItems.add(new FoodItem("Unidentified Food Packet", 10, 10, "<html>Discovered on the planet</html>"));
+		allItems.add(new MedicalItem("Anti-Nausea Patch", 25, 10, "<html>Relief from disorientation<br>in space</html>", false));
+		allItems.add(new MedicalItem("Roll of Dressing", 50, 50, "<html>Wrap around wounds or burns<br>to promote healing</html>", false));
+		allItems.add(new MedicalItem("Alien Toe", 35, 0, "<html>Rumoured to cure space diseases<br>when eaten</html>", true));
+		allItems.add(new MedicalItem("Gemini Med Kit", 100, 100, "<html>Contains a wide variety<br>of medical supplies</html>", false));
+		allItems.add(new MedicalItem("Topical Ointment", 50, 1, "<html>Apply on areas to fight<br>against infection</html>", false));
+		allItems.add(new MedicalItem("RX2 Antibiotics", 75, 25, "<html>Cures space plague and restores<br>health</html>", true));
 		newPlanet();
 		
 	}
