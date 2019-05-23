@@ -27,7 +27,7 @@ public class EndScreen {
 
 	/**
 	 * Constructor for end screen
-	 * @param GameEnvironment incomingGameEnvironment the current state of the game
+	 * @param incomingGameEnvironment the current state of the game
 	 */
 	public EndScreen(GameEnvironment incomingGameEnvironment) {
 		gameEnvironment = incomingGameEnvironment;

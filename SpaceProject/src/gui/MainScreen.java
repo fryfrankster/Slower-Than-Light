@@ -23,6 +23,10 @@ import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.border.BevelBorder;
 
+/**
+ * The main screen of the game the player interacts with. Allows player to perform crew member actions and general actions
+ *
+ */
 public class MainScreen {
 
 	private JFrame window;
@@ -171,7 +175,7 @@ public class MainScreen {
 
 	/**
 	 * Creates the Main Screen GUI
-	 * @param GameEnvironment incomingGameEnvironment instance of the game environment used to control game logic
+	 * @param incomingGameEnvironment instance of the game environment used to control game logic
 	 */
 	public MainScreen(GameEnvironment incomingGameEnvironment) {
 		gameEnvironment = incomingGameEnvironment;
@@ -203,7 +207,7 @@ public class MainScreen {
 	/**
 	 * Gets the other crew member who is piloting the ship, and pilots the ship with both crew members
 	 * Updates GUI with information
-	 * @param int memberIndex the index in the Crew Member array of the other member to pilot the ship with
+	 * @param memberIndex the index in the Crew Member array of the other member to pilot the ship with
 	 */
 	public void getOtherPilot(int memberIndex) {
 		otherCrewMember = gameEnvironment.getCrew().getCrewMembers().get(memberIndex);
@@ -266,13 +270,13 @@ public class MainScreen {
 	
 	/**
 	 * Updates all the information labels associated with a given crewmember
-	 * @param CrewMember crewMember
-	 * @param JLabel nameType label showing the members name and type
-	 * @param JLabel health label showing the members health
-	 * @param JLabel tiredness label showing the members tiredness
-	 * @param JLabel hunger label showing the members hunger
-	 * @param JLabel actions label showing the members actions
-	 * @param JLabel plague label showing whether the member has space plague
+	 * @param crewMember The crewm ember whose information is displayed
+	 * @param nameType label showing the members name and type
+	 * @param health label showing the members health
+	 * @param tiredness label showing the members tiredness
+	 * @param hunger label showing the members hunger
+	 * @param actions label showing the members actions
+	 * @param plague label showing whether the member has space plague
 	 */
 	private void updateCrewmemberInfoPanel(CrewMember crewMember, JLabel nameType, JLabel health, JLabel tiredness, JLabel hunger, JLabel actions, JLabel plague) {
 	    nameType.setText("<html>" + crewMember.getName() + " - " + crewMember.getType() + "</html>");

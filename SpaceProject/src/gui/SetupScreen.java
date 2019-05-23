@@ -59,7 +59,8 @@ public class SetupScreen {
 	private JLabel lblGameIntro;
 
 	/**
-	 * Creates the Setup Screen
+	 * Creates the setup screen
+	 * @param incomingGameEnvironment instance of game environment used to access game logic
 	 */
 	public SetupScreen(GameEnvironment incomingGameEnvironment) {
 		gameEnvironment = incomingGameEnvironment;

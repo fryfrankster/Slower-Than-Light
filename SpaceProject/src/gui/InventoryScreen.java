@@ -31,7 +31,8 @@ public class InventoryScreen {
 	private GameEnvironment gameEnvironment;
 
 	/**
-	 * Create the application.
+	 * Creates the inventory screen
+	 * @param incomingGameEnvironment instance of game environment used to display game logic
 	 */
 	public InventoryScreen(GameEnvironment incomingGameEnvironment) {
 		gameEnvironment = incomingGameEnvironment;

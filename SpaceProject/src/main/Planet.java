@@ -81,7 +81,7 @@ public class Planet {
 	
 	/**
 	 * Removes an item from the ArrayList of items the planet has for sale
-	 * @param int index the index of the item to remove
+	 * @param index the index of the item to remove
 	 */
 	public void removeItem(int index) {
 		planetsItems.remove(index);
@@ -116,7 +116,7 @@ public class Planet {
 	
 	/**
 	 * Sets whether the planet's part has been found or not
-	 * @param boolean found whether or not the planet's part has been found
+	 * @param found whether or not the planet's part has been found
 	 */
 	public void setPartFound(boolean found) {
 		partFound = found;

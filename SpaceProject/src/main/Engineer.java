@@ -5,7 +5,7 @@ package main;
  */
 public class Engineer extends CrewMember {
 	/**
-	 * @param String name The name of the Engineer
+	 * @param name The name of the Engineer
 	 */
 	public Engineer(String name) {
 		// TODO Auto-generated constructor stub

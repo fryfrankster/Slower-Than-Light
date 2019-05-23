@@ -11,7 +11,8 @@ public class RandomEvent {
 	
 	/**
 	 * When called there is a 20% chance Alien Pirates will attack the crew, stealing a random item from their inventory
-	 * @param Crew crew The crew the alien pirates are attacking
+	 * @param crew The crew the alien pirates are attacking
+	 * @return the result of the pirates attacking
 	 */
 	public String alienPirates(Crew crew) {
 		int chance = random.nextInt(10);
@@ -28,7 +29,8 @@ public class RandomEvent {
 	
 	/** 
 	 * When called there is a 20% chance a crew member will get space plague.
-	 * @param Crew crew The crew that is being effected by space plague
+	 * @param crew The crew that is being effected by space plague
+	 * @return A string showing which member got space plague
 	 */
 	public String spacePlague(Crew crew) {
 		if(crew.getCrewSize() > 0){
@@ -52,7 +54,8 @@ public class RandomEvent {
 	
 	/**
 	 * When called there is a 30% chance the ship will hit an asteroid belt, reducing it's shield health by an amount that scales off missing health
-	 * @param Ship ship the ship that hits the asteroid belt
+	 * @param ship the ship that hits the asteroid belt
+	 * @return the damage caused by the asteroid belt
 	 */
 	public String asteroidBelt(Ship ship) {
 		int chance = random.nextInt(10);

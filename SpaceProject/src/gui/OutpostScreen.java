@@ -147,7 +147,7 @@ public class OutpostScreen {
 	
 	/**
 	 * Called when user clicks the purchase button
-	 * @param int index the index of the button clicked relating to the item the player wants to purchase
+	 * @param index the index of the button clicked relating to the item the player wants to purchase
 	 */
 	private void purchaseButtonClicked(int index) {
 		if(gameEnvironment.getCrew().canPurchaseItem(gameEnvironment.getCrew(), gameEnvironment.getPlanet(), index)) {
@@ -164,7 +164,8 @@ public class OutpostScreen {
 	}
 	
 	/**
-	 * Create the application.
+	 * Creates the application
+	 * @param incomingGameEnvironment instance of the game environment used to access game logic
 	 */
 	public OutpostScreen(GameEnvironment incomingGameEnvironment) {
 		gameEnvironment = incomingGameEnvironment;
@@ -189,11 +190,11 @@ public class OutpostScreen {
 	
 	/**
 	 * Updates the information panel for one item
-	 * @param Item item the item to be displayed
-	 * @param JLabel name the name of the item
-	 * @param JLabel description the description of the item
-	 * @param JLabel benefit the amount of health/hunger the item heals
-	 * @param JLabel price the price of the item
+	 * @param item the item to be displayed
+	 * @param name the name of the item
+	 * @param description the description of the item
+	 * @param benefit the amount of health/hunger the item heals
+	 * @param price the price of the item
 	 */
 	private void updateItemInfoPanel(Item item, JLabel name, JLabel description, JLabel benefit, JLabel price) {
 	    name.setText("<html>" + item.getName() + "</html>");

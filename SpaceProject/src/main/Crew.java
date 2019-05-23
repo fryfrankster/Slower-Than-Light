@@ -27,19 +27,25 @@ public class Crew {
 	/** Stores the items the crew has */
 	private ArrayList<Item> items;
 	
-	/** Returns if the player has found all the ships parts*/
+	/**
+	 * Returns true if the player has found all parts
+	 * @return whether the player has found al parts
+	 */
 	public boolean foundAllParts() {
 		return currentPieces == piecesToFind;
 	}
 	
-	/** Returns The name the user has chosen for the crew */
+	/**
+	 * Returns the name of the crew 
+	 * @return the name of the crew
+	 */
 	public String getName() {
 		return name;
 	}
 	
 	/**
 	 * Adds an object of type CrewMember to the crew members Array List
-	 * @param CrewMember crewMember object of type crew member to be added to the crew members list
+	 * @param crewMember to be added to the crew members list
 	 */
 	public void addCrewMember(CrewMember crewMember) {
 		crewMembers.add(crewMember);
@@ -54,7 +60,7 @@ public class Crew {
 	
 	/**
 	 * Removes a crew member from the crew
-	 * @param CrewMember crewMember The crew member to be removed
+	 * @param crewMember The crew member to be removed
 	 */
 	public void removeCrewMember(CrewMember crewMember) {
 		crewMembers.remove(crewMember);
@@ -62,8 +68,8 @@ public class Crew {
 	
 	
 	/**
-	 * Decreases the crew's money 
-	 * @param int toDecrease the amount of money lost by the crew
+	 * Decreases the crews money
+	 * @param toDecrease the amount to decrease by
 	 */
 	public void decreaseMoney(int toDecrease) {
 		money -= toDecrease;
@@ -98,9 +104,9 @@ public class Crew {
 	
 	/**
 	 * Allows the crew to purchase an item from a space outpost
-	 * @param Crew crew the crew purchasing the item
-	 * @param Planet planet the planet the item is being purchased from
-	 * @param int itemIndex the index of the item in the planets list of items
+	 * @param crew the crew purchasing the item
+	 * @param planet the planet the item is being purchased from
+	 * @param itemIndex the index of the item in the planets list of items
 	 */
 	public void purchaseItem(Crew crew, Planet planet, int itemIndex) {
 		//Case they can afford item
@@ -128,9 +134,9 @@ public class Crew {
 	
 	/**
 	 * Returns a boolean value showing if the crew has enough money to purchase an item
-	 * @param Crew crew The crew attempting to purchase an item
-	 * @param Planet planet The planet the crew is purchasing the item from
-	 * @param int itemIndex The index of the item in the planets item list the crew wishes to purchase
+	 * @param crew The crew attempting to purchase an item
+	 * @param planet The planet the crew is purchasing the item from
+	 * @param itemIndex The index of the item in the planets item list the crew wishes to purchase
 	 * @return A boolean showing if the crew has enough money to purchase an item
 	 */
 	public boolean canPurchaseItem(Crew crew, Planet planet, int itemIndex) {
@@ -223,7 +229,7 @@ public class Crew {
 	
 	/**
 	 * Returns an item the crew owns at the desired index
-	 * @param int  userInput the index of the item in the crew's item list
+	 * @param userInput the index of the item in the crew's item list
 	 * @return The Item object at the specified index in the crew's item list
 	 */
 	public Item getItem(int userInput) {
@@ -232,7 +238,7 @@ public class Crew {
 	
 	/**
 	 * Removes an item from the crews inventory
-	 * @param int userInput the index of the item to remove
+	 * @param userInput the index of the item to remove
 	 */
 	public void removeInInventory(int userInput) {
 		items.remove(userInput);
@@ -241,7 +247,7 @@ public class Crew {
 	
 	/**
 	 * Increases the amount of money the crew has
-	 * @param int moneyToAdd the amount to increase the crew's money by
+	 * @param moneyToAdd the amount to increase the crew's money by
 	 */
 	public void addMoney(int moneyToAdd) {
 		money += moneyToAdd;
@@ -250,7 +256,7 @@ public class Crew {
 	
 	/**
 	 * Adds an item to the crew's inventory
-	 * @param Item the item to be added
+	 * @param item the item to be added
 	 */
 	public void addItem(Item item) {
 		items.add(item);
@@ -259,7 +265,7 @@ public class Crew {
 	/**
 	 * Constructor for Object of Type Crew
 	 * Initializes crews starting money, crew members, items and name.
-	 * @param String crewName the name of the crew
+	 * @param crewName the name of the crew
 	 */
 	public Crew(String crewName) {
 		crewMembers = new ArrayList<CrewMember>();
@@ -311,7 +317,7 @@ public class Crew {
 	
 	/**
 	 * Sets the current pieces that the crew has found to the parameter
-	 * @param int pieces an integer representing how many pieces the crew has found
+	 * @param pieces an integer representing how many pieces the crew has found
 	 */
 	public void setCurrentPieces(int pieces) {
 		currentPieces = pieces;
@@ -320,7 +326,7 @@ public class Crew {
 	
 	/**
 	 * Sets the total pieces that the crew has to find to the parameter
-	 * @param int pieces an integer representing how many total pieces the crew has to find
+	 * @param pieces an integer representing how many total pieces the crew has to find
 	 */
 	public void setPiecesToFind(int pieces) {
 		piecesToFind = pieces;

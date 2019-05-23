@@ -57,15 +57,15 @@ public class CrewMember {
 
 	/**
 	 * 
-	 * @param String name the name of the crew member
-	 * @param int maxHealth The maximum amount of health of the crew member 
-	 * @param int hungerIncreaseRate The rate at which the crew members hunger increases when they perform an action
-	 * @param int tirednessIncreaseRate The rate at which the crew members Tiredness increases when they perform an action
-	 * @param int searchSkill An integer representing how skilled the crew member is at searching the planet. A higher value means more skill
-	 * @param int repairSkill An integer representing how skilled the crew member is at piloting the ship. A higher value means more skill
-	 * @param boolean plagueImmune A boolean representing if the crew member is immune to the space plague
-	 * @param int actionsPerDay The number of actions the crew member can perform in a day
-	 * @param String type The type of the crew member 
+	 * @param name the name of the crew member
+	 * @param maxHealth The maximum amount of health of the crew member 
+	 * @param hungerIncreaseRate The rate at which the crew members hunger increases when they perform an action
+	 * @param tirednessIncreaseRate The rate at which the crew members Tiredness increases when they perform an action
+	 * @param searchSkill An integer representing how skilled the crew member is at searching the planet. A higher value means more skill
+	 * @param repairSkill An integer representing how skilled the crew member is at piloting the ship. A higher value means more skill
+	 * @param plagueImmune A boolean representing if the crew member is immune to the space plague
+	 * @param actionsPerDay The number of actions the crew member can perform in a day
+	 * @param type The type of the crew member 
 	 */
 	public CrewMember(String name, int maxHealth, int hungerIncreaseRate, int tirednessIncreaseRate, int searchSkill, int repairSkill, boolean plagueImmune,  int actionsPerDay, String type) {
 		this.name = name;
@@ -111,8 +111,8 @@ public class CrewMember {
 	
 	/**
 	 * Decreases a crew members health by a specified amount, calls crewMemberDeath if the members health drops to 0
-	 * @param int toDecrease the amount of health to decrease the crew member by
-	 * @param Crew crew the crew the crew member is from
+	 * @param toDecrease the amount of health to decrease the crew member by
+	 * @param crew the crew the crew member is from
 	 */
 	public void decreaseHealth(int toDecrease, Crew crew) {
 		currentHealth = Math.max(currentHealth - toDecrease, 0);
@@ -148,7 +148,7 @@ public class CrewMember {
 	
 	/**
 	 * Sets the number of crew members actions completed to the given value
-	 * @param int actions the number of actions the crew member has now completed
+	 * @param actions the number of actions the crew member has now completed
 	 */
 	public void setActionsCompleted(int actions) {
 		actionsCompleted = actions;
@@ -164,7 +164,7 @@ public class CrewMember {
 	
 	/**
 	 * Called when a crew member dies, removes them from the crew
-	 * @param Crew crew the crew that the dying crew member is from
+	 * @param crew the crew that the dying crew member is from
 	 */
 	public void crewMemberDeath(Crew crew) {
 		crew.removeCrewMember(this);
@@ -181,7 +181,7 @@ public class CrewMember {
 	
 	/**
 	 * Increases the health of the crew member by the specified value
-	 * @param int increase the amount of health to increase the crew member by
+	 * @param increase the amount of health to increase the crew member by
 	 */
 	public void increaseHealth(int increase) {
 		currentHealth = Math.min(maxHealth, currentHealth + increase);
@@ -258,7 +258,7 @@ public class CrewMember {
 	
 	/**
 	 * Gives a crew member space plague or cures them of it
-	 * @param boolean plague a boolean value, true if the member is given plague, false if the member is cured.
+	 * @param plague a boolean value, true if the member is given plague, false if the member is cured.
 	 */
 	public void setSpacePlague(boolean plague) {
 		hasPlague = plague;
@@ -289,8 +289,8 @@ public class CrewMember {
 	
 	/**
 	 * A crew member uses an item. The crew member benefits from the item and it is removed from the crews inventory
-	 * @param Crew crew the crew the crew member is from
-	 * @param int userInput an integer representing the item the player has chosen to use
+	 * @param crew the crew the crew member is from
+	 * @param userInput an integer representing the item the player has chosen to use
 	 * @return the result of using the item to be displayed to the user
 	 */
 	public String useItem(Crew crew, int userInput) {
@@ -339,10 +339,10 @@ public class CrewMember {
 	
 	/**
 	 * Uses two crew members to pilot the ship to another planet
-	 * @param CrewMember otherMember The other crew member piloting the ship
-	 * @param Planet planet The planet the crew member is currently on
-	 * @param RandomEvent randomEvent instance of random event used to create the asteroid event
-	 * @param Ship ship the ship to be piloted
+	 * @param otherMember The other crew member piloting the ship
+	 * @param planet The planet the crew member is currently on
+	 * @param randomEvent instance of random event used to create the asteroid event
+	 * @param ship the ship to be piloted
 	 * @return A string showing the result of the action to be displayed to the user
 	 */
 	public String pilotShip(CrewMember otherMember, Planet planet, RandomEvent randomEvent, Ship ship) {
@@ -358,7 +358,7 @@ public class CrewMember {
 
 	/**
 	 * Repairs the ships shields by the crew members specified repair skill
-	 * @param Ship ship the ship to be repaired
+	 * @param ship the ship to be repaired
 	 * @return A string showing the result of the action to be displayed to the user
 	 */
 	public String repairShields(Ship ship) {
@@ -376,8 +376,8 @@ public class CrewMember {
 	
 	/** 
 	 * A crew member searches the planet for parts. They are able to find a spaceship part, an item, money or nothing
-	 * @param Planet planet the planet to be searched
-	 * @param Crew crew the crew that the member is from
+	 * @param planet the planet to be searched
+	 * @param crew the crew that the member is from
 	 * @return A string showing the result of the action to be displayed to the user
 	 */
 	public String searchForParts(Planet planet, Crew crew) {

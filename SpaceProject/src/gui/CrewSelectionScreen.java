@@ -74,7 +74,8 @@ public class CrewSelectionScreen {
 	private JLabel lblBackground;
 
 	/**
-	 * Create the application.
+	 * Creates the Crew Selection screen screen
+	 * @param incomingGameEnvironment the game environment the screen is getting information from
 	 */
 	public CrewSelectionScreen(GameEnvironment incomingGameEnvironment) {
 		gameEnvironment = incomingGameEnvironment;
@@ -99,7 +100,7 @@ public class CrewSelectionScreen {
 	/**
 	 * Adds the given crew member to the crew if they are given a name that isn't empty 
 	 * Displays that crew member in a list at the bottom
-	 * @param CrewMember crewMember the CrewMember to be added to the crew
+	 * @param crewMember the CrewMember to be added to the crew
 	 */
 	public void addMemberToCrew(CrewMember crewMember) {
 		int numMembers = gameEnvironment.getCrew().getCrewSize();
@@ -110,22 +111,22 @@ public class CrewSelectionScreen {
 			
 			
 			case 0:
-				lblCrewMember1.setText(crewMember.getName() + " : " + crewMember.getType());
+				lblCrewMember1.setText("<html>" + crewMember.getName() + " : " + crewMember.getType() + "</html>");
 				lblCrewMember1.setVisible(true);
 				gameEnvironment.getCrew().addCrewMember(crewMember);
 				break;
 			case 1:
-				lblCrewMember2.setText(crewMember.getName() + " : " + crewMember.getType());
+				lblCrewMember2.setText("<html>" + crewMember.getName() + " : " + crewMember.getType() + "</html>");
 				lblCrewMember2.setVisible(true);
 				gameEnvironment.getCrew().addCrewMember(crewMember);
 				break;
 			case 2:
-				lblCrewMember3.setText(crewMember.getName() + " : " + crewMember.getType());
+				lblCrewMember3.setText("<html>" + crewMember.getName() + " : " + crewMember.getType() + "</html>");
 				lblCrewMember3.setVisible(true);
 				gameEnvironment.getCrew().addCrewMember(crewMember);
 				break;
 			case 3:
-				lblCrewMember4.setText(crewMember.getName() + " : " + crewMember.getType());
+				lblCrewMember4.setText("<html>" + crewMember.getName() + " : " + crewMember.getType() + "</html>");
 				lblCrewMember4.setVisible(true);
 				gameEnvironment.getCrew().addCrewMember(crewMember);
 				btnChungus.setEnabled(false);
@@ -159,28 +160,28 @@ public class CrewSelectionScreen {
 		lblCrewMember1.setForeground(Color.WHITE);
 		lblCrewMember1.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblCrewMember1.setVisible(false);
-		lblCrewMember1.setBounds(43, 488, 253, 40);
+		lblCrewMember1.setBounds(43, 463, 253, 60);
 		window.getContentPane().add(lblCrewMember1);
 		
 		lblCrewMember2 = new JLabel("Crew Member 2");
 		lblCrewMember2.setForeground(Color.WHITE);
 		lblCrewMember2.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblCrewMember2.setVisible(false);
-		lblCrewMember2.setBounds(43, 550, 253, 26);
+		lblCrewMember2.setBounds(43, 534, 253, 56);
 		window.getContentPane().add(lblCrewMember2);
 		
 		lblCrewMember3 = new JLabel("Crew Member 3");
 		lblCrewMember3.setForeground(Color.WHITE);
 		lblCrewMember3.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblCrewMember3.setVisible(false);
-		lblCrewMember3.setBounds(318, 496, 257, 32);
+		lblCrewMember3.setBounds(318, 471, 257, 52);
 		window.getContentPane().add(lblCrewMember3);
 		
 		lblCrewMember4 = new JLabel("Crew Member 4");
 		lblCrewMember4.setForeground(Color.WHITE);
 		lblCrewMember4.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblCrewMember4.setVisible(false);
-		lblCrewMember4.setBounds(318, 550, 257, 26);
+		lblCrewMember4.setBounds(318, 534, 257, 56);
 		window.getContentPane().add(lblCrewMember4);
 		
 		JLabel lblCrewSelection = new JLabel("Crew Selection");
@@ -329,7 +330,7 @@ public class CrewSelectionScreen {
 		JLabel lblCurrentCrewMembers = new JLabel("Current Crew Members");
 		lblCurrentCrewMembers.setForeground(Color.WHITE);
 		lblCurrentCrewMembers.setFont(new Font("Tahoma", Font.BOLD, 22));
-		lblCurrentCrewMembers.setBounds(43, 435, 305, 55);
+		lblCurrentCrewMembers.setBounds(42, 422, 305, 55);
 		window.getContentPane().add(lblCurrentCrewMembers);
 		
 		lblErrorText = new JLabel(" ");

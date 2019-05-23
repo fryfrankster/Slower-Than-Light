@@ -48,18 +48,21 @@ public class Item {
     	return benefit;
     }
     
-    /** Returns the items name, description, benefit and price */
+    /**
+     * Returns the items name, description, benefit and price
+     * @return the items name, benefit and price
+     */
     public String getInfo() {
     	return "Item " + name + ": " + description + ": +" + benefit + ": $" + price;
     }
    
     /** 
      * 
-     * @param String itemName The name of the item 
-     * @param int itemPrice The price of the item 
-     * @param int itemBenefit The amount of health a med item restores and hunger the food item restores
-     * @param String itemDescription A description of the item
-     * @param String itemType  Whether the Item is a food item or medical item
+     * @param itemName The name of the item 
+     * @param itemPrice The price of the item 
+     * @param itemBenefit The amount of health a med item restores and hunger the food item restores
+     * @param itemDescription A description of the item
+     * @param itemType Whether the Item is a food item or medical item
      */
     public Item(String itemName, int itemPrice, int itemBenefit, String itemDescription, String itemType) {
     	benefit = itemBenefit;

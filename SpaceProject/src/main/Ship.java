@@ -16,7 +16,7 @@ public class Ship {
 	
 	/**
 	 * Constructor for the ship
-	 * @param String name the name of the ship
+	 * @param name the name of the ship
 	 */
 	public Ship(String name) {
 		this.name = name;
@@ -41,7 +41,7 @@ public class Ship {
 	
 	/**
 	 * Sets the ships shield level
-	 * @param int newLevel the level to set the ships shields to
+	 * @param newLevel the level to set the ships shields to
 	 */
 	public void setShieldLevel(int newLevel){
 		currentShieldLevel = newLevel;
@@ -49,7 +49,7 @@ public class Ship {
 	
 	/**
 	 * Decreases the ships shield level
-	 * @param int decrease the amount to decrease the shields by
+	 * @param decrease the amount to decrease the shields by
 	 */
 	public void decreaseShieldLevel(int decrease) {
 		currentShieldLevel -= decrease;

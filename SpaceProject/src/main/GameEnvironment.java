@@ -49,7 +49,7 @@ public class GameEnvironment {
 
 	/**
 	 * Sets the reason for ending the game
-	 * @param String reasonForEnding A String describing to the user why the game ended
+	 * @param reasonForEnding A String describing to the user why the game ended
 	 */
 	public void setReasonForEnding(String reasonForEnding) {
 		this.reasonForEnding = reasonForEnding;
@@ -81,7 +81,7 @@ public class GameEnvironment {
 	
 	/**
 	 * Closes the Setup Screen GUI
-	 * @param SetupScreen setupScreen the screen to be closed
+	 * @param setupScreen the screen to be closed
 	 */
 	public void closeSetupScreen(SetupScreen setupScreen) {
 		setupScreen.closeWindow();
@@ -96,7 +96,7 @@ public class GameEnvironment {
 	
 	/**
 	 * Closes the Crew Selection GUI
-	 *  @param CrewSelectionScreen crewSelectionScreen the screen to be closed
+	 *  @param crewSelectionScreen the screen to be closed
 	 */
 	public void closeCrewSelectionScreen(CrewSelectionScreen crewSelectionScreen) {
 		crewSelectionScreen.closeWindow();
@@ -111,7 +111,7 @@ public class GameEnvironment {
 	
 	/**
 	 * Closes the Main Screen GUI
-	 * @param MainScreen mainScreen the screen to be closed
+	 * @param mainScreen the screen to be closed
 	 */
 	public void closeMainScreen(MainScreen mainScreen) {
 		mainScreen.closeWindow();
@@ -126,7 +126,7 @@ public class GameEnvironment {
 	
 	/**
 	 * Closes the End Screen GUI
-	 * @param EndScreen endScreen the screen to be closed
+	 * @param endScreen the screen to be closed
 	 */
 	public void closeEndScreen(EndScreen endScreen) {
 		endScreen.closeWindow();
@@ -141,7 +141,7 @@ public class GameEnvironment {
 	
 	/**
 	 * Closes the Inventory Screen GUI
-	 * @param InventoryScreen inventoryScreen the screen to be closed
+	 * @param inventoryScreen the screen to be closed
 	 */
 	public void closeInventoryScreen(InventoryScreen inventoryScreen) {
 		inventoryScreen.closeWindow();
@@ -154,7 +154,7 @@ public class GameEnvironment {
 
 	/**
 	 * Closes the Outpost Screen GUI
-	 * @param OutpostScreen outpostScreen the screen to be closed
+	 * @param outpostScreen the screen to be closed
 	 */
 	public void closeOutpostScreen(OutpostScreen outpostScreen) {
 		outpostScreen.closeWindow();
@@ -203,6 +203,7 @@ public class GameEnvironment {
 	/**
 	 * Called when the user moves to the next day. Increases the day count, random events may occur, and crews actions
 	 * are reset
+	 * @return a string describing what has happened when moving to the next day
 	 */
 	public String nextDay() {
 		currentDay += 1;
@@ -215,6 +216,9 @@ public class GameEnvironment {
 	
 	/**
 	 * Gets the user to pick a name for ship, choose crew members and initializes key game variables to starting values
+	 * @param shipName name user chose for the ship
+	 * @param crewName name user chose for the crew
+	 * @param numDays number of days the user chose the game to run for
 	 */
 	public void setupGame(String shipName, String crewName, int numDays) {
 		 score = 0;
@@ -232,6 +236,7 @@ public class GameEnvironment {
 	
 	/**
 	 * Launches the game
+	 * @param args the string arguments to be passed whens starting the program
 	 */
 	public static void main(String[] args) {
 		
