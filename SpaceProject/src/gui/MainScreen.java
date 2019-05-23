@@ -21,6 +21,7 @@ import java.util.Collections;
 import java.util.TreeSet;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
+import javax.swing.border.BevelBorder;
 
 public class MainScreen {
 
@@ -526,7 +527,7 @@ public class MainScreen {
 		
 		//CREW MEMBER 1 STATUS
 		member1Panel = new JPanel();
-		member1Panel.setBorder(null);
+		member1Panel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		member1Panel.setBounds(20, 425, 229, 178);
 		window.getContentPane().add(member1Panel);
 		member1Panel.setLayout(null);
@@ -559,7 +560,7 @@ public class MainScreen {
 		//CREW MEMBER 2 STATUS
 		member2Panel = new JPanel();
 		member2Panel.setLayout(null);
-		member2Panel.setBorder(null);
+		member2Panel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		member2Panel.setBounds(259, 425, 229, 178);
 		window.getContentPane().add(member2Panel);
 		
@@ -591,7 +592,7 @@ public class MainScreen {
 		//CREW MEMBER 3 STATUS
 		member3Panel = new JPanel();
 		member3Panel.setLayout(null);
-		member3Panel.setBorder(null);
+		member3Panel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		member3Panel.setBounds(498, 425, 229, 178);
 		window.getContentPane().add(member3Panel);
 		
@@ -623,7 +624,7 @@ public class MainScreen {
 		//CREW MEMBER 4 STATUS
 		member4Panel = new JPanel();
 		member4Panel.setLayout(null);
-		member4Panel.setBorder(null);
+		member4Panel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		member4Panel.setBounds(737, 425, 229, 178);
 		window.getContentPane().add(member4Panel);
 		

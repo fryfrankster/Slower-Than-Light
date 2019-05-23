@@ -198,7 +198,12 @@ public class OutpostScreen {
 	private void updateItemInfoPanel(Item item, JLabel name, JLabel description, JLabel benefit, JLabel price) {
 	    name.setText(item.getName() + "(" +  item.getType() + ")");
 		description.setText(item.getDescription());
-		benefit.setText("Benefit : " + String.valueOf(item.getBenefit()));
+		String typeOfIncrease = "Health";
+		if(item.getType() == "medical") {
+			typeOfIncrease = "Hunger";
+		} 
+				
+		benefit.setText("+ " + String.valueOf(item.getBenefit()) + " " + typeOfIncrease);
 		price.setText("$" + String.valueOf(item.getPrice()));
 	}
 	
