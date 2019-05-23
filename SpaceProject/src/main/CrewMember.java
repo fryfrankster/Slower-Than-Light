@@ -375,7 +375,7 @@ public class CrewMember {
 	}
 	
 	/** 
-	 * A crew member searches the planet for parts. They can find a spaceship part, an item, money or nothing
+	 * A crew member searches the planet for parts. They are able to find a spaceship part, an item, money or nothing
 	 * @param Planet planet the planet to be searched
 	 * @param Crew crew the crew that the member is from
 	 * @return A string showing the result of the action to be displayed to the user
