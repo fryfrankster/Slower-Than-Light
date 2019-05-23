@@ -110,8 +110,9 @@ public class InventoryScreen {
 		window.getContentPane().add(btnVisitOutpost);
 		
 		inventoryContents = new JLabel("New label");
+		inventoryContents.setHorizontalAlignment(SwingConstants.LEFT);
 		inventoryContents.setForeground(Color.WHITE);
-		inventoryContents.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		inventoryContents.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		inventoryContents.setVerticalAlignment(SwingConstants.TOP);
 		inventoryContents.setBounds(28, 62, 948, 465);
 		window.getContentPane().add(inventoryContents);

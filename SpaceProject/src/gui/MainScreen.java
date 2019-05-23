@@ -209,7 +209,7 @@ public class MainScreen {
 		otherCrewMember = gameEnvironment.getCrew().getCrewMembers().get(memberIndex);
 		
 		pilotMode = false;
-		lblGameDialouge.setText(selectedCrewMember.pilotShip(otherCrewMember, gameEnvironment.getPlanet(), gameEnvironment.getRandomEvent(), gameEnvironment.getShip()));
+		lblGameDialouge.setText("<html>" + selectedCrewMember.pilotShip(otherCrewMember, gameEnvironment.getPlanet(), gameEnvironment.getRandomEvent(), gameEnvironment.getShip()) + "</html>");
 		selectedMemberButton.setVisible(true);
 		updateAllCrewInfoPanels();
 		updateShieldLabel();
@@ -376,7 +376,7 @@ public class MainScreen {
 				}
 					
 				else {
-				lblGameDialouge.setText(gameEnvironment.nextDay());
+				lblGameDialouge.setText("<html>" + gameEnvironment.nextDay() + "</html>");
 				updateAllCrewInfoPanels();
 				updateDay();
 				pilotMode = false;
@@ -398,7 +398,7 @@ public class MainScreen {
 			pilotMode = false;
 			if(selectedMemberCanDoAction()){
 				if(gameEnvironment.getCrew().getAvailableCrewMembers() < 2) {
-					lblGameDialouge.setText("You need two crew members to pilot the ship buster!");
+					lblGameDialouge.setText("You need two crew members to pilot the ship!");
 				}
 				else {
 					selectedMemberButton.setVisible(false);

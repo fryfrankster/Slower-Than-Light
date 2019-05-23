@@ -196,7 +196,7 @@ public class OutpostScreen {
 	 * @param JLabel price the price of the item
 	 */
 	private void updateItemInfoPanel(Item item, JLabel name, JLabel description, JLabel benefit, JLabel price) {
-	    name.setText(item.getName() + "(" +  item.getType() + ")");
+	    name.setText("<html>" + item.getName() + "(" +  item.getType() + ")" + "</html>");
 		description.setText(item.getDescription());
 		String typeOfIncrease = "Health";
 		if(item.getType() == "medical") {
