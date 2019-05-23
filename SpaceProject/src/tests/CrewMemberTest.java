@@ -53,7 +53,13 @@ class CrewMemberTest {
 	@Test
 	public void isPlagueImmuneTest() {
 		assertTrue(testRobot.isPlaugeImmune());
+		
 		//Check that other types are not plague immune
+		assertFalse(testChungus.isPlaugeImmune());
+		assertFalse(testScavenger.isPlaugeImmune());
+		assertFalse(testWorker.isPlaugeImmune());
+		assertFalse(testSoldier.isPlaugeImmune());
+		assertFalse(testEngineer.isPlaugeImmune());
 	}
 	
 	@Test
@@ -76,7 +82,16 @@ class CrewMemberTest {
 		testChungus.increaseTiredness();
 		testChungus.increaseTiredness();
 		testChungus.increaseTiredness();
-		assertTrue(0 == testChungus.getTiredness());
+		assertEquals(0, testChungus.getTiredness());
+		assertFalse(testChungus.canPerformAction());
+		
+		
+		testChungus.setActionsCompleted(0);
+		assertEquals(0, testChungus.getTiredness());
+		assertFalse(testChungus.canPerformAction());
+		
+		testChungus.setActionsCompleted(1);
+		assertEquals(0, testChungus.getTiredness());
 		assertFalse(testChungus.canPerformAction());
 
 	}
@@ -184,6 +199,9 @@ class CrewMemberTest {
 	}
 	
 	
+	/**
+	 * 
+	 */
 	@Test 
 	public void isExhaustedTest() {
 		assertEquals(0, testScavenger.getActionsCompleted());
@@ -217,6 +235,7 @@ class CrewMemberTest {
 	@Test
 	public void decreaseHealthTest() {
 		testCrew.addCrewMember(testRobot);
+		assertEquals(testRobot.getHealth(), testRobot.getMaxHealth());
 		
 		testRobot.decreaseHealth(10, testCrew);
 		assertTrue(testRobot.getHealth() < testRobot.getMaxHealth());
@@ -229,6 +248,25 @@ class CrewMemberTest {
 		assertTrue(testRobot.getHealth() == 0);	
 	}
 	
+	@Test
+	public void increaseHealthTest() {
+		testCrew.addCrewMember(testRobot);
+		assertEquals(testRobot.getHealth(), testRobot.getMaxHealth());
+		
+		testRobot.decreaseHealth(testRobot.getMaxHealth(), testCrew);
+		assertTrue(testRobot.getHealth() < testRobot.getMaxHealth());
+		
+		testRobot.increaseHealth(testRobot.getMaxHealth());
+		assertEquals(testRobot.getHealth(), testRobot.getMaxHealth());
+		
+		//Doesn't go to a negative integer
+		testRobot.increaseHealth(10);
+		assertEquals(testRobot.getHealth(), testRobot.getMaxHealth());
+	}
+	
+	/**
+	 * 
+	 */
 	@Test
 	public void napTest() {
 		//Decreasing to tiredness = 0 

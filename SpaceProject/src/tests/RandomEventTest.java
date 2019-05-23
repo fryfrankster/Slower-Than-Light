@@ -43,10 +43,11 @@ class RandomEventTest {
 	@Test
 	public void spacePlagueTest() {
 		assertFalse(testScavenger.hasSpacePlague());
-		testRandomEvent.spacePlague(testCrew);
-		
 		testScavenger.setSpacePlague(true);
+
 		
+		testRandomEvent.spacePlague(testCrew);
+				
 		//May or many not pass as this is a random event
 		assertTrue(testScavenger.hasSpacePlague());
 		assertTrue(testEngineer.hasSpacePlague());

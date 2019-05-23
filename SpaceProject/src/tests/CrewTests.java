@@ -116,7 +116,7 @@ class CrewTests {
 	@Test
 	public void canPurchaseItemTest() {
 		assertTrue(testItemFood.getPrice() <= testCrew.getMoney());
-		testCrew.decreaseMoney(50);
+		testCrew.decreaseMoney(testCrew.getMoney());
 		assertTrue(testItemFood.getPrice() >= testCrew.getMoney());
 	}
 	
@@ -134,9 +134,12 @@ class CrewTests {
 		testCrew.addCrewMember(testScavenger);
 		testCrew.addCrewMember(testEngineer);
 		
-		testChungus.setActionsCompleted(0);
-		testScavenger.setActionsCompleted(1);
-		testEngineer.setActionsCompleted(2);
+		
+		testCrew.resetCrewActions();
+		
+//		testChungus.setActionsCompleted(0);
+//		testScavenger.setActionsCompleted(1);
+//		testEngineer.setActionsCompleted(2);
 	}
 	
 	@Test
@@ -144,8 +147,33 @@ class CrewTests {
 		testCrew.addItem(testItemFood);
 		testCrew.addItem(testItemMedical);
 		testCrew.getItemsAsStringArray();
-		
-		
+
 	}
+	
+	@Test
+	public void getDailyScoreTest() {
+		testCrew.addCrewMember(testScavenger);
+		testCrew.getDailyScore();
+	}
+	
+	@Test
+	public void foundAllPartsTest() {
+		testCrew.setPiecesToFind(2);
+		assertEquals(2, testCrew.getPiecesToFind());
+		assertFalse(testCrew.foundAllParts());
+		
+		
+		assertEquals(0, testCrew.getCurrentPieces());
+		testCrew.setCurrentPieces(testCrew.getCurrentPieces() + 1);
+		assertFalse(testCrew.foundAllParts());
+		
+		assertEquals(1, testCrew.getCurrentPieces());
+		testCrew.setCurrentPieces(testCrew.getCurrentPieces() + 1);
+		assertTrue(testCrew.foundAllParts());
+
+	}
+	
+
+	
 
 }
