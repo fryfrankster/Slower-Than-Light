@@ -18,6 +18,9 @@ class PlanetTest {
 		testPlanet = new Planet();
 	}
 	
+	/**
+	 * Checks if the only transporter part available on the planet has been found
+	 */
 	@Test
 	public void partFoundTest() {
 		assertFalse(testPlanet.partFound());

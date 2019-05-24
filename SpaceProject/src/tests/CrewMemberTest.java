@@ -2,12 +2,15 @@ package tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import main.Chungus;
 import main.Engineer;
 import main.FoodItem;
+import main.Item;
 import main.MedicalItem;
 import main.Planet;
 import main.RandomEvent;
@@ -53,10 +56,12 @@ class CrewMemberTest {
 
  	}
 
+	/**
+	 * Checking the types of crew members that are immune to space plague
+	 */
 	@Test
 	public void isPlagueImmuneTest() {
 		assertTrue(testRobot.isPlaugeImmune());
-		
 		//Check that other types are not plague immune
 		assertFalse(testChungus.isPlaugeImmune());
 		assertFalse(testScavenger.isPlaugeImmune());
@@ -65,6 +70,10 @@ class CrewMemberTest {
 		assertFalse(testEngineer.isPlaugeImmune());
 	}
 	
+	/**
+	 * Checking if a crew member can perform an action based on the number of actions left and
+	 * their tiredness levels 
+	 */
 	@Test
 	public void canPerformActionTest() {
 		//Initial actions performed set to 0
@@ -99,6 +108,9 @@ class CrewMemberTest {
 
 	}
 	
+	/**
+	 * Performs search for parts
+	 */
 	@Test
 	public void searchForPartsTest() {
 		assertFalse(testPlanet.partFound());
@@ -107,12 +119,16 @@ class CrewMemberTest {
 		assertTrue(testScavenger.getActionsCompleted() == 1);
 		assertNotEquals(testScavenger.getMaxTiredness(), testScavenger.getTiredness());
 		assertNotEquals(testScavenger.getMaxHunger(), testScavenger.getHunger());
-
+		
+		/**Finding another transporter part will be disabled if one has already been found on the planet*/
 		testPlanet.setPartFound(true);
 		testScavenger.searchForParts(testPlanet, testCrew);
 	}
 	
 	
+	/**
+	 * Perform sleep action based on tiredness level
+	 */
 	@Test
 	public void sleepTest(){
 		//When a crew member has maximum tiredness, sleep is not performed
@@ -128,6 +144,9 @@ class CrewMemberTest {
 		
 	}
 	
+	/**
+	 * Performs repair shields action based on the current shield level of the ship
+	 */
 	@Test
 	public void repairShieldsTest() {
 		//When a shield is at maximum, repair shields is not performed
@@ -143,23 +162,36 @@ class CrewMemberTest {
 	}
 	
 	
+	/**
+	 * Performs pilot ship to a new planet
+	 */
 	@Test 
 	public void pilotShipTest() {
-		//Check the outpost items to compare difference, checks if moved to a new planet
+		ArrayList<Item> initialPlanetItems = new ArrayList<Item>(testPlanet.getPlanetsItems());
+		
+		testCrew.addCrewMember(testChungus);
+		testCrew.addCrewMember(testEngineer);
+		assertTrue(testCrew.getAvailableCrewMembers() == 2);
+		
 		assertTrue(testEngineer.getActionsCompleted() == 0);
 		assertTrue(testChungus.getActionsCompleted() == 0);
 		testEngineer.pilotShip(testChungus, testPlanet, testRandomEvent, testShip);
 		
 		assertTrue(testEngineer.getActionsCompleted() == 1);
 		assertTrue(testChungus.getActionsCompleted() == 1);
-
+		assertNotEquals(testEngineer.getHunger(), testEngineer.getMaxHunger());
+		assertNotEquals(testChungus.getTiredness(), testChungus.getMaxTiredness());
+		
+		/**New planet would initialise random items that differ from the previous planet*/
+		assertNotEquals(initialPlanetItems, testPlanet.getPlanetsItems());
 	}
 	
+	/**
+	 * Performs use item, based on the item type, the hunger/health of the crew member will
+	 * increase and can cure space plague
+	 */
 	@Test
 	public void useItemTest() {
-		//TEST FOR WHEN HEALTH AND HUNGER ARE ALREADY AT MAX WHEN USING AN ITEM
-		//Check if action completed increases
-		//Initialise crew member to have health and hunger below maximum amount, also has space plague
 		testCrew.addCrewMember(testScavenger);
 		
 		assertEquals(testScavenger.getHealth(), testScavenger.getMaxHealth());
@@ -203,7 +235,7 @@ class CrewMemberTest {
 	
 	
 	/**
-	 * 
+	 * Checks if the crew member's tiredness levels are at 0 based on the current tiredness level
 	 */
 	@Test 
 	public void isExhaustedTest() {
@@ -233,7 +265,7 @@ class CrewMemberTest {
 	}
 	
 	/**
-	 * 
+	 * Decrease crew member's health
 	 */
 	@Test
 	public void decreaseHealthTest() {
