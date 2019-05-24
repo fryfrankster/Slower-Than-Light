@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import main.Chungus;
 import main.Engineer;
 import main.FoodItem;
@@ -58,6 +57,7 @@ class CrewMemberTest {
 
 	/**
 	 * Checking the types of crew members that are immune to space plague
+	 * @result Plague immune variable is returned given the type of crew member
 	 */
 	@Test
 	public void isPlagueImmuneTest() {
@@ -71,8 +71,24 @@ class CrewMemberTest {
 	}
 	
 	/**
+	 * Checks the type of the crew member
+	 * @result Type of the crew member will be returned
+	 */
+	@Test
+	public void getTypeTest() {
+		assertEquals(testScavenger.getType(), "Scavenger");
+		assertEquals(testEngineer.getType(), "Engineer");
+		assertEquals(testRobot.getType(), "Robot");
+		assertEquals(testChungus.getType(), "Chungus");
+		assertEquals(testWorker.getType(), "Worker");
+		assertEquals(testSoldier.getType(), "Soldier");
+
+	}	
+	
+	/**
 	 * Checking if a crew member can perform an action based on the number of actions left and
-	 * their tiredness levels 
+	 * their tiredness levels
+	 * @result Returns a boolean to determine if crew member can perform an action
 	 */
 	@Test
 	public void canPerformActionTest() {
@@ -110,6 +126,7 @@ class CrewMemberTest {
 	
 	/**
 	 * Performs search for parts
+	 * @result Will return either a transporter part, an item, money or nothing if the search was unsuccessful
 	 */
 	@Test
 	public void searchForPartsTest() {
@@ -127,7 +144,8 @@ class CrewMemberTest {
 	
 	
 	/**
-	 * Perform sleep action based on tiredness level
+	 * Perform sleep action based on tiredness
+	 * @result Tiredness level of the crew member will increase
 	 */
 	@Test
 	public void sleepTest(){
@@ -146,6 +164,7 @@ class CrewMemberTest {
 	
 	/**
 	 * Performs repair shields action based on the current shield level of the ship
+	 * @result Shield level of the ship will increase
 	 */
 	@Test
 	public void repairShieldsTest() {
@@ -164,6 +183,7 @@ class CrewMemberTest {
 	
 	/**
 	 * Performs pilot ship to a new planet
+	 * @result Planet will be reset and planet items in the outpost will generate a new random collection of items available for purchase
 	 */
 	@Test 
 	public void pilotShipTest() {
@@ -189,6 +209,7 @@ class CrewMemberTest {
 	/**
 	 * Performs use item, based on the item type, the hunger/health of the crew member will
 	 * increase and can cure space plague
+	 * @result Crew member health or hunger will increase and may cure space plague if contracted depending on the item used
 	 */
 	@Test
 	public void useItemTest() {
@@ -236,6 +257,7 @@ class CrewMemberTest {
 	
 	/**
 	 * Checks if the crew member's tiredness levels are at 0 based on the current tiredness level
+	 * @result Crew member cannot perform any more actions on the day and is forced to take a nap the next day
 	 */
 	@Test 
 	public void isExhaustedTest() {
@@ -266,6 +288,7 @@ class CrewMemberTest {
 	
 	/**
 	 * Decrease crew member's health
+	 * @result Health of crew member will decrease
 	 */
 	@Test
 	public void decreaseHealthTest() {
@@ -283,6 +306,10 @@ class CrewMemberTest {
 		assertTrue(testRobot.getHealth() == 0);	
 	}
 	
+	/**
+	 * Increase crew member's health
+	 * @result Health of crew member will increase
+	 */
 	@Test
 	public void increaseHealthTest() {
 		testCrew.addCrewMember(testRobot);
@@ -300,7 +327,8 @@ class CrewMemberTest {
 	}
 	
 	/**
-	 * 
+	 * Performs a nap if tiredness level is at 0
+	 * @result Tiredness level will increase by 20 and counts as 1 action performed
 	 */
 	@Test
 	public void napTest() {
@@ -315,16 +343,6 @@ class CrewMemberTest {
 		assertTrue(testScavenger.getAvailableActions() == (testScavenger.getActionsPerDay() - 1));
 	}
 	
-	@Test
-	public void getTypeTest() {
-		assertEquals(testScavenger.getType(), "Scavenger");
-		assertEquals(testEngineer.getType(), "Engineer");
-		assertEquals(testRobot.getType(), "Robot");
-		assertEquals(testChungus.getType(), "Chungus");
-		assertEquals(testWorker.getType(), "Worker");
-		assertEquals(testSoldier.getType(), "Soldier");
-
-	}	
 	
 	
 
