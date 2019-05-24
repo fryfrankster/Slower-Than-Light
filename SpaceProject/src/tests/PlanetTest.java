@@ -24,6 +24,7 @@ class PlanetTest {
 	
 	/**
 	 * Checks if the only transporter part available on the planet has been found
+	 * @result Returns a boolean to determine if a transporter part has been found on the planet
 	 */
 	@Test
 	public void partFoundTest() {
@@ -51,6 +52,11 @@ class PlanetTest {
 		//Remove item when there are no more items left
 	}
 	
+	/**
+	 * Gets all the possible items available on the planet that can be used to
+	 * generate the random items in the outpost
+	 * @result Array that returns all the possible items
+	 */
 	@Test
 	public void getAllItemsTest() {
 		assertNotNull(testPlanet.getAllItems());

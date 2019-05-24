@@ -43,6 +43,10 @@ class RandomEventTest {
 		testCrew.addItem(new MedicalItem("Alien antibiotics", 75, 25, "Cures space plague and restores health ", true));
 	}
 	
+	/**
+	 * Will perform the event alien pirates on the game environment running when the game moves to the next day
+	 * @result 
+	 */
 	@Test
 	public void spacePlagueTest() {
 		assertFalse(testScavenger.hasSpacePlague());
@@ -57,6 +61,9 @@ class RandomEventTest {
 		assertTrue(testChungus.hasSpacePlague());
 	}
 	
+	/**
+	 * 
+	 */
 	@Test
 	public void asteroidBeltTest() {
 		assertEquals(testShip.getMaxShieldLevel(), testShip.getCurrentShieldLevel());
@@ -68,6 +75,10 @@ class RandomEventTest {
 		
 	}
 	
+	/**
+	 * Will perform the event alien pirates on the game environment running when the game moves to the next day
+	 * @result 
+	 */
 	@Test
 	public void alienPiratesTest() {
 		assertNotNull(testCrew.getItems());
