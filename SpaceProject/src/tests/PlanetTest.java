@@ -10,6 +10,10 @@ import org.junit.jupiter.api.Test;
 import main.Item;
 import main.Planet;
 
+/**
+ * Tests functionality of the Planet class
+ *
+ */
 class PlanetTest {
 	private Planet testPlanet;
 	

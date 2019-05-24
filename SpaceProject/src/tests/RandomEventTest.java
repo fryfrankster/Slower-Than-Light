@@ -16,6 +16,9 @@ import main.RandomEvent;
 import main.Scavenger;
 import main.Ship;
 
+/**
+ * Tests functionality of the Random Event class
+ */
 class RandomEventTest {
 	private RandomEvent testRandomEvent;
 	private Crew testCrew;

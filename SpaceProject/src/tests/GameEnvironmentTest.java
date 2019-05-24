@@ -8,6 +8,9 @@ import main.GameEnvironment;
 import main.Ship;
 import main.Crew;
 
+/**
+ * Tests to check the functionality of the Game Environment class
+ */
 class GameEnvironmentTest {
 	private GameEnvironment testGameEnvironment;
 	private Ship testShip;

@@ -17,7 +17,7 @@ import main.Chungus;
 
 
 /**
- * Tests to check functionality of the Crew class
+ * Tests to check functionality of the Crew class.
  */
 class CrewTests {
 	private Crew testCrew;
