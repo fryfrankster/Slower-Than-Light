@@ -21,7 +21,7 @@ import main.Worker;
 import main.Crew;
 
 /**
- * Tests created to test functionality of the CrewMember class
+ * Tests created to test functionality of the CrewMember class.
  */
 class CrewMemberTest {
 	private Chungus testChungus;
