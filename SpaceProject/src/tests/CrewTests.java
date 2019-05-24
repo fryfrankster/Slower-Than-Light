@@ -222,7 +222,7 @@ class CrewTests {
 	
 	@Test
 	/**
-	 * Checks if the crew finding parts updates their current pieces found
+	 * Checks if the crew finding parts updates their current pieces found.
 	 * @result The crew will have only have found all parts when their current pieces equal the pieces to find
 	 */
 	public void foundAllPartsTest() {
