@@ -309,8 +309,8 @@ public class CrewSelectionScreen {
 		lblHasIncreasedHealth.setBounds(670, 365, 276, 46);
 		window.getContentPane().add(lblHasIncreasedHealth);
 		
-		JButton btnNext = new JButton("NEXT");
-		btnNext.setBackground(Color.LIGHT_GRAY);
+		JButton btnNext = new JButton("Next");
+		btnNext.setBackground(Color.WHITE);
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(gameEnvironment.getCrew().getCrewSize() < 2) {
