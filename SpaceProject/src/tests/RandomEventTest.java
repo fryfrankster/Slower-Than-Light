@@ -40,9 +40,10 @@ class RandomEventTest {
 		testCrew.addItem(new MedicalItem("Alien antibiotics", 75, 25, "Cures space plague and restores health ", true));
 	}
 	
+	
 	/**
 	 * Will perform the event alien pirates on the game environment running when the game moves to the next day
-	 * @result 
+	 *@result Boolean for the has space plague on one or many crew members will be set to true
 	 */
 	@Test
 	public void spacePlagueTest() {
@@ -59,7 +60,8 @@ class RandomEventTest {
 	}
 	
 	/**
-	 * 
+	 * Will perform the event asteroid belt on the game environment running when the game moves to a new planet
+	 * @result Damages the ships shield during the travel to the new planet
 	 */
 	@Test
 	public void asteroidBeltTest() {
@@ -74,7 +76,7 @@ class RandomEventTest {
 	
 	/**
 	 * Will perform the event alien pirates on the game environment running when the game moves to the next day
-	 * @result 
+	 * @result An item from the inventory will be removed from the alien pirates
 	 */
 	@Test
 	public void alienPiratesTest() {

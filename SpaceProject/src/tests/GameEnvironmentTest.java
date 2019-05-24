@@ -19,11 +19,6 @@ class GameEnvironmentTest {
 		testShip = new Ship("Ship");
 		testCrew = new Crew("Crew");
 	}
-	
-//	@Test
-//	public void getRandomEventTest() {
-//		testGameEnvironment.getRandomEvent();
-//	}
 
 
 }
