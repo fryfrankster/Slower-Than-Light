@@ -179,6 +179,10 @@ class CrewTests {
 		
 	}
 	
+	/**
+	 * Tests reseting the crews actions works as intended
+	 * @result the crew members actions should all be at their daily maximum
+	 */
 	@Test
 	public void resetCrewActionsTest() {
 		testCrew.addCrewMember(testChungus);
@@ -188,9 +192,9 @@ class CrewTests {
 		
 		testCrew.resetCrewActions();
 		
-//		testChungus.setActionsCompleted(0);
-//		testScavenger.setActionsCompleted(1);
-//		testEngineer.setActionsCompleted(2);
+		assertEquals(2, testChungus.getAvailableActions());
+		assertEquals(2, testScavenger.getAvailableActions());
+		assertEquals(2, testEngineer.getAvailableActions());
 	}
 	
 	/**
@@ -201,18 +205,19 @@ class CrewTests {
 	public void itemsAsStringTest() {
 		testCrew.addItem(testItemFood);
 		testCrew.addItem(testItemMedical);
-		StringArraytestCrew.getItemsAsStringArray();
+		String[] testStringArray = testCrew.getItemsAsStringArray();
+		assertEquals(2, testStringArray.length);
 
 	}
 	
 	/**
-	 * 
+	 * Tests that the scoring system works correctly
+	 * @result the crews score should now be 100 as the crew member has full health, hunger and tiredness.
 	 */
 	@Test
 	public void getDailyScoreTest() {
 		testCrew.addCrewMember(testScavenger);
-		testCrew.getDailyScore();
-		assertEquals(100, testGameEnvironment.getScore());
+		assertEquals(100, testCrew.getDailyScore());
 	}
 	
 	@Test
