@@ -173,6 +173,10 @@ public class MainScreen {
 	/**Label containing the background image of the screen */
 	private JLabel lblBackground;
 
+	/**
+	 * Changes the colour of the label of the crew member the user is choosing to do actions
+	 * @param toHighlight the label of the crew member doing an action
+	 */
 	private void highlightUsedCrewMember(JLabel toHighlight){
 		lblMember1NameType.setForeground(Color.BLACK);
 		lblMember2NameType.setForeground(Color.BLACK);

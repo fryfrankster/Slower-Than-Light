@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import main.Crew;
 import main.Engineer;
 import main.FoodItem;
+import main.GameEnvironment;
 import main.Item;
 import main.MedicalItem;
 import main.Planet;
@@ -15,7 +16,9 @@ import main.Scavenger;
 import main.Chungus;
 
 
-//Test that two of the same crew type class can be added to the crew members list
+/**
+ * Tests to check functionality of the Crew class
+ */
 class CrewTests {
 	private Crew testCrew;
 	private Item testItemFood;
@@ -24,6 +27,7 @@ class CrewTests {
 	private Chungus testChungus;
 	private Engineer testEngineer;
 	private Planet testPlanet;
+	private GameEnvironment testGameEnvironment;
 	
 	@BeforeEach
 	void init() {
@@ -34,9 +38,15 @@ class CrewTests {
 	  	testChungus = new Chungus("Chungus");
 	  	testEngineer = new Engineer("Engineer");
 	  	testPlanet = new Planet();
+	  	testGameEnvironment = new GameEnvironment();
 	  	
 	}
 
+	/**
+	 * Adds an item to the crew. Checks if this increases the crews inventory size and if the item is now in
+	 * the crews list of items
+	 * @result Crews inventory will contain only testItemFoods
+	 */
 	@Test
 	void addItemTest() {
 		testCrew.addItem(testItemFood);
@@ -44,6 +54,10 @@ class CrewTests {
 		assertTrue(testCrew.getItems().contains(testItemFood));
 	}
 	
+	/**
+	 * Tests the addition and removal of a crew item.
+	 * @result The crews inventory will have no items, and a size of 0
+	 */
 	@Test
 	void removeInInventoryTest() {
 		testCrew.addItem(testItemMedical);
@@ -52,6 +66,10 @@ class CrewTests {
 		assertFalse(testCrew.getItems().contains(testItemMedical));
 	}
 	
+	/**
+	 * Adds a crew member of type Scavenger to the crew.
+	 * @return the crew should now contain a crew member of type scavenger
+	 */
 	@Test
 	void addCrewMemberTest() {
 		testCrew.addCrewMember(testScavenger);
@@ -59,6 +77,10 @@ class CrewTests {
 		assertTrue(testCrew.getCrewMembers().contains(testScavenger));
 	}
 	
+	/**
+	 * Tests adding and removing a crew member from the crew
+	 * @result The crew should now be empty and not contain the scavenger added.
+	 */
 	@Test
 	void removeCrewMemberTest() {
 		testCrew.addCrewMember(testScavenger);
@@ -67,6 +89,10 @@ class CrewTests {
 		assertFalse(testCrew.getCrewMembers().contains(testScavenger));
 	}
 	
+	/**
+	 * Tests decreasing the crews money
+	 * @result After decreasing the crews money it is now less than their original amount
+	 */
 	@Test
 	void decreaseMoneyTest() {
 		int initialMoney = testCrew.getMoney();
@@ -75,6 +101,10 @@ class CrewTests {
 		assertFalse(initialMoney < testCrew.getMoney());
 	}
 	
+	/**
+	 * Tests increasing the crews money
+	 * @result After increasing the crews money it is now more than their original amount
+	 */
 	@Test
 	void addMoneyTest() {
 		int initialMoney = testCrew.getMoney();
@@ -83,6 +113,10 @@ class CrewTests {
 		assertFalse(initialMoney > testCrew.getMoney());
 	}
 	
+	/**
+	 * Checks if the crews inventory is empty before and after adding an item
+	 * @result The crews inventory should be empty to start with and not empty after adding an item
+	 */
 	@Test
 	void isInventoryEmptyTest() {
 		assertTrue(0 == testCrew.getInventorySize());
@@ -93,6 +127,10 @@ class CrewTests {
 		assertFalse(testCrew.isInventoryEmpty());
 	}
 	
+	/**
+	 * Tests the availability of crew members before and after performing actions.
+	 * @result Only the number of crew members with available actions will be returned from the getAvailableCrewMembers() method
+	 */
 	@Test
 	void getAvailableCrewMembersTest() {
 		assertTrue(0 == testCrew.getAvailableCrewMembers());
@@ -113,6 +151,10 @@ class CrewTests {
 		assertFalse(1 == testCrew.getAvailableCrewMembers());
 	}
 	
+	/**
+	 * Tests if the crew has enough money to purchase an item, then checks again for another item
+	 * @result The crew should be able to purchase the first test item but not the second
+	 */
 	@Test
 	public void canPurchaseItemTest() {
 		assertTrue(testItemFood.getPrice() <= testCrew.getMoney());
@@ -124,6 +166,11 @@ class CrewTests {
 		assertFalse(testCrew.canPurchaseItem(testCrew, testPlanet, 0));		
 	}
 	
+	
+	/**
+	 * Tests the purchaseItem() method
+	 * @return the crew should be able to purchase the item
+	 */
 	@Test
 	public void purchaseItemTest() {
 		testCrew.addMoney(1000);
@@ -146,21 +193,33 @@ class CrewTests {
 //		testEngineer.setActionsCompleted(2);
 	}
 	
+	/**
+	 * 
+	 * @result
+	 */
 	@Test
 	public void itemsAsStringTest() {
 		testCrew.addItem(testItemFood);
 		testCrew.addItem(testItemMedical);
-		testCrew.getItemsAsStringArray();
+		StringArraytestCrew.getItemsAsStringArray();
 
 	}
 	
+	/**
+	 * 
+	 */
 	@Test
 	public void getDailyScoreTest() {
 		testCrew.addCrewMember(testScavenger);
 		testCrew.getDailyScore();
+		assertEquals(100, testGameEnvironment.getScore());
 	}
 	
 	@Test
+	/**
+	 * Checks if the crew finding parts updates their current pieces found
+	 * @result The crew will have only have found all parts when their current pieces equal the pieces to find
+	 */
 	public void foundAllPartsTest() {
 		testCrew.setPiecesToFind(2);
 		assertEquals(2, testCrew.getPiecesToFind());
@@ -178,6 +237,10 @@ class CrewTests {
 	}
 	
 	@Test
+	/**
+	 * Adds an item to the crews inventory and checks if the inventory at index 0 is none
+	 * @result The item at index 0 at the inventory will not be none
+	 */
 	public void getItemTest() {
 		testCrew.addItem(testItemFood);
 		assertNotNull(testCrew.getItem(0));
